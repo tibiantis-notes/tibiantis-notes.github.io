@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <title>Tibiantis and Damage Calculator</title>
+    <script>
+        function calculateSum() {
+            // Get the input values for Attack and Skill
+            var attack = parseInt(document.getElementById('attack').value);
+            var skill = parseInt(document.getElementById('skill').value);
+            
+            // Check if Attack and Skill are valid integers between 0 and 120
+            if (isNaN(attack) || attack < 0 || attack > 120 || isNaN(skill) || skill < 0 || skill > 120) {
+                document.getElementById('result').innerHTML = "Please enter integers between 0 and 120.";
+                return;
+            }
+
+            // Check which position is selected
+            var var_position = document.querySelector('input[name="position"]:checked').value;
+
+            // Check which stance is selected
+            var var_stance = document.querySelector('input[name="stance"]:checked').value;
+            
+            var stance_multiplier;
+            var modified_stat;
+            
+            // Switch to find and apply stance multiplier
+            switch(parseInt(var_stance)+parseInt(var_position)) {
+              case 1:
+                // attacking - offensive
+                modified_stat = parseInt(attack) + Math.floor(0.2 * parseInt(attack));
+                break;
+              case 2:
+                // attacking - balanced
+                modified_stat = parseInt(attack);
+                break;
+              case 3:
+                // attacking - defensive
+                modified_stat = parseInt(attack) - Math.floor(0.4 * parseInt(attack));
+                break;
+              case 4:
+                // defending - offensive
+                modified_stat = parseInt(attack) - Math.floor(0.4 * parseInt(attack));
+                break;
+              case 5:
+                // defending - balanced
+                modified_stat = parseInt(attack);
+                break;     
+              case 6:
+                // defending - defensive
+                modified_stat = parseInt(attack) + Math.floor(0.8 * parseInt(attack));
+                break;
+                
+                default:
+                modified_stat = 999;
+                
+                // code block
+            }
+            
+            //var max_damage = (parseInt(skill)+10)*modified_stat;
+            //max_damage = parseInt(var_stance)+parseInt(var_position);
+            // Multiply the sum by the selected multiplier
+            //c *= parseInt(var_position);
+            
+            //Calculate max damage from skill and modified attack
+            var max_damage = Math.floor((5 * parseInt(skill) + 50) * (modified_stat) * (99 + 99) / 2 / 10000);
+            
+            // Display the result
+            switch(parseInt(var_position))
+            {
+                case 0:
+                    document.getElementById('result').innerHTML = "Max damage is: " + max_damage; 
+                    break;
+                case 3:
+                    document.getElementById('result').innerHTML = "Max block is: " + max_damage; 
+                    break;
+                default:
+                    document.getElementById('result').innerHTML = "Error - invalid position";
+            
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    <a href="https://tarsal.github.io/">Home</a>
+    <h1>Tibia 7.4/ Tibiantis notes</h1>
+    <p><i>by Tarsal.</i></p>
+    <hr>
+    
+    <h1>Damage Calculator</h1>
+    
+    <label for="attack">Atk/ Def: </label>
+    <input type="number" id="attack" min="0" max="120" value="50" oninput="calculateSum()"><br><br>
+
+    <label for="skill">Skill: </label>
+    <input type="number" id="skill" min="0" max="120" value="80" oninput="calculateSum()"><br><br>
+
+    <p>Select a position:</p>
+    <input type="radio" id="attacking" name="position" value="0" checked onchange="calculateSum()">
+    <label for="attacking">Attacking</label><br>
+
+    <input type="radio" id="blocking" name="position" value="3" onchange="calculateSum()">
+    <label for="blocking">Blocking</label><br><br>
+
+  <p>Select a fighting stance:</p>
+    <input type="radio" id="stance_offensive" name="stance" value="1" checked onchange="calculateSum()">
+    <label for="stance_offensive">Offensive</label><br>
+
+    <input type="radio" id="stance_balanced" name="stance" value="2" onchange="calculateSum()">
+    <label ="stance_balanced">Balanced</label><br>
+
+    <input type="radio" id="stance_defensive" name="stance" value="3" onchange="calculateSum()">
+    <label ="stance_defensive">Defensive</label><br><br>
+
+    <p id="result"></p>
+
+</body>
+</html>
