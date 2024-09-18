@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <title>Tibiantis and Damage Calculator</title>
+    <style>
+        table, th, td {
+        /*border: 1px solid black;*/
+        border-collapse: collapse;
+        padding-left: 5px;
+        padding-right: 5px;
+        text-align: left;
+        vertical-align: top;
+        }
+        #id_user_hit {
+        border: none;
+        outline: none;
+        /*background-color: #f0f0f0;*/
+        padding: 5px;
+        }
+    </style>
+
+    <script>
+        function attack_modifier(fn_attack, fn_stance, fn_position) {
+            //fn_stance is a number 1-3 where 1 is offensive
+            let fn_switch = parseInt(fn_stance) + parseInt(fn_position); // position is 0 or 3
+            fn_attack = parseInt(fn_attack);
+            let fn_modified_stat = 0;
+            
+            switch(fn_switch) {
+              case 1:
+                // attacking - offensive
+                fn_modified_stat = fn_attack + Math.floor(0.2 * fn_attack);
+                break;
+              case 2:
+                // attacking - balanced
+                fn_modified_stat = fn_attack;
+                break;
+              case 3:
+                // attacking - defensive
+               fn_modified_stat = fn_attack - Math.floor(0.4 * fn_attack);
+                break;
+              case 4:
+                // defending - offensive
+                fn_modified_stat = fn_attack - Math.floor(0.4 * fn_attack);
+                break;
+              case 5:
+                // defending - balanced
+                fn_modified_stat = fn_attack;
+                break;     
+              case 6:
+                // defending - defensive
+                fn_modified_stat = fn_attack + Math.floor(0.8 * fn_attack);
+                break;
+                
+                default:
+               fn_modified_stat = 999;
+
+            } //end of switch
+         
+        
+        return fn_modified_stat;
+  
+        }//end of stat modifier function
+        
+        function damage(fn_modified_stat, fn_skill, fn_roll_1, fn_roll_2) {
+            //roll is a number between 0-99
+            //let fn_damage = Math.floor((5 * parseInt(fn_skill) + 50) * (fn_modified_stat) * (fn_roll_1 + fn_roll_2) / 2 / 10000);
+            let fn_damage = Math.floor((5 * parseInt(fn_skill) + 50) * (fn_modified_stat) * Math.floor((fn_roll_1 + fn_roll_2) / 2) / 10000);
+            return fn_damage;
+        
+        }// end of damage function
+    
+            function fn_armour(fn_armour_value, fn_roll) {
+            //roll is a number between 0-99
+            fn_armor_value = parseInt(fn_armour_value);
+            let fn_armour_reduction = parseInt(fn_armor_value * 0.5) + parseInt(fn_armor_value * 0.5 * fn_roll / 99);
+            if (fn_armour_value == 2 || fn_armor_value == 1){ fn_armour_reduction =1;}
+            return fn_armour_reduction;
+        
+        }// end of fn_armor function
+    
+        function calculateSum() {
+            // Get the input values for Attack and Skill
+            var attack = parseInt(document.getElementById('attack').value);
+            var skill = parseInt(document.getElementById('attacker_skill').value);
+            var defence = parseInt(document.getElementById('defence').value);
+            var defender_skill = parseInt(document.getElementById('defender_skill').value);
+            var armour = parseInt(document.getElementById('defender_armour').value);
+            var blocking = parseInt(document.querySelector('input[name="quantity_blocking"]:checked').value);
+            
+            // Check if Attack and Skill are valid integers between 0 and 120
+            if (isNaN(attack) || attack < 0 || attack > 120 || isNaN(skill) || skill < 0 || skill > 120) {
+                document.getElementById('result').innerHTML = "Please enter integers between 0 and 120.";
+                return;
+            }
+            
+            // Check if defence and Skill are valid integers between 0 and 120
+            if (isNaN(defence) || defence < 0 || defence > 120 || isNaN(defender_skill) || defender_skill < 0 || defender_skill > 120) {
+                document.getElementById('result').innerHTML = "Please enter integers between 0 and 120.";
+                return;
+            }
+            
+            // Check if armour is valid integers between 0 and 120
+            if (isNaN(armour) || armour < 0 || armour > 120) {
+                document.getElementById('result').innerHTML = "Please enter integers between 0 and 120.";
+                return;
+            }
+            
+            
+            // Check which stance is selected
+            var var_stance = parseInt(document.querySelector('input[name="stance"]:checked').value);
+            var var_defender_stance = parseInt(document.querySelector('input[name="stance_defender"]:checked').value);
+            
+            var modified_stat;
+            
+            let two_dice_distrib = [];
+            
+            // array with max of 1000.
+            let initial_damage_distrib = new Array(1000).fill(0); // initial damage
+            let initial_block_distrib = new Array(1000).fill(0); // initial block
+            let initial_armour_distrib = new Array(1000).fill(0); // initial block
+         
+            let damage_after_block_distrib = new Array(1000).fill(0); // after block only
+            let final_damage_distrib = new Array(1000).fill(0); // after block and    
+
+
+            // I want damage distribution
+            // I want damage after shielding reduced i.e poff
+            // I want damage after armor i.e armor chink.
+
+            // code that calculates odds of each 2 dice result. 199 long ends in 198
+            for (let i = 0; i <= 99; i++) {
+                two_dice_distrib.push((i + 1) / 10000);
+            }
+            
+            for (let i = 100; i <= 198; i++) {
+                two_dice_distrib.push((199 - i) / 10000);
+            }
+            
+        
+            //run damage distribution
+            modified_stat = attack_modifier(attack,var_stance,0);
+            for (let i = 0; i <= 198; i++) {
+                let for_dam = parseInt(damage(modified_stat,skill,i,0));
+                initial_damage_distrib[for_dam] += two_dice_distrib[i];
+            }
+
+            var max_damage = damage(modified_stat,skill,198,0); // looks at the damage highest roll
+            
+            //run block distribution
+            let modified_block = attack_modifier(defence,var_defender_stance,3);
+            for (let i = 0; i <= 198; i++) {
+                let for_block = parseInt(damage(modified_block,defender_skill,i,0));
+                initial_block_distrib[for_block] += two_dice_distrib[i];
+            }
+            
+            var max_block = damage(modified_block,defender_skill,198,0); // highest block roll
+            
+            //run armour distribution
+            for (let i = 0; i <= 99; i++) {
+                let for_armour = fn_armour(armour,i);
+                initial_armour_distrib[for_armour] += 1/100;
+            }
+    
+                     
+            var min_armour = fn_armour(armour,0);
+            var max_armour = fn_armour(armour,99);
+
+            // attack minus block
+            for (let i = 0; i < max_damage+1; i++) //damage
+            {
+                for (let j = 0; j < max_block+1; j++) //block
+                {
+                    let hit = 0;
+                    if (i-j < 0)
+                    {
+                        hit = 0;    
+                    }
+                    else
+                    {
+                        hit = i-j; // sub zero values become zero   
+                    }
+                    damage_after_block_distrib[hit] +=  initial_damage_distrib[i] * initial_block_distrib[j];
+                } //end of for i
+            } //end of for j
+
+            // attack minus block and armour
+            for (let i = 0; i < max_damage+1; i++) //damage
+            {
+                for (let j = min_armour; j < max_armour+1; j++) //armour
+                {
+                    let hit = 0;
+                    if (i-j < 0)
+                    {
+                        hit = 0;    
+                    }
+                    else
+                    {
+                        hit = i-j; // sub zero values become zero   
+                    }
+                     final_damage_distrib[hit] +=  damage_after_block_distrib[i] * initial_armour_distrib[j];
+                } //end of for i
+            } // end of for j
+
+            var miss_chance = final_damage_distrib[0];
+            var hit_chance = (1- miss_chance)*100;
+            var hit_chance_tdp = hit_chance.toFixed(2); //2 decimal place
+            let sum_chance =  final_damage_distrib.reduce((accumulator,currentValue) => accumulator + currentValue, 0);
+            
+            let training_efficiency = 100 * (1 - Math.pow(miss_chance,(30/(blocking+1))));
+            let training_efficiency_tdp = training_efficiency.toFixed(1);
+            let average_damage = 0;
+            let average_damage_tdp = 0;
+            let average_hit = 0;
+            let average_hit_tdp = 0;
+            let cumulative_chance = 0;
+            let high_hit = new Array(6).fill(0);// 10, 90 , 99, 99.9, 99.99
+            let cumulative_chance_flag = new Array(6).fill(0);
+            let user_hit = parseInt(document.getElementById('id_user_hit').value);
+            let user_hit_chance = 0;
+            
+            for (let i = 0; i< max_damage+1; i++) {
+                average_damage += final_damage_distrib[i] * i;
+            
+                cumulative_chance += final_damage_distrib[i];
+                if (cumulative_chance > 1-9/10 && cumulative_chance_flag[0] < 1){
+                    high_hit[0] = i;
+                    cumulative_chance_flag[0] = 1;
+                } // end of if
+                if (cumulative_chance > 1-1/10 && cumulative_chance_flag[1] < 1){
+                    high_hit[1] = i;
+                    cumulative_chance_flag[1] = 1;
+                } // end of if
+                if (cumulative_chance > 1-1/100 && cumulative_chance_flag[2] < 1){
+                    high_hit[2] = i;
+                    cumulative_chance_flag[2] = 1;
+                } // end of if
+                if (cumulative_chance > 1-1/1000 && cumulative_chance_flag[3] < 1){
+                    high_hit[3] = i;
+                    cumulative_chance_flag[3] = 1;
+                } // end of if
+                if (cumulative_chance > 1-1/10000 && cumulative_chance_flag[4] < 1){
+                    high_hit[4] = i;
+                    cumulative_chance_flag[4] = 1;
+                } // end of if
+                if (i == user_hit) {
+                    user_hit_chance = (100 * (1 - cumulative_chance));
+                }
+            } // end of for
+
+            average_damage_tdp = average_damage.toFixed(1);
+            
+            average_hit = average_damage / (1 - miss_chance);
+            average_hit_tdp = average_hit.toFixed(1);
+            
+            //1% 5% 10-90 99% 99.9% 99.99%
+            
+            
+            // Display the result
+            document.getElementById('modified_attack_').innerHTML = "Modified attack: " + attack_modifier(attack,var_stance,0);
+           document.getElementById('modified_defence_').innerHTML = "Modified defence: " + attack_modifier(defence,var_defender_stance,3);
+            document.getElementById('chance_to_hit').innerHTML = "Percent chance to hit: " + hit_chance_tdp + "%";
+            document.getElementById('average_damage').innerHTML = "Average damage: " + average_damage_tdp;
+            document.getElementById('average_hit').innerHTML = "Average hit: " + average_hit_tdp;
+            document.getElementById('training_efficiency').innerHTML = "Training efficiency: " + training_efficiency_tdp + "%";
+            document.getElementById('top_0.1_hit').innerHTML = high_hit[0];
+            document.getElementById('top_10_hit').innerHTML = high_hit[1];
+            document.getElementById('top_100_hit').innerHTML = high_hit[2];
+            document.getElementById('top_1000_hit').innerHTML = high_hit[3];
+            document.getElementById('top_10000_hit').innerHTML = high_hit[4];
+            document.getElementById('id_user_hit_chance').innerHTML = user_hit_chance.toFixed(2) + "%";
+             
+            
+            //document.getElementById('test2').innerHTML = "Test2: " + var_stance;
+        }
+    </script>
+</head>
+<body>
+    <a href="https://tarsal.github.io/">Home</a>
+    <h1>Tibia 7.4/ Tibiantis notes</h1>
+    <p><i>by Tarsal.</i></p>
+    <hr>
+    
+    <h2>Physical Damage Calculator</h2>
+
+
+    <table style="width:400px">
+        <tr>
+            <th><h3>Attacker</h3></th>
+            <th><h3>Defender</h3></th>
+        </tr>
+        <tr>
+<td>
+    <label for="attack">Attack: </label>
+    <input type="number" id="attack" min="0" max="120" value="50" oninput="calculateSum()"><br><br>
+
+    <label for="skill">Skill: </label>
+    <input type="number" id="attacker_skill" min="0" max="120" value="80" oninput="calculateSum()"><br><br>
+
+
+</td>
+            
+<td>
+    <label for="defence">Defence: </label>
+    <input type="number" id="defence" min="0" max="100" value="37" oninput="calculateSum()"><br><br>
+
+    <label for="skill">Skill: </label>
+    <input type="number" id="defender_skill" min="0" max="120" value="80" oninput="calculateSum()"><br><br>
+
+    <label for="armour">Armour: </label>
+    <input type="number" id="defender_armour" min="0" max="100" value="30" oninput="calculateSum()"><br><br>
+
+
+</td>
+        </tr>
+        <tr>
+<td>
+    Attacker stance:<br>
+    <input type="radio" id="stance_offensive" name="stance" value="1" checked onchange="calculateSum()">
+    <label for="stance_offensive">Offensive (1.2)</label><br>
+
+    <input type="radio" id="stance_balanced" name="stance" value="2" onchange="calculateSum()">
+    <label ="stance_balanced">Balanced (1.0)</label><br>
+
+    <input type="radio" id="stance_defensive" name="stance" value="3" onchange="calculateSum()">
+    <label ="stance_defensive">Defensive (0.6)</label><br>
+</td>
+
+<td>
+    Defender stance:<br>
+    <input type="radio" id="stance_offensive" name="stance_defender" value="1" checked onchange="calculateSum()">
+    <label for="stance_offensive">Offensive (0.6)</label><br>
+
+    <input type="radio" id="stance_balanced" name="stance_defender" value="2" onchange="calculateSum()">
+    <label ="stance_balanced">Balanced (1.0)</label><br>
+
+    <input type="radio" id="stance_defensive" name="stance_defender" value="3" onchange="calculateSum()">
+    <label ="stance_defensive">Defensive (1.8)</label><br><br>
+</td>
+        </tr>
+        <tr>
+<td>
+    Attacker blocking:<br>
+    <input type="radio" id="blocking_zero" name="quantity_blocking" value="0" checked onchange="calculateSum()">
+    <label for="blocking_zero">0 or no shield</label><br>
+
+    <input type="radio" id="blocking_one" name="quantity_blocking" value="1" onchange="calculateSum()">
+    <label ="blocking_one">1</label><br>
+
+    <input type="radio" id="blocking_two" name="quantity_blocking" value="2" onchange="calculateSum()">
+    <label ="blocking_two">2</label><br>
+</td>
+<td> </td>
+</tr>
+<tr><td colspan="2">
+    
+<h3>Results:</h3>
+    <p id="result"></p> 
+     <p id="modified_attack_"></p>
+    <p id="modified_defence_"></p>
+    <p id="average_damage"></p>
+    <p id="average_hit"></p>
+    <p id="chance_to_hit"></p>
+     <p id="training_efficiency"></p>
+    
+</td></tr>
+</table>
+
+<h3>Top X% hit</h3>
+
+<table border = "1" style = "border-collapse:collapse;">
+    <tr><th>X</th><th>90%</th><th>10%</th><th>1%</th><th>0.1%</th><th>0.01%</td><th id="id_user_hit_chance"> </th>  </tr>
+        <th>Hit</th>
+        <td id="top_0.1_hit"></td>
+        <td id="top_10_hit"></td>
+        <td id="top_100_hit"></td>
+        <td id="top_1000_hit"></td>
+        <td id="top_10000_hit"></td>
+        <td> <input type="number" id="id_user_hit" min="0" max="999" value="100" oninput="calculateSum()"> </td></tr>
+    
+</table>
+
+<!--<label for="user_hit">xx: </label>-->
+<br><br>
+
+<div style="width: 900px">
+Notes:<br>
+<ol>
+<li>This calculator provides average melee damage including the effects of shielding and armour.</li>
+<li>For PvE or EvP monster statistics see the creature page. Creature stance is normally balanced.</li>
+<li>For PvP, resultant damage is halved.</li>
+<li>Player distance attacks bypass shielding so use Defence = 0.</li>
+<li>For ranged attacks average damage does not account for accuracy. Skill efficiency does not account for ranged blood hits.</li>
+<li>‘Average hit’ discounts any misses - this is the average of the numbers you see.</li>
+<li>Top hit table shows the damage values with 1/10 to 1/10,000 chance to occur.</li>
+<li>The value in the final column of the top hit table calculates the chance to hit or exceed the entered damage. For example if you enter the HP of the target you could calculate the chance to one-hit-kill.</li>
+<li>'Attacker blocking' is the number of units attacking the player which can affect training efficiency. Set to zero if no shield is equipped.</li>
+</ol>
+</div>
+
+</body>
+</html>
