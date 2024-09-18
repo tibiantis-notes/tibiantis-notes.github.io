@@ -259,6 +259,7 @@
             
             
             // Display the result
+            document.getElementById('max_damage').innerHTML = "Max damage: " + max_damage;
             document.getElementById('modified_attack_').innerHTML = "Modified attack: " + attack_modifier(attack,var_stance,0);
            document.getElementById('modified_defence_').innerHTML = "Modified defence: " + attack_modifier(defence,var_defender_stance,3);
             document.getElementById('chance_to_hit').innerHTML = "Percent chance to hit: " + hit_chance_tdp + "%";
@@ -357,7 +358,7 @@
 <tr><td colspan="2">
     
 <h3>Results:</h3>
-    <p id="result"></p> 
+    <p id="max_damage"></p> 
      <p id="modified_attack_"></p>
     <p id="modified_defence_"></p>
     <p id="average_damage"></p>
