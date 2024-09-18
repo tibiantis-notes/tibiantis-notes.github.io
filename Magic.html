@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding-left: 5px;
+  padding-right: 5px;
+  text-align: center;
+}
+
+#id_magic_efficiency td:first-child, #id_magic_efficiency th:first-child {
+  text-align: left;
+}
+
+</style>
+</head>
+<body>
+<a href="https://tarsal.github.io/">Home</a>
+<h1>Tibia 7.4/ Tibiantis notes</h1>
+<p><i>by Tarsal.</i></p>
+<hr>
+<h1>Magic</h1>
+
+
+<div style="width: 900px">
+<ul>
+<li>Magic damage formula is base_damage x (mlv x 3 + lv x 2)/100. The (mlv x 3 + lv x 2) component will be referred to as ‘magic power’. Base damage has a min and max component.</li>
+<li>The formula results in level having a large factor in magic power and even high level knights will start to see increases such that attack runes become viable.</li>
+<li>If magic power is less than 100, spell base damage is used. Characters will only see an increase in their spells effectiveness beyond this threshold. For knights this is around Lv43 Mlv5, for Paladins its around Lv33 Mlv11, for Mages Lv19 Mlv21. This is a great advantage to knights who get to use UH for 250hp as soon as they reach Mlv4.</li>
+<li>Magic level can be ‘trained’ more quickly by using mana potions to make runes, these runes can then be sold for more mana potions and so on. Making runes with mana fluids costs more than their sell price each round of making and selling gives less runes. The formula of how much you can multiply your natural mana regeneration this way is as follows m= (1/(1-buy/sell)), so if your sell price is 75% of the buy price you can multiply your mana regen in terms of Mlv by 4x, for the cost of the runes or cash. With manafluids for bp runes this becomes m=1/(1-(sell/(20xrune cost x 95/50)-200)), the higher the sell price the more the multiplier. This mechanism also helps anchor the sell price of runes from getting too high. Note that level is considered more valuable than magic level as it affects 5 attributes.</li>
+<li>Mages can also hunt while manasitting for extra income, 3k gp profit per hour becomes 1+1.75=2.75x base regen and therefore up to 11x natural regen.</li>
+<li>Mana fluids provide 25-75 mana (50 average) and cost 100gp, 5 gp can be refunded for each empty vial.</li>
+<li>Life ring generates 1 HP and mana every 3 seconds for 20 minutes, for a total of 400 mana and HP. They cost 900 gp. Rings of healing 1 HP and mana every second for 20 minutes.</li>
+<li>To make 400 mana with mana fluids would cost 400 x 95/50 = 760 gp, which is 15% cheaper than life rings. If used while hunting the 400 hp can be used to offset some healing costs - just one exura vita saved would bring mana fluid and life rings to an equal value. Life rings main advantage is that they weigh much less.</li>
+<li>Life Ring vs IH for knights. Knights with Mlv 0-3 have two options for healing: Intense Healing (IH) rune or life ring. Life ring + exura provides 400+20/25*400 = 720hp = 0.8 hp/ gp and 80 minutes worth of magic lv progresion. IH would cost 85gp each and heal 70 for 0.82 hp/gp. Overall pick life ring for hunting and IH to avoid PK.</li>
+</ul>
+</div>
+
+<h2>Table: Rune cost/mana for given bp price</h2>
+<table>
+<tr><th>LMM</th><th>IH</th><th>FB</th><th>HMM</th><th>UH</th><th>GFB</th><th>F bomb</th><th>Explo</th><th>SD</th><th>M Wall</th><th>Paralyze</th></tr>
+<tr><th>40</th><th>60</th><th>60</th><th>70</th><th>100</th><th>120</th><th>150</th><th>180</th><th>200</th><th>250</th><th>600</th></tr>
+<tr><td>500 (0.38)</td><td>1100 (0.75)</td><td>1100 (0.75)</td><td>1300 (0.79)</td><td>2300 (1.05)</td><td>2200 (0.83)</td><td>3000 (0.93)</td><td>4000 (1.06)</td><td>3900 (0.93)</td><td>4700 (0.90)</td><td>11000 (0.90)</td></tr>
+<tr><td>600 (0.50)</td><td>1200 (0.83)</td><td>1200 (0.83)</td><td>1400 (0.86)</td><td>2400 (1.10)</td><td>2400 (0.92)</td><td>3200 (1.00)</td><td>4200 (1.11)</td><td>4200 (1.00)</td><td>5000 (0.96)</td><td>12000 (0.98)</td></tr>
+<tr><td>700 (0.63)</td><td>1300 (0.92)</td><td>1300 (0.92)</td><td>1500 (0.93)</td><td>2500 (1.15)</td><td>2600 (1.00)</td><td>3400 (1.07)</td><td>4400 (1.17)</td><td>4500 (1.08)</td><td>5300 (1.02)</td><td>13000 (1.07)</td></tr>
+<tr><td>800 (0.75)</td><td>1400 (1.00)</td><td>1400 (1.00)</td><td>1600 (1.00)</td><td>2600 (1.20)</td><td>2800 (1.08)</td><td>3600 (1.13)</td><td>4600 (1.22)</td><td>4800 (1.15)</td><td>5600 (1.08)</td><td>14000 (1.15)</td></tr>
+<tr><td>900 (0.88)</td><td>1500 (1.08)</td><td>1500 (1.08)</td><td>1700 (1.07)</td><td>2700 (1.25)</td><td>3000 (1.17)</td><td>3800 (1.20)</td><td>4800 (1.28)</td><td>5100 (1.23)</td><td>5900 (1.14)</td><td>15000 (1.23)</td></tr>
+<tr><td>1000 (1.00)</td><td>1600 (1.17)</td><td>1600 (1.17)</td><td>1800 (1.14)</td><td>2800 (1.30)</td><td>3200 (1.25)</td><td>4000 (1.27)</td><td>5000 (1.33)</td><td>5400 (1.30)</td><td>6200 (1.20)</td><td>16000 (1.32)</td></tr>
+<tr><td>1100 (1.13)</td><td>1700 (1.25)</td><td>1700 (1.25)</td><td>1900 (1.21)</td><td>2900 (1.35)</td><td>3400 (1.33)</td><td>4200 (1.33)</td><td>5200 (1.39)</td><td>5700 (1.38)</td><td>6500 (1.26)</td><td>17000 (1.40)</td></tr>
+<tr><td>1200 (1.25)</td><td>1800 (1.33)</td><td>1800 (1.33)</td><td>2000 (1.29)</td><td>3000 (1.40)</td><td>3600 (1.42)</td><td>4400 (1.40)</td><td>5400 (1.44)</td><td>6000 (1.45)</td><td>6800 (1.32)</td><td>18000 (1.48)</td></tr>
+<tr><td>1300 (1.38)</td><td>1900 (1.42)</td><td>1900 (1.42)</td><td>2100 (1.36)</td><td>3100 (1.45)</td><td>3800 (1.50)</td><td>4600 (1.47)</td><td>5600 (1.50)</td><td>6300 (1.53)</td><td>7100 (1.38)</td><td>19000 (1.57)</td></tr>
+<tr><td>1400 (1.50)</td><td>2000 (1.50)</td><td>2000 (1.50)</td><td>2200 (1.43)</td><td>3200 (1.50)</td><td>4000 (1.58)</td><td>4800 (1.53)</td><td>5800 (1.56)</td><td>6600 (1.60)</td><td>7400 (1.44)</td><td>20000 (1.65)</td></tr>
+<tr><td>1500 (1.63)</td><td>2100 (1.58)</td><td>2100 (1.58)</td><td>2300 (1.50)</td><td>3300 (1.55)</td><td>4200 (1.67)</td><td>5000 (1.60)</td><td>6000 (1.61)</td><td>6900 (1.68)</td><td>7700 (1.50)</td><td>21000 (1.73)</td></tr>
+
+</table>
+<div style="width: 900px">
+<ol>
+<li>This table compares the gp/ mana for runes at different Backpack (bp) prices.</li>
+<li>The gp/ mana price excludes rune cost. bp prices include rune cost.</li>
+<li>The table aims to cover all reasonable bp prices, but is not inteded to indicate normal prices.</li>
+<li>Example: If a bp UH readily sells for 3000, other bps would need to sell at 1.40 gp/mana to be as profitable.</li>
+</ol><br>
+</div>
+  
+<h2>Table: Damage per mana</h2>
+<table id="id_magic_efficiency">
+<tr><th rowspan = "2">Spell</th><th rowspan= "2">Mana</th><th colspan = "2">Base Damage</th><th colspan="8">Number of Targets</th></tr>
+<tr><th>Min</th><th>Max</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr>
+<tr><th>Light Magic Missile</th><td>8</td><td>10</td><td>20</td><td>1.88</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>Heavy Magic Misslile</th><td>14</td><td>20</td><td>40</td><td>2.14</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>Fireball</th><td>20</td><td>15</td><td>25</td><td>1.00</td><td>2.00</td><td>3.00</td><td>4.00</td><td>5.00</td><td>6.00</td><td>7.00</td><td>8.00</td></tr>
+<tr><th>Great Fireball</th><td>60</td><td>35</td><td>65</td><td>0.83</td><td>1.67</td><td>2.50</td><td>3.33</td><td>4.17</td><td>5.00</td><td>5.83</td><td>6.67</td></tr>
+<tr><th>Explosion</th><td>60</td><td>20</td><td>100</td><td>1.00</td><td>2.00</td><td>3.00</td><td>4.00</td><td>5.00</td><td></td><td></td><td></td></tr>
+<tr><th>Sudden Death</th><td>200</td><td>130</td><td>170</td><td>0.75</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>Energy Strike</th><td>20</td><td>35</td><td>55</td><td>2.25</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>Fire wave</th><td>80</td><td>20</td><td>40</td><td>0.38</td><td>0.75</td><td>1.13</td><td>1.50</td><td>1.88</td><td>2.25</td><td>2.63</td><td>3.00</td></tr>
+<tr><th>Energy Beam</th><td>100</td><td>40</td><td>80</td><td>0.60</td><td>1.20</td><td>1.80</td><td>2.40</td><td>3.00</td><td></td><td></td><td></td></tr>
+<tr><th>Great Energy Beam</th><td>200</td><td>40</td><td>200</td><td>0.60</td><td>1.20</td><td>1.80</td><td>2.40</td><td>3.00</td><td>3.60</td><td>4.20</td><td>4.80</td></tr>
+<tr><th>Energy Wave</th><td>250</td><td>100</td><td>200</td><td>0.60</td><td>1.20</td><td>1.80</td><td>2.40</td><td>3.00</td><td>3.60</td><td>4.20</td><td>4.80</td></tr>
+<tr><th>Ultimate Explosion</th><td>800</td><td>200</td><td>300</td><td>0.31</td><td>0.63</td><td>0.94</td><td>1.25</td><td>1.56</td><td>1.88</td><td>2.19</td><td>2.50</td></tr>
+<tr><th>Light Healing</th><td>25</td><td>10</td><td>30</td><td>0.80</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>Intense Healing</th><td>40</td><td>20</td><td>60</td><td>1.00</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>Ultimate Healing</th><td>80</td><td>200</td><td>300</td><td>3.13</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>Heal Friend</th><td>70</td><td>160</td><td>240</td><td>2.86</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>Heal Friend (classic)</th><td>70</td><td>80</td><td>160</td><td>1.71</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>Mass Healing</th><td>120</td><td>160</td><td>240</td><td>1.67</td><td>3.33</td><td>5.00</td><td>6.67</td><td></td><td></td><td></td><td></td></tr>
+<tr><th>Mass Healing (classic)</th><td>150</td><td>160</td><td>240</td><td>1.33</td><td>2.67</td><td>4.00</td><td>5.33</td><td></td><td></td><td></td><td></td></tr>
+<tr><th>Intense Healing Rune</th><td>70</td><td>40</td><td>100</td><td>1.00</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>Ultimate Healing Rune</th><td>100</td><td>250</td><td>250</td><td>2.50</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</table>
+
+<div style="width: 900px">
+<ol>
+<li>This table shows the damage per mana of different spells and runes to compare their effectiveness.</li>
+<li>The columns show number of targets which increase overall damage.</li>
+<li>The damage/ mana price excludes rune cost. Note that instant spells and runes are not directly comparable.</li>
+<li>Physical attacks like explosion will have their damage reduced by armour</li>
+</div>
+
+</body>
+</html>
