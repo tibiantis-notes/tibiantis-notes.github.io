@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding-left: 5px;
+  padding-right: 5px;
+  text-align: center;
+}
+
+</style>
+</head>
+<body>
+<a href="https://tarsal.github.io/">Home</a>
+<h1>Tibia 7.4/ Tibiantis notes</h1>
+<p><i>by Tarsal.</i></p>
+<hr>
+  
+  <h2>Stances</h2>
+
+<h3>Table: Attack and defence multipliers for different stances</h3>
+<table style="width:400px">
+  <tr>
+    <th></th><th>Atk</th><th>Bal</th><th>Def</th>
+  </tr>
+  <tr>
+    <td>Attacking</td>
+    <td>1.2</td>
+    <td>1.0</td>
+    <td>0.6</td>
+  </tr>
+  <tr>
+    <td>Blocking</td>
+    <td>0.6</td>
+    <td>1.0</td>
+    <td>1.8</td>
+  </tr>
+  <tr>
+    <td>Total</td>
+    <td>1.8</td>
+    <td>2.0</td>
+    <td>2.4</td>
+  </tr>
+</table>
+
+<div style="width: 900px">
+<ul>
+<li><b>When you have no active target blocking is calculated as if you were on defensive mode, regardless of your current stance</b>. This will be referred to as passive defence stance. You can block an attack on passive defensive stance, then attack on (active) offensive stance by attacking <b>after</b> you have recieved the first hit.</li>
+<li>If you untarget or kill a monster after attacking you will need to wait until the next turn (2 seconds) for passive defensive stance to reactivate.</li>
+<li>You can chain this first hit advantage by stairhopping to only take damage on defensive stance.</li>
+<li>Monsters use balanced stance. </li>
+<li>Passive defensive stance affects monsters and summons any time they don't have a target, such as when you are invisible. This is discussed further in the summons section. </li>
+<li>The stance multipliers to damage and blocking are not symmetrical, with the total of attack and defence multipliers increasing from offensive > balanced > defensive. </li>
+<li>A Giant Sword on balanced stance (Atk:46 Def:22) has comparable stats to a Fire Axe and MMS on offensive stance (Atk:45 Def:23). </li>
+<li>In the game code, integer rounding of (Atk_or_def x stance_multiplier) is different for different stance multipliers. For multipliers below 1 the product is rounded up, for multipliers above 1 the product is rounded down. Refer to the modified Atk and Def table.</li>
+<li>The rounding of modified Atk and Def values means each +1 increase in stats may not have a proportional outcome. For example on offensive mode both a Vampire Shield and a Demon Shield have the same Def (Def:22). For the SoV on offensive mode 48 atk x 1.2 = 57.6, which is rounded down to 57 on offsenive mode. Dividing by 1.2 this becomes Atk:47.5,  a 0.5 atk reduction. SCA (Atk:50) multiplies cleanly to 60 and has no reduction from rounding.</li>
+</ul>
+
+</div>
+<h3>Table: Attack and defence values for different stances</h3>
+<table style="width:600px">
+<tr><th><b>1.0x</b></th><th>0.6x</th><th>1.2x</th><th>1.8x</th><th><b>1.0x</b></th><th>0.6x</th><th>1.2x</th><th>1.8x</th><th><b>1.0x</b></th><th>0.6x</th><th>1.2x</th><th>1.8x</th></tr>
+<tr><td><b>1</b></td><td>1</td><td>1</td><td>1</td><td><b>21</b></td><td>13</td><td>25</td><td>37</td><td><b>41</b></td><td>25</td><td>49</td><td>73</td></tr>
+<tr><td><b>2</b></td><td>2</td><td>2</td><td>3</td><td><b>22</b></td><td>14</td><td>26</td><td>39</td><td><b>42</b></td><td>26</td><td>50</td><td>75</td></tr>
+<tr><td><b>3</b></td><td>2</td><td>3</td><td>5</td><td><b>23</b></td><td>14</td><td>27</td><td>41</td><td><b>43</b></td><td>26</td><td>51</td><td>77</td></tr>
+<tr><td><b>4</b></td><td>3</td><td>4</td><td>7</td><td><b>24</b></td><td>15</td><td>28</td><td>43</td><td><b>44</b></td><td>27</td><td>52</td><td>79</td></tr>
+<tr><td><b>5</b></td><td>3</td><td>6</td><td>9</td><td><b>25</b></td><td>15</td><td>30</td><td>45</td><td><b>45</b></td><td>27</td><td>54</td><td>81</td></tr>
+<tr><td><b>6</b></td><td>4</td><td>7</td><td>10</td><td><b>26</b></td><td>16</td><td>31</td><td>46</td><td><b>46</b></td><td>28</td><td>55</td><td>82</td></tr>
+<tr><td><b>7</b></td><td>5</td><td>8</td><td>12</td><td><b>27</b></td><td>17</td><td>32</td><td>48</td><td><b>47</b></td><td>29</td><td>56</td><td>84</td></tr>
+<tr><td><b>8</b></td><td>5</td><td>9</td><td>14</td><td><b>28</b></td><td>17</td><td>33</td><td>50</td><td><b>48</b></td><td>29</td><td>57</td><td>86</td></tr>
+<tr><td><b>9</b></td><td>6</td><td>10</td><td>16</td><td><b>29</b></td><td>18</td><td>34</td><td>52</td><td><b>49</b></td><td>30</td><td>58</td><td>88</td></tr>
+<tr><td><b>10</b></td><td>6</td><td>12</td><td>18</td><td><b>30</b></td><td>18</td><td>36</td><td>54</td><td><b>50</b></td><td>30</td><td>60</td><td>90</td></tr>
+<tr><td><b>11</b></td><td>7</td><td>13</td><td>19</td><td><b>31</b></td><td>19</td><td>37</td><td>55</td><td><b>51</b></td><td>31</td><td>61</td><td>91</td></tr>
+<tr><td><b>12</b></td><td>8</td><td>14</td><td>21</td><td><b>32</b></td><td>20</td><td>38</td><td>57</td><td><b>52</b></td><td>32</td><td>62</td><td>93</td></tr>
+<tr><td><b>13</b></td><td>8</td><td>15</td><td>23</td><td><b>33</b></td><td>20</td><td>39</td><td>59</td><td><b>53</b></td><td>32</td><td>63</td><td>95</td></tr>
+<tr><td><b>14</b></td><td>9</td><td>16</td><td>25</td><td><b>34</b></td><td>21</td><td>40</td><td>61</td><td><b>54</b></td><td>33</td><td>64</td><td>97</td></tr>
+<tr><td><b>15</b></td><td>9</td><td>18</td><td>27</td><td><b>35</b></td><td>21</td><td>42</td><td>63</td><td><b>55</b></td><td>33</td><td>66</td><td>99</td></tr>
+<tr><td><b>16</b></td><td>10</td><td>19</td><td>28</td><td><b>36</b></td><td>22</td><td>43</td><td>64</td><td><b></b></td><td></td><td></td><td></td></tr>
+<tr><td><b>17</b></td><td>11</td><td>20</td><td>30</td><td><b>37</b></td><td>23</td><td>44</td><td>66</td><td><b></b></td><td></td><td></td><td></td></tr>
+<tr><td><b>18</b></td><td>11</td><td>21</td><td>32</td><td><b>38</b></td><td>23</td><td>45</td><td>68</td><td><b></b></td><td></td><td></td><td></td></tr>
+<tr><td><b>19</b></td><td>12</td><td>22</td><td>34</td><td><b>39</b></td><td>24</td><td>46</td><td>70</td><td><b></b></td><td></td><td></td><td></td></tr>
+<tr><td><b>20</b></td><td>12</td><td>24</td><td>36</td><td><b>40</b></td><td>24</td><td>48</td><td>72</td><td><b></b></td><td></td><td></td><td></td></tr>
+</table>
+
+<h2>Ranged units</h2>
+
+<div style="width: 900px">
+<ul>
+<li>Don’t target ranged units while chasing until you reach them as your shield will block ranged attacks as if on defence mode.</li>
+<li>EvP ranged attacks count towards your shielding counter and break your shielding. For example if you take two melee hits and then a ranged attack within a 2 second turn, the ranged attack will bypass shielding for extra damage. For this reason orc spearmen are often left to flee on red hp as occasional shield breaks vs orc berserkers can be painful!</li>
+<li>PvE and PvP ranged accounts don’t get blocked by shielding and don’t count towards your shielding break.</li>
+<li>Ranged attacks count as spells and can are affected by a bug where the cooldown/ chance to hit is reset with each step (TBC). This can lead to a flurry of hits.</li>
+<li>Ranged unit slow down when you are adjacent.</li>
+</ul>
+</div>
+
+<h2>Armour</h2>
+
+<div style="width: 900px">
+<ul>
+<li>Damage reduction from armour from 50-100% of armour value, for an average of 75%. Due to rounding the resultant damage reduction is slightly less. </li>
+<li>Also due to rounding, damage reduction only increases on <b>even</b> armour values - an total armour of 31 is equivalent to 30. This only affects the total and not individual pieces.</li>
+<li>A typical full set of obtainable items: Demon Helmet (13), MPA (22) and Golden Legs (12) provide a total of 47 armour.</li>
+</ul>
+</div>
+
+<h2>Training</h2>
+
+<div style="width: 900px">
+<ul>
+<li>Knife and sickle both have an attack of 7, but crowbar has an attack of 6. In defence mode, these modify to 5 and 4, significantly reducing attack strength when training</li>
+<li>Use the damage calculator to check training efficiency and the stance table compare different low atk weapons on different stances.</li>
+</ul>
+</div>
+
+<h2>Melee mages</h2>
+
+<div style="width: 900px">
+This section discusses the potential of Druids and Sorcerers to boost their offensive and defensive power.
+<ul>
+<li>Mages can use this to use their melee weapons while hunting with runes which has the dual advantage of killing weak monsters for free and allowing your shielding skill to progress.</li>
+<li>Don’t underestimate the power of the 1.8x multiplier on defensive mode. For example a mage on defence mode with MMS and 25 skill will block as much as a 88 skill knight blockig with MMS on offence mode or giant sword on balance mode.</li>
+</ul>
+</div>
+</body>
+</html>
