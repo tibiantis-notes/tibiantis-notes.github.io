@@ -7,5 +7,6 @@ const frog = { name: "Frog", weight: 0.5 };
 const animals = [cat, dog, sheep, cow, frog];
 
 animals.forEach(animal => {
-  console.log(`${animal.name}: ${animal.weight} kg`);
+  //console.log(`${animal.name}: ${animal.weight} kg`);
+  document.getElementById('creature_log').innerHTML = animal.name + " weighs " + animal.weight + "kg";
 });
