@@ -20,7 +20,7 @@ const behemoth = {
     xp: 2500, hp: 4000,
     atk: 75, def: 65, arm: 50, skill: 110,
     
-    attacks: [
+    attack: [
         { damage_base: 155,
           damage_var: 30,
           chance:7,
@@ -81,4 +81,4 @@ const creature = [behemoth];
   document.getElementById('creature_log').innerHTML += "The " + animal.name + " weighs " + animal.weight + "kg<br>";
 }); */
 
-document.getElementById('creature_log').innerHTML = "behemottrytryeh hp2";
+document.getElementById('creature_log').innerHTML = "behemoth.hp = " + behemoth.hp;
