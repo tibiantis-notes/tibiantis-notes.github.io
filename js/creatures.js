@@ -74,7 +74,7 @@ Valkyrie
 //Victim (7, 1, 0) -> Damage (1, 35, 7) : 7
 */
 //end of creatures definitions
-//const creature = [behemoth];
+const creature = [behemoth];
 
 /*animals.forEach(animal => {
   //console.log(`${animal.name}: ${animal.weight} kg`);
