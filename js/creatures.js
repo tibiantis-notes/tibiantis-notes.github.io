@@ -1,9 +1,9 @@
 function doubleWeight() {
-    return (this.attack_2_min + this.attack_2_max)/2*2/this.attack_2_chance;
+    return (this.hp + this.hp)/2*2/this.hp;
 }
 
 function min_attack() {
-    return (this.damage_base - this.damage_range);
+    return (this.damage_base - this.damage_var);
 }
 
 const cat = { name: "Cat", weight: 5 };
