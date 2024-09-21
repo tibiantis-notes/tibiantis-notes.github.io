@@ -31,6 +31,21 @@ const behemoth = {
     ]
 };
 
+const amazon = {
+    xp: 98, hp: 78,
+    atk: 75, def: 65, arm: 50, skill: 110,
+    
+    attack: [
+        { damage_base: 155,
+          damage_var: 30,
+          chance:7,
+          type:1,
+          range:7,
+          projectile: 9}  // Attack 1
+       // ,{ min: 150, max: 300 }   // Attack 2
+    ]
+};
+
 //console.log(behemoth.attack1.min);  // Outputs: 100
 //console.log(behemoth.attack2.max);  // Outputs: 300
 
@@ -74,11 +89,8 @@ Valkyrie
 //Victim (7, 1, 0) -> Damage (1, 35, 7) : 7
 */
 //end of creatures definitions
-const creature = [behemoth];
+const creature = [amazon, behemoth];
 
 creature.forEach(creature => {
-  //console.log(`${animal.name}: ${animal.weight} kg`);
-  document.getElementById('creature_log').innerHTML = "behemoth.hp2 = " + behemoth.attack[0].damage_base;
+  document.getElementById('creature_log').innerHTML = "behemoth.hp2 = " + behemoth.attack[0].damage_base + "<br>";
 }); 
-
-//document.getElementById('creature_log').innerHTML = "behemoth.hp2 = " + behemoth.attack[0].damage_base;
