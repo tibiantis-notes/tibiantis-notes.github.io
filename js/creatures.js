@@ -1,3 +1,6 @@
+//Notes
+// (FistFighting, 55, 55, 55, 100, 1500, 1)  = (FistFighting, skill, skill, skill, hits_to_advance_skill, skill_advance_multiplier*1000, ?_creature_or_monster)
+
 /*function doubleWeight() {
     return (this.hp + this.hp)/2*2/this.hp;
 }
@@ -20,6 +23,7 @@ const behemoth = {
     name: "Behemoth",
     xp: 2500, hp: 4000,
     atk: 75, def: 65, arm: 50, skill: 110,
+    speed: 500,
     
     attack: [
         { damage_base: 155,
@@ -36,6 +40,7 @@ const amazon = {
     name: "Amazon",
     xp: 98, hp: 78,
     atk: 75, def: 65, arm: 50, skill: 110,
+    speed: 500,
     
     attack: [
         { damage_base: 155,
@@ -97,5 +102,6 @@ creature.forEach(current_creature => {
     document.getElementById('creature_log').innerHTML += "<hr><h3>" + current_creature.name "</h3>";
     document.getElementById('creature_log').innerHTML += "HP: " + current_creature.hp + ", XP: " + current_creature.xp + "<br>";
     document.getElementById('creature_log').innerHTML += "Armor: " + current_creature.arm + ", Atk: " + current_creature.atk + ", Def: " + current_creature.def + ", Skill: " + current_creature.skill  + "<br>";
-  //document.getElementById('creature_log').innerHTML += "Attack: " + current_creature.attack[0].damage_base + "<br>";
+    document.getElementById('creature_log').innerHTML += "HP: " + current_creature.hp + ", XP: " + current_creature.xp + "<br>";
+    //document.getElementById('creature_log').innerHTML += "Attack: " + current_creature.attack[0].damage_base + "<br>";
 }); 
