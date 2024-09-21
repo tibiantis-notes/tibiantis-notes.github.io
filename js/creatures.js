@@ -81,4 +81,4 @@ const creature = [behemoth];
   document.getElementById('creature_log').innerHTML += "The " + animal.name + " weighs " + animal.weight + "kg<br>";
 }); */
 
-document.getElementById('creature_log').innerHTML = "behemoth hp";
+document.getElementById('creature_log').innerHTML = "behemoth hp2";
