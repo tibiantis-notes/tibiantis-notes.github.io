@@ -17,6 +17,7 @@ const animals = [cat, dog, sheep, cow, frog];
 //amazon
 //Victim (7, 9, 0) -> Damage (1, 25, 5) : 10
 const behemoth = {
+    name, Behemoth,
     xp: 2500, hp: 4000,
     atk: 75, def: 65, arm: 50, skill: 110,
     
@@ -32,6 +33,7 @@ const behemoth = {
 };
 
 const amazon = {
+    name: Amazon,
     xp: 98, hp: 78,
     atk: 75, def: 65, arm: 50, skill: 110,
     
@@ -92,5 +94,6 @@ Valkyrie
 const creature = [amazon, behemoth];
 
 creature.forEach(current_creature => {
-  document.getElementById('creature_log').innerHTML += "behemoth.hp3 = " + current_creature.attack[0].damage_base + "<br>";
+  document.getElementById('creature_log').innerHTML += "<br><h3>" + current_creature.name + "</h3>";
+  document.getElementById('creature_log').innerHTML += "Attack: " + current_creature.attack[0].damage_base + "<br>";
 }); 
