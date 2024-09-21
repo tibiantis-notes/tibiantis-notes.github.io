@@ -94,6 +94,6 @@ Valkyrie
 const creature = [amazon, behemoth];
 
 creature.forEach(current_creature => {
-  document.getElementById('creature_log').innerHTML += "<hr><br><h3>" + current_creature.name + "</h3>";
+  document.getElementById('creature_log').innerHTML += "<hr><h3>" + current_creature.name + "</h3>";
   document.getElementById('creature_log').innerHTML += "Attack: " + current_creature.attack[0].damage_base + "<br>";
 }); 
