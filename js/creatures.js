@@ -1,10 +1,10 @@
-function doubleWeight() {
+/*function doubleWeight() {
     return (this.hp + this.hp)/2*2/this.hp;
 }
 
 function min_attack() {
     return (this.damage_base - this.damage_var);
-}
+}*/
 
 const cat = { name: "Cat", weight: 5 };
 const dog = { name: "Dog", weight: 10 };
@@ -13,7 +13,6 @@ const cow = { name: "Cow", weight: 600 };
 const frog = { name: "Frog", weight: 0.5 };
 
 const animals = [cat, dog, sheep, cow, frog];
-const creature = [behemoth];
 
 //amazon
 //Victim (7, 9, 0) -> Damage (1, 25, 5) : 10
@@ -74,6 +73,8 @@ Priestess
 Valkyrie
 //Victim (7, 1, 0) -> Damage (1, 35, 7) : 7
 */
+//end of creatures definitions
+const creature = [behemoth];
 
 /*animals.forEach(animal => {
   //console.log(`${animal.name}: ${animal.weight} kg`);
