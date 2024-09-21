@@ -91,6 +91,6 @@ Valkyrie
 //end of creatures definitions
 const creature = [amazon, behemoth];
 
-creature.forEach(creature => {
-  document.getElementById('creature_log').innerHTML = "behemoth.hp3 = " + creature.attack[0].damage_base + "<br>";
+creature.forEach(current_creature => {
+  document.getElementById('creature_log').innerHTML += "behemoth.hp3 = " + current_creature.attack[0].damage_base + "<br>";
 }); 
