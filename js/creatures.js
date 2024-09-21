@@ -76,9 +76,9 @@ Valkyrie
 //end of creatures definitions
 const creature = [behemoth];
 
-/*animals.forEach(animal => {
+/*creature.forEach(creature => {
   //console.log(`${animal.name}: ${animal.weight} kg`);
-  document.getElementById('creature_log').innerHTML += "The " + animal.name + " weighs " + animal.weight + "kg<br>";
+  document.getElementById('creature_log').innerHTML = "behemoth.hp = " + behemoth.attack[0].damage_base;
 }); */
 
-document.getElementById('creature_log').innerHTML = "behemoth.hp = " + behemoth.attack[0].damage_base;
+//document.getElementById('creature_log').innerHTML = "behemoth.hp2 = " + behemoth.attack[0].damage_base;
