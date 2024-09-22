@@ -33,11 +33,13 @@ const animals = [cat, dog, sheep, cow, frog];
 const amazon = {
     
     name: "Amazon",
-    xp: 98, hp: 78,
-    atk: 75, def: 65, arm: 50, skill: 110,
-    gostrength: 500,
+    xp: 60, hp: 110,
+    atk: 16, def: 11, arm: 11, skill: 24,
+    gostrength: 46,
     strategy: [100,0,0,0],
     lose_target: 50,
+    flee_threshold: 10,
+    //Flags = {KickBoxes, Unpushable, DistanceFighting}
     
     //Victim (7, 9, 0) -> Damage (1, 25, 5) : 10
     attack: [
