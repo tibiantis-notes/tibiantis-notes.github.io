@@ -206,7 +206,7 @@ Valkyrie
 //Victim (7, 1, 0) -> Damage (1, 35, 7) : 7
 */
 //end of creatures definitions
-const creature = [amazon, behemoth];
+const creature = [amazon, ancient_scarab, badger, banshee, bear, behemoth];
 
 creature.forEach(current_creature => {
     let creatureInfo = "<hr><h3>" + current_creature.name + "</h3>";
