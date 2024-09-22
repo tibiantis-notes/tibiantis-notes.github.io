@@ -20,49 +20,62 @@ const dog = { name: "Dog", weight: 10 };
 const sheep = { name: "Sheep", weight: 50 };
 const cow = { name: "Cow", weight: 600 };
 const frog = { name: "Frog", weight: 0.5 };
+const LIFE_DRAIN = 1;
+const PHYSICAL = 1;
+const FIRE = 1;
+const ENERGY = 1;
+const POISON = 1;
 
 const animals = [cat, dog, sheep, cow, frog];
 
 //amazon
-//Victim (7, 9, 0) -> Damage (1, 25, 5) : 10
+
+const amazon = {
+    
+    name: "Amazon",
+    xp: 98, hp: 78,
+    atk: 75, def: 65, arm: 50, skill: 110,
+    gostrength: 500,
+    strategy: [100,0,0,0],
+    lose_target: 50,
+    
+    //Victim (7, 9, 0) -> Damage (1, 25, 5) : 10
+    attack: [
+        { damage_base: 25,
+          damage_var: 5,
+          chance:10,
+          type:1,
+          range:7,
+          projectile: 9}  // Attack 1
+       // ,{ min: 150, max: 300 }   // Attack 2
+    ]
+};
+
 const behemoth = {
     name: "Behemoth",
     xp: 2500, hp: 4000,
     atk: 75, def: 65, arm: 50, skill: 110,
     gostrength: 500,
-    
+    strategy: [100,0,0,0],
+    lose_target: 50,
+
+    //Victim (7, 12, 0) -> Damage (1, 155, 30) : 7
     attack: [
         { damage_base: 155,
           damage_var: 30,
           chance:7,
           type:1,
           range:7,
-          projectile: 9}  // Attack 1
+          projectile: 12}  // Attack 1
        // ,{ min: 150, max: 300 }   // Attack 2
     ]
 };
 
-const amazon = {
-    name: "Amazon",
-    xp: 98, hp: 78,
-    atk: 75, def: 65, arm: 50, skill: 110,
-    gostrength: 500,
-    
-    attack: [
-        { damage_base: 155,
-          damage_var: 30,
-          chance:7,
-          type:1,
-          range:7,
-          projectile: 9}  // Attack 1
-       // ,{ min: 150, max: 300 }   // Attack 2
-    ]
-};
 
 //console.log(behemoth.attack1.min);  // Outputs: 100
 //console.log(behemoth.attack2.max);  // Outputs: 300
 
-//Victim (7, 12, 0) -> Damage (1, 155, 30) : 7
+
 
 /*
 Beholder
