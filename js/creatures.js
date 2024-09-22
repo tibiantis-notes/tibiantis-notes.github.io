@@ -20,11 +20,11 @@ const dog = { name: "Dog", weight: 10 };
 const sheep = { name: "Sheep", weight: 50 };
 const cow = { name: "Cow", weight: 600 };
 const frog = { name: "Frog", weight: 0.5 };
-const LIFE_DRAIN = 1;
+const LIFE_DRAIN = 256;
 const PHYSICAL = 1;
 const FIRE = 1;
 const ENERGY = 1;
-const POISON = 1;
+const POISON = 2;
 
 const animals = [cat, dog, sheep, cow, frog];
 
@@ -53,13 +53,101 @@ const amazon = {
     ]
 };
 
+const ancient_scarab = {
+    
+    name: "Ancient Scarab",
+    xp: 720, hp: 1000,
+    atk: 50, def: 33, arm: 36, skill: 80,
+    gostrength: 69,
+    strategy: [70,20,0,10],
+    lose_target: 10,
+    flee_threshold: 0,
+   /*Flags         = {KickBoxes,
+                 KickCreatures,
+                 SeeInvisible,
+                 Unpushable,
+                 NoSummon,
+                 NoIllusion,
+                 NoConvince,
+                 NoPoison,
+                 NoLifeDrain,
+                 NoParalyze}*/
+    
+    //Victim (7, 9, 0) -> Damage (1, 25, 5) : 10
+    attack: [
+        { damage_base: 75,
+          damage_var: 60,
+          chance:9,
+          type:2,
+          range:7,
+          projectile: 15}  // Attack 1
+    ]
+};
+
+const badger = {
+    name: "Badger",
+    xp: 5, hp: 23,
+    atk: 10, def: 3, arm: 1, skill: 17,
+    gostrength: 30,
+    strategy: [100,0,0,0],
+    lose_target: 0,
+    flee_threshold: 10,
+
+    //no flag
+};
+
+const banshee = {
+    name: "Banshee",
+    xp: 900, hp: 1000,
+    atk: 30, def: 65, arm: 25, skill: 45,
+    gostrength: 70,
+    strategy: [80,10,10,0],
+    lose_target: 3,
+
+    //Victim (7, 12, 0) -> Damage (1, 155, 30) : 7
+    attack: [
+        { damage_base: 200,
+          damage_var: 150,
+          chance:30,
+          type:256,
+          range:1,
+          projectile: 0}  // Attack 1
+       // ,{ min: 150, max: 300 }   // Attack 2
+    ]
+};
+
+const bear = {
+    name: "Bear",
+    xp: 23, hp: 80,
+    atk: 17, def: 6, arm: 6, skill: 15,
+    gostrength: 38,
+    strategy: [100,0,0,0],
+    lose_target: 0,
+    flee_threshold: 15,
+
+    //flag Unpushable
+};
+
+
 const behemoth = {
     name: "Behemoth",
     xp: 2500, hp: 4000,
     atk: 75, def: 65, arm: 50, skill: 110,
-    gostrength: 500,
-    strategy: [100,0,0,0],
-    lose_target: 50,
+    gostrength: 130,
+    strategy: [70,0,30,0],
+    lose_target: 5,
+
+    /*Flags         = {KickBoxes,
+                 KickCreatures,
+                 SeeInvisible,
+                 Unpushable,
+                 NoSummon,
+                 NoIllusion,
+                 NoConvince,
+                 NoBurning,
+                 NoPoison,
+                 NoEnergy,
+                 NoParalyze}*/
 
     //Victim (7, 12, 0) -> Damage (1, 155, 30) : 7
     attack: [
@@ -71,6 +159,7 @@ const behemoth = {
           projectile: 12}  // Attack 1
        // ,{ min: 150, max: 300 }   // Attack 2
     ]
+    
 };
 
 
@@ -124,7 +213,7 @@ creature.forEach(current_creature => {
     creatureInfo += "HP: " + current_creature.hp + ", XP: " + current_creature.xp + "<br>";
     creatureInfo += "Armor: " + current_creature.arm + ", Atk: " + current_creature.atk + ", Def: " + current_creature.def + ", Skill: " + current_creature.skill  + "<br>";
     creatureInfo += "Speed: " + current_creature.gostrength + "<br>";
-    creatureInfo += "Dist Attack: " + min_attack(current_creature.attack[0]) + "-" + max_attack(current_creature.attack[0]) + "<br>";
+    //creatureInfo += "Dist Attack: " + min_attack(current_creature.attack[0]) + "-" + max_attack(current_creature.attack[0]) + "<br>";
     
     document.getElementById('creature_log').innerHTML += creatureInfo;
 });
