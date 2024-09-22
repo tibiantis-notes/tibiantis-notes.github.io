@@ -109,5 +109,5 @@ creature.forEach(current_creature => {
     document.getElementById('creature_log').innerHTML += "HP: " + current_creature.hp + ", XP: " + current_creature.xp + "<br>";
     document.getElementById('creature_log').innerHTML += "Armor: " + current_creature.arm + ", Atk: " + current_creature.atk + ", Def: " + current_creature.def + ", Skill: " + current_creature.skill  + "<br>";
     document.getElementById('creature_log').innerHTML += "Speed: " + current_creature.gostrength + "<br>";
-    document.getElementById('creature_log').innerHTML += "Dist Attack: " + min_attack(current_creature.attack[0]) + "hkh" + max_attack(current_creature.attack[0]) "<br>";
+    document.getElementById('creature_log').innerHTML += "Dist Attack: " + min_attack(current_creature.attack[0]) + "hkh" + max_attack(current_creature.attack[0]) + "<br>";
 }); 
