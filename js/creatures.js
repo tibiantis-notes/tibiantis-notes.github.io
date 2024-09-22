@@ -1,5 +1,7 @@
 //Notes
 // (FistFighting, 55, 55, 55, 100, 1500, 1)  = (FistFighting, skill, skill, skill, hits_to_advance_skill, skill_advance_multiplier*1000, ?_creature_or_monster)
+//https://pastebin.com/3ZE3dGej
+// GoStrength is calculated as 126 + MoveSpeed (100% accurate)
 
 /*function doubleWeight() {
     return (this.hp + this.hp)/2*2/this.hp;
