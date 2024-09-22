@@ -11,6 +11,10 @@ function min_attack(attack) {
     return (attack.damage_base - attack.damage_var);
 }
 
+function max_attack(attack) {
+    return (attack.damage_base + attack.damage_var);
+}
+
 const cat = { name: "Cat", weight: 5 };
 const dog = { name: "Dog", weight: 10 };
 const sheep = { name: "Sheep", weight: 50 };
@@ -105,5 +109,5 @@ creature.forEach(current_creature => {
     document.getElementById('creature_log').innerHTML += "HP: " + current_creature.hp + ", XP: " + current_creature.xp + "<br>";
     document.getElementById('creature_log').innerHTML += "Armor: " + current_creature.arm + ", Atk: " + current_creature.atk + ", Def: " + current_creature.def + ", Skill: " + current_creature.skill  + "<br>";
     document.getElementById('creature_log').innerHTML += "Speed: " + current_creature.gostrength + "<br>";
-    document.getElementById('creature_log').innerHTML += "Min Dist Attack: " + min_attack(current_creature.attack[0]) + "<br>";
+    document.getElementById('creature_log').innerHTML += "Dist Attack: " + min_attack(current_creature.attack[0]) + "-" + max_attack(current_creature.attack[0]) "<br>";
 }); 
