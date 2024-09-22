@@ -8,7 +8,7 @@
 }
 */
 function min_attack(attack) {
-    return (this.damage_base - this.damage_var);
+    return (attack.damage_base - attack.damage_var);
 }
 
 const cat = { name: "Cat", weight: 5 };
