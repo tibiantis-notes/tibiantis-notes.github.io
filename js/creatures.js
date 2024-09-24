@@ -234,7 +234,77 @@ const black_knight = {
     ]
 };
 
+const black_sheep = {
+    name: "Black Sheep",
+    xp: 0, hp: 20,
+    atk: 0, def: 2, arm: 1, skill: 0,
+    gostrength: 18,
+    strategy: [100,0,0,0],
+    lose_target: 0,
+    flee_threshold: 20,
 
+    //no flag
+};
+
+const deer = {
+    name: "Deer",
+    xp: 0, hp: 25,
+    atk: 2, def: 2, arm: 2, skill: 10,
+    gostrength: 58,
+    strategy: [100,0,0,0],
+    lose_target: 0,
+    flee_threshold: 25,
+
+    //no flag
+};
+
+const dog = {
+    name: "Dog",
+    xp: 0, hp: 20,
+    atk: 0, def: 2, arm: 1, skill: 0,
+    gostrength: 22,
+    strategy: [100,0,0,0],
+    lose_target: 0,
+    flee_threshold: 8,
+
+    //no flag
+};
+
+const pig = {
+    name: "Pig",
+    xp: 0, hp: 25,
+    atk: 0, def: 2, arm: 2, skill: 10,
+    gostrength: 17,
+    strategy: [100,0,0,0],
+    lose_target: 0,
+    flee_threshold: 25,
+
+    //no flag
+};
+
+const rabbit = {
+    name: "Rabbit",
+    xp: 0, hp: 15,
+    atk: 0, def: 2, arm: 1, skill: 0,
+    gostrength: 50,
+    strategy: [100,0,0,0],
+    lose_target: 0,
+    flee_threshold: 15,
+
+    //no flag
+};
+
+const sheep = {
+    name: "Sheep",
+    xp: 0, hp: 20,
+    atk: 0, def: 2, arm: 1, skill: 0,
+    gostrength: 18,
+    strategy: [100,0,0,0],
+    lose_target: 0,
+    flee_threshold: 20,
+
+    //no flag
+};
 /*
 Beholder
 //Victim (7, 11, 18) -> Damage (1, 40, 10) : 13
@@ -273,7 +343,7 @@ Valkyrie
 //Victim (7, 1, 0) -> Damage (1, 35, 7) : 7
 */
 //end of creatures definitions
-const creature = [amazon, ancient_scarab, badger, banshee, bear, behemoth, beholder, black_knight];
+const creature = [amazon, ancient_scarab, badger, banshee, bear, behemoth, beholder, black_knight, black_sheep, deer, dog, pig, rabbit, sheep];
 
 creature.forEach(current_creature => {
     let creatureInfo = "<hr><h3>" + current_creature.name + "</h3>";
