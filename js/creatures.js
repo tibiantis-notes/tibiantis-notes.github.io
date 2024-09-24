@@ -189,7 +189,7 @@ Spells        = {Victim (7, 5, 0) -> Damage (8, 30, 15) : 15,
                  Origin (0, 13) -> Summon (33, 6) : 9}            
 */
 
-    //Victim (7, 12, 0) -> Damage (1, 155, 30) : 7
+
     attack: [
         { damage_base: 40,
           damage_var: 10,
@@ -210,9 +210,20 @@ const black_knight = {
     strategy: [80,10,10,0],
     lose_target: 3,
     flee_threshold: 0,
-    //Flags = {KickBoxes, Unpushable, DistanceFighting}
     
-    //Victim (7, 9, 0) -> Damage (1, 25, 5) : 10
+    /*Flags         = {KickBoxes,
+                 KickCreatures,
+                 SeeInvisible,
+                 Unpushable,
+                 NoSummon,
+                 NoIllusion,
+                 NoConvince,
+                 NoBurning,
+                 NoPoison,
+                 NoEnergy,
+                 NoParalyze}
+*/
+   
     attack: [
         { damage_base: 165,
           damage_var: 20,
@@ -263,7 +274,7 @@ Valkyrie
 //Victim (7, 1, 0) -> Damage (1, 35, 7) : 7
 */
 //end of creatures definitions
-const creature = [amazon, ancient_scarab, badger, banshee, bear, behemoth, beholder];
+const creature = [amazon, ancient_scarab, badger, banshee, bear, behemoth, beholder, black_knight];
 
 creature.forEach(current_creature => {
     let creatureInfo = "<hr><h3>" + current_creature.name + "</h3>";
