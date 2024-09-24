@@ -136,6 +136,7 @@ const behemoth = {
     gostrength: 130,
     strategy: [70,0,30,0],
     lose_target: 5,
+    flee_threshold: 0,
 
     /*Flags         = {KickBoxes,
                  KickCreatures,
@@ -160,12 +161,68 @@ const behemoth = {
        // ,{ min: 150, max: 300 }   // Attack 2
     ]
     
+    const beholder = {
+    name: "Beholder",
+    xp: 170, hp: 260,
+    atk: 12, def: 20, arm: 5, skill: 35,
+    gostrength: 35,
+    strategy: [100,0,0,0],
+    lose_target: 50,
+    flee_threshold: 0,
+
+    /*
+Flags         = {KickBoxes,
+                 SeeInvisible,
+                 Unpushable,
+                 DistanceFighting,
+                 NoSummon,
+                 NoConvince,
+                 NoPoison,
+                 NoLifeDrain}
+                
+Spells        = {Victim (7, 5, 0) -> Damage (8, 30, 15) : 15,
+                 Victim (7, 4, 0) -> Damage (4, 35, 10) : 16,
+                 Victim (7, 11, 18) -> Damage (1, 40, 10) : 13,
+                 Victim (7, 15, 0) -> Damage (2, 25, 20) : 14,
+                 Victim (7, 0, 14) -> Damage (256, 40, 5) : 17,
+                 Victim (7, 0, 14) -> Damage (512, 15, 10) : 20,
+                 Origin (0, 13) -> Summon (33, 6) : 9}            
+*/
+
+    //Victim (7, 12, 0) -> Damage (1, 155, 30) : 7
+    attack: [
+        { damage_base: 40,
+          damage_var: 10,
+          chance:13,
+          type:1,
+          range:7,
+          projectile: 11}  // Attack 1
+       // ,{ min: 150, max: 300 }   // Attack 2
+    ]
 };
 
-
-//console.log(behemoth.attack1.min);  // Outputs: 100
-//console.log(behemoth.attack2.max);  // Outputs: 300
-
+const black_knight = {
+    
+    name: "Black Knight",
+    xp: 1600, hp: 1800,
+    atk: 60, def: 60, arm: 42, skill: 88,
+    gostrength: 155,
+    strategy: [80,10,10,0],
+    lose_target: 3,
+    flee_threshold: 0,
+    //Flags = {KickBoxes, Unpushable, DistanceFighting}
+    
+    //Victim (7, 9, 0) -> Damage (1, 25, 5) : 10
+    attack: [
+        { damage_base: 165,
+          damage_var: 20,
+          chance:7,
+          type:1,
+          range:7,
+          projectile: 1}  // Attack 1
+       // ,{ min: 150, max: 300 }   // Attack 2
+    ]
+};
 
 
 /*
@@ -206,7 +263,7 @@ Valkyrie
 //Victim (7, 1, 0) -> Damage (1, 35, 7) : 7
 */
 //end of creatures definitions
-const creature = [amazon, ancient_scarab, badger, banshee, bear, behemoth];
+const creature = [amazon, ancient_scarab, badger, banshee, bear, behemoth, beholder];
 
 creature.forEach(current_creature => {
     let creatureInfo = "<hr><h3>" + current_creature.name + "</h3>";
