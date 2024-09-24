@@ -308,7 +308,7 @@ creature.forEach(current_creature => {
     creatureInfo += "Speed: " + current_creature.gostrength + "<br>";
     if (current_creature.attack && current_creature.attack.length > 0) {
         creatureInfo += "Dist Attack: " + min_attack(current_creature.attack[0]) + "-" + max_attack(current_creature.attack[0]) + "<br>";
-    };
+    }
     
     document.getElementById('creature_log').innerHTML += creatureInfo;
 });
