@@ -161,7 +161,7 @@ const behemoth = {
        // ,{ min: 150, max: 300 }   // Attack 2
     ]
     
-    const beholder = {
+const beholder = {
     name: "Beholder",
     xp: 170, hp: 260,
     atk: 12, def: 20, arm: 5, skill: 35,
@@ -188,8 +188,6 @@ Spells        = {Victim (7, 5, 0) -> Damage (8, 30, 15) : 15,
                  Victim (7, 0, 14) -> Damage (512, 15, 10) : 20,
                  Origin (0, 13) -> Summon (33, 6) : 9}            
 */
-
-
     attack: [
         { damage_base: 40,
           damage_var: 10,
