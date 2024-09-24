@@ -264,6 +264,54 @@ Spells        = {Victim (7, 4, 0) -> Damage (4, 60, 15) : 2,
           ]
 };
 
+const bonebeast = {
+    name: "Blue Djinn",
+    xp: 580, hp: 515,
+    atk: 47, def: 45, arm: 40, skill: 75,
+    gostrength: 69,
+    strategy: [100,0,0,0],
+    lose_target: 20,
+    flee_threshold: 0,
+
+    /*
+Flags         = {KickBoxes,
+                 KickCreatures,
+                 SeeInvisible,
+                 Unpushable,
+                 NoSummon,
+                 NoIllusion,
+                 NoConvince,
+                 NoPoison,
+                 NoLifeDrain,
+                 NoParalyze}
+                
+Spells        = {Actor (17) -> Healing (45, 15) : 9,
+                 Victim (7, 15, 21) -> Damage (2, 45, 20) : 10,
+                 Origin (2, 14) -> Damage (256, 40, 10) : 7,
+                 Origin (2, 21) -> Damage (32, 70, 10) : 8}
+*/
+    attack: [
+        { damage_base: 60,
+          damage_var: 16,
+          chance:2,
+          type:4,
+          range:7,
+          projectile: 4}  // Attack 1
+          ]
+};
+
+const sheep = {
+    name: "Sheep",
+    xp: 0, hp: 20,
+    atk: 0, def: 2, arm: 1, skill: 0,
+    gostrength: 18,
+    strategy: [100,0,0,0],
+    lose_target: 0,
+    flee_threshold: 20,
+
+    //no flag
+};
+
 const deer = {
     name: "Deer",
     xp: 0, hp: 25,
@@ -364,7 +412,7 @@ const sheep = {
 
 //end of creatures definitions
 
-const creature = [amazon, ancient_scarab, badger, banshee, bear, behemoth, beholder, black_knight, black_sheep, blue_djinn, deer, dog, green_djinn, pig, rabbit, sheep];
+const creature = [amazon, ancient_scarab, badger, banshee, bear, behemoth, beholder, black_knight, black_sheep, blue_djinn, bonebeast, deer, dog, green_djinn, pig, rabbit, sheep];
 
 creature.forEach(current_creature => {
     let creatureInfo = "<hr><h3>" + current_creature.name + "</h3>";
