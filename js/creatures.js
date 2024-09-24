@@ -28,7 +28,6 @@ const amazon = {
     flee_threshold: 10,
     //Flags = {KickBoxes, Unpushable, DistanceFighting}
     
-    //Victim (7, 9, 0) -> Damage (1, 25, 5) : 10
     attack: [
         { damage_base: 25,
           damage_var: 5,
@@ -36,8 +35,7 @@ const amazon = {
           type:1,
           range:7,
           projectile: 9}  // Attack 1
-       // ,{ min: 150, max: 300 }   // Attack 2
-    ]
+        ]
 };
 
 const ancient_scarab = {
@@ -60,7 +58,6 @@ const ancient_scarab = {
                  NoLifeDrain,
                  NoParalyze}*/
     
-    //Victim (7, 9, 0) -> Damage (1, 25, 5) : 10
     attack: [
         { damage_base: 75,
           damage_var: 60,
@@ -91,15 +88,13 @@ const banshee = {
     strategy: [80,10,10,0],
     lose_target: 3,
 
-    //Victim (7, 12, 0) -> Damage (1, 155, 30) : 7
-    attack: [
+     attack: [
         { damage_base: 200,
           damage_var: 150,
           chance:30,
           type:256,
           range:1,
           projectile: 0}  // Attack 1
-       // ,{ min: 150, max: 300 }   // Attack 2
     ]
 };
 
@@ -183,8 +178,7 @@ Spells        = {Victim (7, 5, 0) -> Damage (8, 30, 15) : 15,
           type:1,
           range:7,
           projectile: 11}  // Attack 1
-       // ,{ min: 150, max: 300 }   // Attack 2
-    ]
+          ]
 };
 
 const black_knight = {
@@ -217,8 +211,7 @@ const black_knight = {
           type:1,
           range:7,
           projectile: 1}  // Attack 1
-       // ,{ min: 150, max: 300 }   // Attack 2
-    ]
+          ]
 };
 
 const black_sheep = {
@@ -231,6 +224,44 @@ const black_sheep = {
     flee_threshold: 20,
 
     //no flag
+};
+
+const blue_djinn = {
+    name: "Blue Djinn",
+    xp: 190, hp: 330,
+    atk: 30, def: 30, arm: 20, skill: 50,
+    gostrength: 70,
+    strategy: [100,0,0,0],
+    lose_target: 50,
+    flee_threshold: 0,
+
+    /*
+Flags         = {KickBoxes,
+                 SeeInvisible,
+                 Unpushable,
+                 NoSummon,
+                 NoIllusion,
+                 NoConvince,
+                 NoBurning,
+                 NoPoison,
+                 NoEnergy,
+                 NoLifeDrain,
+                 NoParalyze}
+                
+Spells        = {Victim (7, 4, 0) -> Damage (4, 60, 15) : 2,
+                 Victim (7, 5, 0) -> Damage (128, 70, 20) : 3,
+                 Victim (7, 11, 0) -> Damage (256, 80, 25) : 4,
+                 Victim (7, 5, 11) -> Drunken (6, 0, 30) : 5,
+                 Victim (7, 0, 13) -> Outfit ((74, 0-0-0-0), 20) : 6}           
+*/
+    attack: [
+        { damage_base: 60,
+          damage_var: 16,
+          chance:2,
+          type:4,
+          range:7,
+          projectile: 4}  // Attack 1
+          ]
 };
 
 const deer = {
@@ -255,6 +286,44 @@ const dog = {
     flee_threshold: 8,
 
     //no flag
+};
+
+const green_djinn = {
+    name: "Green Djinn",
+    xp: 190, hp: 330,
+    atk: 30, def: 30, arm: 20, skill: 50,
+    gostrength: 70,
+    strategy: [100,0,0,0],
+    lose_target: 50,
+    flee_threshold: 0,
+
+    /*
+Flags         = {KickBoxes,
+                 SeeInvisible,
+                 Unpushable,
+                 NoSummon,
+                 NoIllusion,
+                 NoConvince,
+                 NoBurning,
+                 NoPoison,
+                 NoEnergy,
+                 NoLifeDrain,
+                 NoParalyze}
+                
+Spells        = {Victim (7, 4, 0) -> Damage (4, 60, 15) : 2,
+                 Victim (7, 5, 0) -> Damage (128, 70, 20) : 3,
+                 Victim (7, 11, 0) -> Damage (256, 80, 25) : 4,
+                 Victim (7, 5, 11) -> Drunken (6, 0, 30) : 5,
+                 Victim (7, 0, 13) -> Outfit ((74, 0-0-0-0), 20) : 6}           
+*/
+    attack: [
+        { damage_base: 60,
+          damage_var: 16,
+          chance:2,
+          type:4,
+          range:7,
+          projectile: 4}  // Attack 1
+           ]
 };
 
 const pig = {
