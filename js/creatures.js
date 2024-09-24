@@ -302,7 +302,7 @@ creature.forEach(current_creature => {
     creatureInfo += "HP: " + current_creature.hp + ", XP: " + current_creature.xp + "<br>";
     creatureInfo += "Armor: " + current_creature.arm + ", Atk: " + current_creature.atk + ", Def: " + current_creature.def + ", Skill: " + current_creature.skill  + "<br>";
     creatureInfo += "Speed: " + current_creature.gostrength + "<br>";
-    if (current_creature.attack && current_creature.attack.length > 0) {
+    if (current_creature.attack && current_creature.attack.length > 0 && current_creature.attack.type == 1) {
         creatureInfo += "Dist Attack: " + min_attack(current_creature.attack[0]) + "-" + max_attack(current_creature.attack[0]) + "<br>";
     }
     
