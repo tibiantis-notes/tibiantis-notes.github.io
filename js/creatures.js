@@ -3,10 +3,6 @@
 //https://pastebin.com/3ZE3dGej
 // GoStrength is calculated as 126 + MoveSpeed (100% accurate)
 
-/*function doubleWeight() {
-    return (this.hp + this.hp)/2*2/this.hp;
-}
-*/
 function min_attack(attack) {
     return (attack.damage_base - attack.damage_var);
 }
