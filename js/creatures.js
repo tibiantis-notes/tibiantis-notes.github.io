@@ -160,6 +160,7 @@ const behemoth = {
           projectile: 12}  // Attack 1
        // ,{ min: 150, max: 300 }   // Attack 2
     ]
+};
     
 const beholder = {
     name: "Beholder",
