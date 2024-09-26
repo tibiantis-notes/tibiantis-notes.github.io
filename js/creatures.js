@@ -320,7 +320,6 @@ const cave_rat = {
 };
 
 const cobra = {
-    
     name: "Cobra",
     xp: 65, hp: 30,
     atk: 15, def: 6, arm: 1, skill: 23,
@@ -336,7 +335,6 @@ const cobra = {
 };
 
 const crypt_shambler = {
-    
     name: "Crypt Shambler",
     xp: 330, hp: 195,
     atk: 39, def: 25, arm: 30, skill: 60,
@@ -355,6 +353,17 @@ const crypt_shambler = {
           type:256,
           range:1,
           projectile: 0}]
+};
+
+const cyclops = {
+    name: "Cyclops",
+    xp: 260, hp: 150,
+    atk: 30, def: 24, arm: 17, skill: 50,
+    gostrength: 55,
+    strategy: [70,0,30,0], lose_target: 5, flee_threshold: 0,
+    /*Flags   = {KickBoxes,
+                 KickCreatures,
+                 Unpushable}*/
 };
 
 const deer = {
@@ -451,7 +460,7 @@ const sheep = {
 
 //end of creatures definitions
 
-const creature = [amazon, ancient_scarab, badger, banshee, bear, behemoth, beholder, black_knight, black_sheep, blue_djinn, bonebeast, bug, cave_rat, cobra, crypt_shambler, deer, dog, green_djinn, pig, rabbit, sheep];
+const creature = [amazon, ancient_scarab, badger, banshee, bear, behemoth, beholder, black_knight, black_sheep, blue_djinn, bonebeast, bug, cave_rat, cobra, crypt_shambler, cyclops, deer, dog, green_djinn, pig, rabbit, sheep];
 
 creature.forEach(current_creature => {
     let creatureInfo = "<hr><h3>" + current_creature.name + "</h3>";
