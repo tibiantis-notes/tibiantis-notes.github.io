@@ -300,14 +300,14 @@ Spells        = {Actor (17) -> Healing (45, 15) : 9,
           ]
 };
 
-const sheep = {
-    name: "Sheep",
-    xp: 0, hp: 20,
-    atk: 0, def: 2, arm: 1, skill: 0,
-    gostrength: 18,
+const bug = {
+    name: "Bug",
+    xp: 18, hp: 29,
+    atk: 9, def: 3, arm: 2, skill: 0,
+    gostrength: 40,
     strategy: [100,0,0,0],
     lose_target: 0,
-    flee_threshold: 20,
+    flee_threshold: 0,
 
     //no flag
 };
@@ -412,7 +412,7 @@ const sheep = {
 
 //end of creatures definitions
 
-const creature = [amazon, ancient_scarab, badger, banshee, bear, behemoth, beholder, black_knight, black_sheep, blue_djinn, bonebeast, deer, dog, green_djinn, pig, rabbit, sheep];
+const creature = [amazon, ancient_scarab, badger, banshee, bear, behemoth, beholder, black_knight, black_sheep, blue_djinn, bonebeast, bug, deer, dog, green_djinn, pig, rabbit, sheep];
 
 creature.forEach(current_creature => {
     let creatureInfo = "<hr><h3>" + current_creature.name + "</h3>";
