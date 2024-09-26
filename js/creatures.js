@@ -318,15 +318,28 @@ const cave_rat = {
     //no flag
 };
 
+const cobra = {
+    
+    name: "Cobra",
+    xp: 65, hp: 30,
+    atk: 15, def: 6, arm: 1, skill: 23,
+    gostrength: 20,
+    strategy: [100,0,0,0], lose_target: 0, flee_threshold: 0,
+    /*Flags = {NoPoison}*/
+    attack: [{ damage_base: 20,
+          damage_var: 6,
+          chance:4,
+          type:32,
+          range:5,
+          projectile: 15}]
+};
+
 const deer = {
     name: "Deer",
     xp: 0, hp: 25,
     atk: 2, def: 2, arm: 2, skill: 10,
     gostrength: 58,
-    strategy: [100,0,0,0],
-    lose_target: 0,
-    flee_threshold: 25,
-
+    strategy: [100,0,0,0], lose_target: 0, flee_threshold: 25,
     //no flag
 };
 
@@ -335,10 +348,7 @@ const dog = {
     xp: 0, hp: 20,
     atk: 0, def: 2, arm: 1, skill: 0,
     gostrength: 22,
-    strategy: [100,0,0,0],
-    lose_target: 0,
-    flee_threshold: 8,
-
+    strategy: [100,0,0,0], lose_target: 0, flee_threshold: 8,
     //no flag
 };
 
@@ -418,7 +428,7 @@ const sheep = {
 
 //end of creatures definitions
 
-const creature = [amazon, ancient_scarab, badger, banshee, bear, behemoth, beholder, black_knight, black_sheep, blue_djinn, bonebeast, bug, cave_rat, deer, dog, green_djinn, pig, rabbit, sheep];
+const creature = [amazon, ancient_scarab, badger, banshee, bear, behemoth, beholder, black_knight, black_sheep, blue_djinn, bonebeast, bug, cave_rat, cobra, deer, dog, green_djinn, pig, rabbit, sheep];
 
 creature.forEach(current_creature => {
     let creatureInfo = "<hr><h3>" + current_creature.name + "</h3>";
