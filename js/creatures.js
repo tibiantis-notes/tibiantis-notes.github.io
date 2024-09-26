@@ -16,6 +16,7 @@ const PHYSICAL = 1;
 const FIRE = 1;
 const ENERGY = 1;
 const POISON = 2;
+const LONG_POISON = 32;
 
 const amazon = {
     
@@ -334,6 +335,28 @@ const cobra = {
           projectile: 15}]
 };
 
+const crypt_shambler = {
+    
+    name: "Crypt Shambler",
+    xp: 330, hp: 195,
+    atk: 39, def: 25, arm: 30, skill: 60,
+    gostrength: 30,
+    strategy: [70,0,30,0], lose_target: 4, flee_threshold: 0,
+    /*Flags   = {KickBoxes,
+                 KickCreatures,
+                 Unpushable,
+                 NoSummon,
+                 NoPoison,
+                 NoLifeDrain,
+                 NoParalyze}*/
+    attack: [{ damage_base: 40,
+          damage_var: 15,
+          chance:8,
+          type:256,
+          range:1,
+          projectile: 0}]
+};
+
 const deer = {
     name: "Deer",
     xp: 0, hp: 25,
@@ -428,7 +451,7 @@ const sheep = {
 
 //end of creatures definitions
 
-const creature = [amazon, ancient_scarab, badger, banshee, bear, behemoth, beholder, black_knight, black_sheep, blue_djinn, bonebeast, bug, cave_rat, cobra, deer, dog, green_djinn, pig, rabbit, sheep];
+const creature = [amazon, ancient_scarab, badger, banshee, bear, behemoth, beholder, black_knight, black_sheep, blue_djinn, bonebeast, bug, cave_rat, cobra, crypt_shambler, deer, dog, green_djinn, pig, rabbit, sheep];
 
 creature.forEach(current_creature => {
     let creatureInfo = "<hr><h3>" + current_creature.name + "</h3>";
