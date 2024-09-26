@@ -11,6 +11,7 @@ function max_attack(attack) {
     return (attack.damage_base + attack.damage_var);
 }
 
+const MANA_DRAIN = 512;
 const LIFE_DRAIN = 256;
 const PHYSICAL = 1;
 const FIRE = 1;
@@ -321,7 +322,7 @@ const cave_rat = {
 
 const cobra = {
     name: "Cobra",
-    xp: 65, hp: 30,
+    xp: 30, hp: 65,
     atk: 15, def: 6, arm: 1, skill: 23,
     gostrength: 20,
     strategy: [100,0,0,0], lose_target: 0, flee_threshold: 0,
@@ -336,7 +337,7 @@ const cobra = {
 
 const crypt_shambler = {
     name: "Crypt Shambler",
-    xp: 330, hp: 195,
+    xp: 195, hp: 330,
     atk: 39, def: 25, arm: 30, skill: 60,
     gostrength: 30,
     strategy: [70,0,30,0], lose_target: 4, flee_threshold: 0,
@@ -357,7 +358,7 @@ const crypt_shambler = {
 
 const cyclops = {
     name: "Cyclops",
-    xp: 260, hp: 150,
+    xp: 150, hp: 260,
     atk: 30, def: 24, arm: 17, skill: 50,
     gostrength: 55,
     strategy: [70,0,30,0], lose_target: 5, flee_threshold: 0,
@@ -373,6 +374,64 @@ const deer = {
     gostrength: 58,
     strategy: [100,0,0,0], lose_target: 0, flee_threshold: 25,
     //no flag
+};
+
+const demon = {
+    name: "Demon",
+    xp: 6000, hp: 8200,
+    atk: 80, def: 65, arm: 40, skill: 120,
+    gostrength: 80,
+    strategy: [70,10,10,10], lose_target: 10, flee_threshold: 0,
+    /*Flags   = {KickBoxes,
+                 KickCreatures,
+                 SeeInvisible,
+                 Unpushable,
+                 NoSummon,
+                 NoIllusion,
+                 NoConvince,
+                 NoBurning,
+                 NoPoison,
+                 NoEnergy,
+                 NoLifeDrain,
+                 NoParalyze}
+
+Spells        = {Actor (13) -> Healing (120, 30) : 7,
+                 Victim (7, 0, 0) -> Damage (512, 70, 30) : 8,
+                 Origin (0, 13) -> Summon (49, 1) : 12,
+                 Destination (7, 4, 6, 7) -> Damage (4, 155, 45) : 3,
+                 Destination (7, 4, 0, 0) -> Field (1) : 7,
+                 Angle (0, 8, 12) -> Damage (8, 360, 60) : 10}
+*/
+    attack: [{ damage_base: 70,
+          damage_var: 30,
+          chance:8,
+          type:512,
+          range:7,
+          projectile: 0}]
+};
+
+const demon_skeleton = {
+    name: "Demon Skeleton",
+    xp: 240, hp: 400,
+    atk: 45, def: 35, arm: 25, skill: 70,
+    gostrength: 50,
+    strategy: [70,0,30,0], lose_target: 5, flee_threshold: 0,
+/*Flags       = {KickBoxes,
+                 KickCreatures,
+                 Unpushable,
+                 NoBurning,
+                 NoPoison,
+                 NoLifeDrain,
+                 NoParalyze}
+
+Spells        = {Victim (1, 0, 0) -> Damage (256, 40, 10) : 10}
+*/
+attack: [{ damage_base: 40,
+          damage_var: 10,
+          chance:10,
+          type:256,
+          range:1,
+          projectile: 0}]
 };
 
 const dog = {
@@ -460,7 +519,7 @@ const sheep = {
 
 //end of creatures definitions
 
-const creature = [amazon, ancient_scarab, badger, banshee, bear, behemoth, beholder, black_knight, black_sheep, blue_djinn, bonebeast, bug, cave_rat, cobra, crypt_shambler, cyclops, deer, dog, green_djinn, pig, rabbit, sheep];
+const creature = [amazon, ancient_scarab, badger, banshee, bear, behemoth, beholder, black_knight, black_sheep, blue_djinn, bonebeast, bug, cave_rat, cobra, crypt_shambler, cyclops, deer, demon, demon_skeleton, dog, green_djinn, pig, rabbit, sheep];
 
 creature.forEach(current_creature => {
     let creatureInfo = "<hr><h3>" + current_creature.name + "</h3>";
