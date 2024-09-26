@@ -443,6 +443,64 @@ const dog = {
     //no flag
 };
 
+const dragon = {
+    name: "Dragon",
+    xp: 700, hp: 1000,
+    atk: 42, def: 38, arm: 25, skill: 55,
+    gostrength: 45,
+    strategy: [70,10,10,10], lose_target: 5, flee_threshold: 0,
+/*Flags         = {KickBoxes,
+                 KickCreatures,
+                 SeeInvisible,
+                 Unpushable,
+                 NoSummon,
+                 NoConvince,
+                 NoBurning,
+                 NoPoison,
+                 NoParalyze}
+
+Spells        = {Actor (13) -> Healing (45, 11) : 8,
+                 Destination (7, 4, 3, 7) -> Damage (4, 80, 25) : 7,
+                 Angle (30, 8, 7) -> Damage (4, 130, 30) : 9}
+*/
+/*attack: [{ damage_base: 40,
+          damage_var: 10,
+          chance:10,
+          type:256,
+          range:1,
+          projectile: 0}]*/
+};
+
+const dragon_lord = {
+    name: "Dragon Lord",
+    xp: 2100, hp: 1900,
+    atk: 55, def: 48, arm: 32, skill: 65,
+    gostrength: 60,
+    strategy: [70,10,10,10], lose_target: 5, flee_threshold: 0,
+/*Flags         = {KickBoxes,
+                 KickCreatures,
+                 SeeInvisible,
+                 Unpushable,
+                 NoSummon,
+                 NoConvince,
+                 NoBurning,
+                 NoPoison,
+                 NoLifeDrain,
+                 NoParalyze}
+
+Spells        = {Actor (13) -> Healing (75, 18) : 4,
+                 Destination (7, 4, 3, 7) -> Damage (4, 150, 30) : 6,
+                 Destination (7, 4, 3, 0) -> Field (1) : 7,
+                 Angle (30, 8, 7) -> Damage (4, 200, 50) : 6}
+*/
+/*attack: [{ damage_base: 40,
+          damage_var: 10,
+          chance:10,
+          type:256,
+          range:1,
+          projectile: 0}]*/
+};
+
 const green_djinn = {
     name: "Green Djinn",
     xp: 190, hp: 330,
@@ -519,7 +577,7 @@ const sheep = {
 
 //end of creatures definitions
 
-const creature = [amazon, ancient_scarab, badger, banshee, bear, behemoth, beholder, black_knight, black_sheep, blue_djinn, bonebeast, bug, cave_rat, cobra, crypt_shambler, cyclops, deer, demon, demon_skeleton, dog, green_djinn, pig, rabbit, sheep];
+const creature = [amazon, ancient_scarab, badger, banshee, bear, behemoth, beholder, black_knight, black_sheep, blue_djinn, bonebeast, bug, cave_rat, cobra, crypt_shambler, cyclops, deer, demon, demon_skeleton, dog, dragon, dragon_lord, green_djinn, pig, rabbit, sheep];
 
 creature.forEach(current_creature => {
     let creatureInfo = "<hr><h3>" + current_creature.name + "</h3>";
