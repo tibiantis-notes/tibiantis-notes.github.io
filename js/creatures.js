@@ -267,7 +267,7 @@ Spells        = {Victim (7, 4, 0) -> Damage (4, 60, 15) : 2,
 };
 
 const bonebeast = {
-    name: "Blue Djinn",
+    name: "Bonebeast",
     xp: 580, hp: 515,
     atk: 47, def: 45, arm: 40, skill: 75,
     gostrength: 69,
@@ -542,8 +542,7 @@ attack: [{ damage_base: 80,
           chance:4,
           type:512,
           range:7,
-          projectile: 0}            
-        }]
+          projectile: 0 }]
 };
 
 const dwarf_guard = {
