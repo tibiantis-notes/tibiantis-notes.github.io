@@ -501,6 +501,86 @@ Spells        = {Actor (13) -> Healing (75, 18) : 4,
           projectile: 0}]*/
 };
 
+const dwarf = {
+    name: "Dwarf",
+    xp: 45, hp: 90,
+    atk: 14, def: 14, arm: 8, skill: 23,
+    gostrength: 45,
+    strategy: [100,0,0,0], lose_target: 0, flee_threshold: 0,
+/*Flags       = {NoPoison}*/
+};
+
+const dwarf_geomancer = {
+    name: "Dwarf Geomancer",
+    xp: 245, hp: 380,
+    atk: 30, def: 35, arm: 15, skill: 50,
+    gostrength: 60,
+    strategy: [100,0,0,0], lose_target: 50, flee_threshold: 150,
+/*Flags         = {KickBoxes,
+                 KickCreatures,
+                 SeeInvisible,
+                 Unpushable,
+                 DistanceFighting,
+                 NoSummon,
+                 NoConvince,
+                 NoBurning,
+                 NoPoison}
+
+Spells        = {Actor (13) -> Healing (100, 25) : 2,
+                 Victim (7, 12, 0) -> Damage (1, 80, 25) : 3,
+                 Victim (7, 0, 0) -> Damage (512, 65, 15) : 4}
+*/
+attack: [{ damage_base: 80,
+          damage_var: 25,
+          chance:3,
+          type:1,
+          range:7,
+          projectile: 12},
+        {
+          damage_base: 65,
+          damage_var: 15,
+          chance:4,
+          type:512,
+          range:7,
+          projectile: 0}            
+        }]
+};
+
+const dwarf_soldier = {
+    name: "Dwarf Soldier",
+    xp: 135, hp: 70,
+    atk: 21, def: 20, arm: 9, skill: 42,
+    gostrength: 48,
+    strategy: [100,0,0,0], lose_target: 0, flee_threshold: 0,
+/*Flags         = {KickBoxes,
+                 Unpushable,
+                 NoPoison}
+*/
+attack: [{ damage_base: 30,
+          damage_var: 10,
+          chance:8,
+          type:1,
+          range:7,
+          projectile: 2}]
+};
+
+const dwarf_guard = {
+    name: "Dwarf Guard",
+    xp: 165, hp: 245,
+    atk: 39, def: 37, arm: 15, skill: 55,
+    gostrength: 63,
+    strategy: [70,0,20,10], lose_target: 5, flee_threshold: 0,
+/*Flags         = {KickBoxes,
+                 KickCreatures,
+                 SeeInvisible,
+                 Unpushable,
+                 NoPoison}
+
+*/
+
+};
+
+
 const green_djinn = {
     name: "Green Djinn",
     xp: 190, hp: 330,
