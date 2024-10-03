@@ -44,7 +44,7 @@ Time rings increase speed by 60 (equivalent to 30 levels).<br><br>
 
 Time rings lasts for 10 minutes.<br><br>
   
-Winged helmet, if available, doesn't affect speed.<br>
+Winged helmet doesn't affect speed.<br>
 
 <h2>Haste</h2>
   Haste (Utani Hur) increases speed as follows:<br>
@@ -63,8 +63,15 @@ The Paralyze rune is exclusive to (Elder?) Druid and costs 600 mana to make and 
   
 A diagonal step on the slowest tile can take as long as 15 seconds to complete under paralysis. During a step you cannot use runes although instant spells can be used.<br>
 <h2>Speed formula and breakpoints</h2>
-TotalSpeed = ModifiedSpeed + ItemModifier
+&emsp;<em>TotalSpeed = ModifiedSpeed + ItemModifier</em>
 
+<em>StepTime = rounddown(TotalSpeed/ TerrainFactor, 0.05)</em><br>
+  
+The time for each step, in seconds, is speed divided by the terrain factor, then rounded to the nearest 50 milliseconds. The rounding can have a significant impact on speed causing noticable jumps at certain 'breakpoints'. The higher the speed, the more spreadout but impactful these breakpoints become.<br> 
+
+<em>DiagonalStepTime = 3 * step time</em><br>
+
+Using Pythagoras a digonal step should take 1.41x longer than an orthogonal one, but instead it takes 3x! This is not an efficient way to move except to avoid fire fields and in PvP.<br> 
 <h2>Terrain</h2>
 
 <h2>Creature speed</h2>
@@ -72,6 +79,9 @@ For information on creature speeds including haste, see the creature page.
 
 <h2>Creature paralysis</h2>
 For information on creature that cause paralysis, see the creature page.
+
+<h2>References</h2>
+<a href=" https://web.archive.org/web/20050305022012/http://www.tibianews.net/article.asp?Id=291">2004 Dagor Dragontooth Article</a><br>
 
 
 </body>
