@@ -65,9 +65,10 @@ A diagonal step on the slowest tile can take as long as 15 seconds to complete u
 <h2>Speed formula and breakpoints</h2>
 &emsp;<em>TotalSpeed = ModifiedSpeed + ItemModifier</em>
 
-<em>StepTime = rounddown(TotalSpeed/ TerrainFactor, 0.05)</em><br>
+<em>StepTime = roundup(TerrainFactor/ TotalSpeed, 0.05)</em><br>
   
 The time for each step, in seconds, is speed divided by the terrain factor, then rounded to the nearest 50 milliseconds. The rounding can have a significant impact on speed causing noticable jumps at certain 'breakpoints'. The higher the speed, the more spreadout but impactful these breakpoints become.<br> 
+Taken to the extreme a level 300 player using strong haste, BoH and a time ring will have a speed of 1434, on a fast terrain this would be a step time of 100/1434 = roundup(0.0697,0.05) = 0.010. This is a 43% less than expected.<br>
 
 <em>DiagonalStepTime = 3 * step time</em><br>
 
