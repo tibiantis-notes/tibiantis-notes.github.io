@@ -68,9 +68,9 @@ A diagonal step on the slowest tile can take as long as 15 seconds to complete u
 <em>StepTime = roundup(TerrainFactor/ TotalSpeed, 0.05)</em><br>
   
 The time for each step, in seconds, is speed divided by the terrain factor, then rounded to the nearest 50 milliseconds. The rounding can have a significant impact on speed causing noticable jumps at certain 'breakpoints'. The higher the speed, the more spreadout but impactful these breakpoints become.<br> 
-Taken to the extreme a level 300 player using strong haste, BoH and a time ring will have a speed of 1434, on a fast terrain this would be a step time of 100/1434 = roundup(0.0697,0.05) = 0.010. This is a 43% less than expected.<br>
+Taken to the extreme a level 300 player using strong haste, BoH and a time ring will have a speed of 1434, on a fast terrain this would be a step time of 100/1434 = roundup(0.0697,0.05) = 0.010. This is a 43% less than expected.<br><br>
 
-<em>DiagonalStepTime = 3 * step time</em><br>
+<em>DiagonalStepTime = 3 * step time</em><br><br>
 
 Using Pythagoras a digonal step should take 1.41x longer than an orthogonal one, but instead it takes 3x! This is not an efficient way to move except to avoid fire fields and in PvP.<br> 
 <h2>Terrain</h2>
