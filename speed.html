@@ -30,7 +30,7 @@ img {
 This page describes the mechanics of speed in Tibia 7.4.<br>
 <h2>Base speed</h2>
 Base speed is 220 at level 1 and increases by 2 per level:<br>
-<em>BaseSpeed = 218 + (Level * 2)</em><br><br>
+&emsp;<em>BaseSpeed = 218 + (Level * 2)</em><br><br>
 
 <h2>Speed modifying items</h2>
 
@@ -48,10 +48,10 @@ Winged helmet doesn't affect speed.<br>
 
 <h2>Haste</h2>
   Haste (Utani Hur) increases speed as follows:<br>
-  <em>ModifiedSpeed = (BaseSpeed * 1.3) - 24</em><br><br>
+  &emsp;<em>ModifiedSpeed = (BaseSpeed * 1.3) - 24</em><br><br>
     
   Strong Haste (Utani Gran Hur) increases speed as follows:<br>
-  <em>ModifiedSpeed = (BaseSpeed * 1.7) - 56</em><br><br>
+  &emsp;<em>ModifiedSpeed = (BaseSpeed * 1.7) - 56</em><br><br>
     
 Then resulting value is rounded down (to be confirmed).<br>
 <h2>Paralyze</h2>
@@ -59,18 +59,18 @@ Then resulting value is rounded down (to be confirmed).<br>
 
 The Paralyze rune is exclusive to (Elder?) Druid and costs 600 mana to make and a further 600 to use. It sets speed to 40, cancelling haste and overriding base speed.<br>
 
-<br>ModifiedSpeed = 40</em><br>
+&emsp;<br>ModifiedSpeed = 40</em><br>
   
 A diagonal step on the slowest tile can take as long as 15 seconds to complete under paralysis. During a step you cannot use runes although instant spells can be used.<br>
 <h2>Speed formula and breakpoints</h2>
 &emsp;<em>TotalSpeed = ModifiedSpeed + ItemModifier</em><br><br>
 
-<em>StepTime = roundup(TerrainFactor/ TotalSpeed, 0.05)</em><br>
+&emsp;<em>StepTime = roundup(TerrainFactor / TotalSpeed, 0.05)</em><br><br>
   
 The time for each step, in seconds, is speed divided by the terrain factor, then rounded to the nearest 50 milliseconds. The rounding can have a significant impact on speed causing noticable jumps at certain 'breakpoints'. The higher the speed, the more spreadout but impactful these breakpoints become.<br> 
 Taken to the extreme a level 300 player using strong haste, BoH and a time ring will have a speed of 1434, on a fast terrain this would be a step time of 100/1434 = roundup(0.0697,0.05) = 0.010. This is a 43% less than expected.<br><br>
 
-<em>DiagonalStepTime = 3 * step time</em><br><br>
+&emsp;<em>DiagonalStepTime = 3 * step time</em><br><br>
 
 Using Pythagoras a digonal step should take 1.41x longer than an orthogonal one, but instead it takes 3x! This is not an efficient way to move except to avoid fire fields and in PvP.<br> 
 <h2>Terrain</h2>
