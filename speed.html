@@ -24,40 +24,32 @@ img {
 <h1>Speed</h1>
 
 <h2>Base speed</h2>
-
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-    <mstyle mathsize="20px">
-  <mrow>
-    <mi>BaseSpeed</mi>
-    <mo>=</mo>
-    <mn>218</mn>
-    <mo>+</mo>
-    <mo>(</mo>
-    <mn>2</mn>
-    <mo>&#xD7;</mo>
-    <mi>Level</mi>
-    <mo>)</mo>
-  </mrow>
-</math>
-
-
+Base speed is 220 at level 1 and increases by 2 per level:<br>
+<em>BaseSpeed = 218 + (Level * 2)</em><br><br>
 
 <h2>Speed modifying items</h2>
 
+<img src="/images/boots_of_haste.GIF" alt="Boots of Haste" style="width:64px;height:64px;">
+
 Boots of haste increase speed by 40 (equivalent to 20 levels).<br>
+
+<img src="/images/time_ring.GIF" alt="Time Ring" style="width:64px;height:64px;" ><br>
 
 Time rings increase speed by 60 (equivalent to 30 levels).<br>
 
+Time rings lasts for 10 minutes.
 Winged helmet, if available, doesn't affect speed.<br>
 <h2>Haste</h2>
   Haste (Utani Hur) increases speed as follows:<br>
   <em>ModifiedSpeed = (BaseSpeed * 1.3) - 24</em><br><br>
     
   Strong Haste (Utani Gran Hur) increases speed as follows:<br>
-  ModifiedSpeed = (BaseSpeed * 1.7) - 56<br><br>
+  <en>ModifiedSpeed = (BaseSpeed * 1.7) - 56</em><br><br>
     
 Then resulting value is rounded down (to be confirmed).<br>
 <h2>Paralyze</h2>
+<img src="/images/paralyze_rune.GIF" alt="Paralyze Rube" style="width:64px;height:64px;"><br>
+
 The Paralyze rune is exclusive to (Elder?) Druid and costs 600 mana to make and a further 600 to use. It sets speed to 40, cancelling haste and overriding base speed.<br>
 
 <br>ModifiedSpeed = 40</em><br>
@@ -71,6 +63,8 @@ TotalSpeed = ModifiedSpeed + ItemModifier
 <h2>Creature speed</h2>
 For information on creature speeds including haste, see the creature page.
 
+<h2>Creature paralysis</h2>
+For information on creature that cause paralysis, see the creature page.
 
 
 <img src="/images/trap_open.GIF" alt="Open Trap" style="width:64px;height:64px;">
