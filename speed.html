@@ -63,7 +63,7 @@ Then resulting value is rounded down (to be confirmed).<br>
 The time for each step, in seconds, is speed divided by the terrain factor, then rounded to the nearest 50 milliseconds. The rounding can have a significant impact on speed causing noticable jumps at certain 'breakpoints'. The higher the speed, the more spreadout but impactful these breakpoints become.<br><br> 
 Taken to the extreme a level 300 player using strong haste, BoH and a time ring will have a speed of 1434, on a fast terrain this would be a step time of 100/1434 = roundup(0.0697,0.05) = 0.010. This is a 43% less than expected.<br><br>
 
-&emsp;<em>DiagonalStepTime = 3 for diagonal or 1 for orthogonal</em><br><br>
+&emsp;<em>DiagonalFactor = 3 for diagonal or 1 for orthogonal</em><br><br>
 
 Using Pythagoras a diagonal step should take 1.41x longer than an orthogonal one, but instead it takes 3x! This is not an efficient way to move except to avoid fire fields and in PvP. Speed appears to be related to tile you are moving to. When you move a step from the game's perspective you are immediately on the new tile and then need to wait the step duration for the next action.<br> 
 <h2>Terrain</h2>
@@ -99,6 +99,9 @@ See <a href="https://tibiantis.info/calc/speed">tibiantis.info/speed/calc/speed.
 <a href="https://web.archive.org/web/20050305022012/http://www.tibianews.net/article.asp?Id=291">2004 Dagor Dragontooth Article</a><br>
 <a href="https://gyazo.com/5e88704779525c9cb139381d7508653f">Example of Paralyze rune use</a><br>
 
+<hr>
+<h1>Haste vs Strong Haste</h1>
+  
 <hr>
 <h1>Breakpoints reference table</h1>
 
