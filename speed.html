@@ -64,28 +64,27 @@ Time rings increase speed by 60 (equivalent to 30 levels). Time rings lasts for 
   
 <img src="/images/winged_helmet.PNG" alt="Winged Helmet" style="width:64px;height:64px;"><br>
 
-Winged helmets increase speed by 40, but are extremely rare.<br>
+Winged helmets increase speed by 40, but are extremely rare.<br><br>
 
 <h2>Haste</h2>
-  Haste (Utani Hur) costs 60 mana for increases speed for 66 seconds as follows:<br><br>
+  Haste (Utani Hur) costs 60 mana and increases speed for 66 seconds as follows:<br><br>
   &emsp;<em>ModifiedSpeed = (BaseSpeed * 1.3) - 24</em><br><br>
     
   Strong Haste (Utani Gran Hur) costs 100 mana and increases speed for 44 seconds as follows:<br><br>
   &emsp;<em>ModifiedSpeed = (BaseSpeed * 1.7) - 56</em><br><br>
     
-Then resulting value is rounded down (to be confirmed). The negative speed modifier reduces the effect of haste spells, but this effect reduces at higher levels. A lv 11, 100 and 200 will have a 20, 24 and 29% increase in speed from haste and 47, 56 and 61% from strong haste respectively. <br>
+Then resulting value is rounded down. The negative speed modifier reduces the effect of haste spells, but this effect reduces at higher levels. A level 11, 100 and 200 will have a 20, 24 and 29% increase in speed from haste and 47, 56 and 61% from strong haste respectively. <br><br>
 
 <h2>Speed formula and breakpoints</h2>
 &emsp;<em>TotalSpeed = ModifiedSpeed + ItemModifier</em><br><br>
 
 &emsp;<em>StepTime = roundup(TerrainFactor / TotalSpeed * DiagonalFactor, 0.05)</em><br><br>
   
-The time for each step, in seconds, is speed divided by the terrain factor, then rounded to the nearest 50 milliseconds. The rounding can have a significant impact on speed causing noticable jumps at certain 'breakpoints'. The higher the speed, the more spreadout but impactful these breakpoints become.<br><br> 
-Taken to the extreme a level 300 player using strong haste, BoH and a time ring will have a speed of 1434, on a fast terrain this would be a step time of 100/1434 = roundup(0.0697,0.05) = 0.010. This is a 43% less than expected.<br><br>
+The time for each step, in seconds, is speed divided by the terrain factor, then rounded up to the nearest 50 milliseconds. The rounding can have a significant impact on speed causing noticable jumps at certain 'breakpoints'. The higher the speed, the more spreadout but impactful these breakpoints become.<br><br>
 
 &emsp;<em>DiagonalFactor = 3 for diagonal or 1 for orthogonal</em><br><br>
 
-Using Pythagoras a diagonal step should take 1.41x longer than an orthogonal one, but instead it takes 3x! This is not an efficient way to move except to avoid fire fields and in PvP. Speed appears to be related to tile you are moving to. When you move a step from the game's perspective you are immediately on the new tile and then need to wait the step duration for the next action.<br> 
+Using Pythagoras a diagonal step should take 1.41x longer than an orthogonal one, but instead it takes 3 times longer! This is not an efficient way to move except to avoid fire fields, creature boxing and in PvP. Speed appears to be related to tile you are moving to. When you move a step from the game's perspective you are immediately on the new tile and then need to wait the step duration for the next action.<br> 
 <h2>Terrain</h2>
 Different terrain tiles can be traversed at different speeds determined by the Terrain Factor which ranges from 100 (fastest) to 200 (slowest). There are a huge number of tiles with varying factors including averaged values for tiles that transition from one type to another. The game pathing will take tile speed into account when choosing the optimal route.<br><br>
   
@@ -98,7 +97,7 @@ The Paralyze rune is exclusive to Druids with premium and costs 600 mana to make
 
 &emsp;<em>TotalSpeed = 40 + ItemModifier</em><br><br>
   
- During a step you cannot use runes or equip items like energy rings although instant spells can be used (the use of multiple instant spells while paralysed is to be confirmed). Due to its huge cost and limited effect, the Paralyze rune is not valuable in PvE. In PvP it can be very powerful by allowing time to surround and trap a target even if they are in the open, or to prevent rune healing and kill while the target completes a step - this is more effective against knights who don't get exura vita. Casting paralyze then immediately pushing the target in a diagonal step on a slow tile will maximise the duration. A diagonal step on the slowest tile can take as long as 15 seconds to complete under paralysis.
+ During a step you cannot use runes or equip items like energy rings although instant spells can be used (the use of multiple instant spells while paralysed is to be confirmed). Due to its huge cost and limited effect, the Paralyze rune is not valuable in PvE. In PvP it can be very powerful by allowing time to surround and trap a target even if they are in the open, or to prevent rune healing and kill while the target completes a step - this is more effective against knights who don't get exura vita. Casting paralyze then immediately pushing the target in a diagonal step on a slow tile will maximise the duration. A diagonal step on the slowest tile can take as long as 15 seconds to complete under paralysis.<br><br>
 
 <h2>Creature speed</h2>
   
@@ -120,11 +119,11 @@ See <a href="https://tibiantis.info/calc/speed">tibiantis.info/speed/calc/speed.
 <h2>References</h2>
 <a href="https://web.archive.org/web/20050305022012/http://www.tibianews.net/article.asp?Id=291">2004 Dagor Dragontooth Article</a><br>
 <a href="https://gyazo.com/5e88704779525c9cb139381d7508653f">Example of Paralyze rune use</a><br>
-<a href="https://discord.com/channels/602454923141054475/700841333379563551/986733133007310869">Tibiantis Discord: Kay on speed breakpoints</a><br>
+<a href="https://discord.com/channels/602454923141054475/700841333379563551/986733133007310869">Tibiantis Discord: Kay on speed breakpoints</a><br><br>
 <hr>
 <h1>Haste vs Strong Haste</h1>
 
-Haste is approximately 20% more efficient than strong haste if you are travelling long distances. Strong haste spell is more useful in PvP.<br><br>66s *(1-1/1.24)=12.8 seconds saved for 60 mana = 0.21 second saved per mana.<br>44s *(1-1/1.56)=15.8 seconds saved for 100 mana = 0.158 seconds saved per mana.<br><br>
+Haste is approximately 20% more efficient than strong haste if you are travelling long distances. Strong haste spell is more useful in PvP.<br><br>66s *(1-1/1.24)=12.8 seconds saved for 60 mana = 0.21 seconds saved per mana.<br>44s *(1-1/1.56)=15.8 seconds saved for 100 mana = 0.158 seconds saved per mana.<br><br>
 <hr>
 <h1>Speed breakpoints reference table</h1>
 
