@@ -18,13 +18,18 @@ table, th, td {
 /* Style for outer table (no borders) */
 .outer-table {
   border:none;
-  border-collapse: separate;
+  border-collapse: collapse;
 
   }
 .outer-table td, .outer-table th {
   border: none;
-  padding: 8px;
   }
+  
+.outer-table table th,
+.outer-table table td, {
+  border: 1px solid black;
+  }
+  
 img {
   image-rendering: pixelated; /* Nearest-neighbor scaling */
 }
