@@ -14,7 +14,15 @@ table, th, td {
   padding-left: 5px;
   padding-right: 5px;
   text-align: center;
-}
+  }
+/* Style for outer table (no borders) */
+.outer-table {
+  border-collapse: collapse;
+  }
+.outer-table td, .outer-table th {
+  border: none;
+  padding: 8px;
+  }
 img {
   image-rendering: pixelated; /* Nearest-neighbor scaling */
 }
@@ -292,6 +300,28 @@ Notes:<br>
 <tr><th>150</th><td>0</td><td>25</td><td>0</td><td>20</td><td>0</td><td>17</td><td>0</td>
 </table>
 
+<table class="outer-table">
+        <tr>
+            <th>Outer Table Header 1</th>
+            <th>Outer Table Header 2</th>
+        </tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <th>Inner Table Header 1</th>
+                        <th>Inner Table Header 2</th>
+                    </tr>
+                    <tr>
+                        <td>Data 1</td>
+                        <td>Data 2</td>
+                    </tr>
+                </table>
+            </td>
+            <td>Outer Table Data</td>
+        </tr>
+    </table>
+    
 Notes:<br>
 <ol>
 <li> Boots of Hastes effect varies due to breakpoints - sometimes it will bump you two breakpoints, other times none at all. The higher the speed the more spread but significant the increase.</li>
