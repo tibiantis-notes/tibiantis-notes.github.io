@@ -73,7 +73,7 @@ Winged helmets increase speed by 40, but are extremely rare.<br><br>
   Strong Haste (Utani Gran Hur) costs 100 mana and increases speed for 44 seconds as follows:<br><br>
   &emsp;<em>ModifiedSpeed = (BaseSpeed * 1.7) - 56</em><br><br>
     
-Then resulting value is rounded down. The negative speed modifier reduces the effect of haste spells, but this effect reduces at higher levels. A level 11, 100 and 200 will have a 20, 24 and 29% increase in speed from haste and 47, 56 and 61% from strong haste respectively. <br><br>
+Then resulting value is rounded down to the nearest even number. The negative speed modifier reduces the effect of haste spells, but this effect reduces at higher levels. A level 11, 100 and 200 will have a 20, 24 and 29% increase in speed from haste and 47, 56 and 61% from strong haste respectively. <br><br>
 
 <h2>Speed formula and breakpoints</h2>
 &emsp;<em>TotalSpeed = ModifiedSpeed + ItemModifier</em><br><br>
@@ -103,11 +103,12 @@ The Paralyze rune is exclusively made by Druids with premium but can be used by 
 
 <h2>Creature speed</h2>
   
-Giant Spiders with haste have a max speed of 391. Monster haste has some degee of variance, for example Giant spiders are 60-70% boosted. On a grass tile this rounds down to 375 needed to match their speed (breakpoint 8). This is comparable to level 59 with BoH.<br>
-To outrun an Orc Berserker with haste you need 364 speed which is level 53 with BoH.<br>
-To outrun a Behemoth with haste you need 420 speed which is level 81 with BoH.<br><br>
+In the game files, monsters and human (player) speeds are defined by GoStrength, where <em>BaseSpeed = GoStrength * 2 + 80</em>. Level 1 players have a GoStrength of 70.<br>
+Giant Spiders with haste have a max speed of 408. Monster haste has some degee of variance, for example Giant spiders are 60-70% boosted. On a grass tile this rounds down to 375 needed to match their speed (breakpoint 8). This is comparable to level 59 with BoH.<br>
+To outrun an Orc Berserker with haste you need 386 speed which is level 64 with BoH (before breakpoint rounding).<br>
+To outrun a Behemoth with haste you need 510 speed which is level 126 with BoH.<br><br>
 
-Most other monsters which don't cast haste have a relatively slow speed. The relatively fast Black Knight has a speed of a 305, equivalent to lv 44 without BoH. For information on creature speeds see the creature page.<br><br>
+Most other monsters which don't cast haste have a relatively slow speed. The relatively fast Black Knight has a speed of a 390, equivalent to lv 66 with BoH. For information on creature speeds see the creature page.<br><br>
 
 <h2>Creature paralysis</h2>
 
