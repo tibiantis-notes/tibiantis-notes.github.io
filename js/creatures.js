@@ -657,6 +657,74 @@ Spells        = {Victim (7, 5, 0) -> Damage (8, 60, 15) : 14,
           ]
 };
 
+const elf = {
+    name: "Elf",
+    xp: 42, hp: 100,
+    atk: 12, def: 12, arm: 6, skill: 20,
+    gostrength: 55,
+    strategy: [100,0,0,0], lose_target: 0, flee_threshold: 0,
+/*
+Flags         = {SeeInvisible}
+*/
+attack: [{ damage_base: 25,
+          damage_var: 10,
+          chance:20,
+          type:1,
+          range:7,
+          projectile: 3}]
+};
+
+const elf_anarchist = {
+    name: "Elf Anarchist",
+    xp: 175, hp: 220,
+    atk: 20, def: 20, arm: 15, skill: 25,
+    gostrength: 70,
+    strategy: [100,0,0,0], lose_target: 50, flee_threshold: 0,
+/*
+Flags         = {KickBoxes,
+                 SeeInvisible,
+                 Unpushable,
+                 DistanceFighting,
+                 NoSummon,
+                 NoIllusion,
+                 NoConvince,
+                 NoBurning,
+                 NoPoison,
+                 NoEnergy}
+
+Spells        = {Actor (13) -> Healing (55, 13) : 5,
+                 Victim (7, 3, 0) -> Damage (1, 30, 15) : 11,
+                 Victim (7, 5, 12) -> Damage (8, 40, 10) : 12,
+                 Victim (7, 11, 0) -> Damage (1, 70, 10) : 9}
+              */
+
+attack: [{ damage_base: 30,
+          damage_var: 15,
+          chance:11,
+          type:1,
+          range:7,
+          projectile: 3}]
+};
+
+const elf_scout = {
+    name: "Elf Scout",
+    xp: 75, hp: 160,
+    atk: 18, def: 18, arm: 7, skill: 25,
+    gostrength: 70,
+    strategy: [100,0,0,0], lose_target: 50, flee_threshold: 0,
+/*Flags         = {KickBoxes,
+                 SeeInvisible,
+                 Unpushable,
+                 DistanceFighting}
+*/
+attack: [{ damage_base: 45,
+          damage_var: 15,
+          chance:4,
+          type:1,
+          range:7,
+          projectile: 3}]
+};
+
 const green_djinn = {
     name: "Green Djinn",
     xp: 190, hp: 330,
@@ -733,7 +801,7 @@ const sheep = {
 
 //end of creatures definitions
 
-const creature = [amazon, ancient_scarab, badger, banshee, bear, behemoth, beholder, black_knight, black_sheep, blue_djinn, bonebeast, bug, cave_rat, cobra, crypt_shambler, cyclops, deer, demon, demon_skeleton, dog, dragon, dragon_lord, dwarf, dwarf_geomancer, dwarf_guard, dwarf_soldier, efreet, elder beholder, green_djinn, pig, rabbit, sheep];
+const creature = [amazon, ancient_scarab, badger, banshee, bear, behemoth, beholder, black_knight, black_sheep, blue_djinn, bonebeast, bug, cave_rat, cobra, crypt_shambler, cyclops, deer, demon, demon_skeleton, dog, dragon, dragon_lord, dwarf, dwarf_geomancer, dwarf_guard, dwarf_soldier, efreet, elder beholder, elf, elf_anarchist, elf_scout, green_djinn, pig, rabbit, sheep];
 
 creature.forEach(current_creature => {
     let creatureInfo = "<hr><h3>" + current_creature.name + "</h3>";
