@@ -598,12 +598,16 @@ Flags         = {KickBoxes,
                  NoLifeDrain,
                  NoParalyze}
                 
-Spells        = {Victim (7, 4, 0) -> Damage (4, 60, 15) : 2,
-                 Victim (7, 5, 0) -> Damage (128, 70, 20) : 3,
-                 Victim (7, 11, 0) -> Damage (256, 80, 25) : 4,
-                 Victim (7, 5, 11) -> Drunken (6, 0, 30) : 5,
-                 Victim (7, 0, 13) -> Outfit ((74, 0-0-0-0), 20) : 6}           
-*/
+Spells        = {Actor (13) -> Healing (65, 15) : 7,
+                 Victim (7, 4, 0) -> Damage (4, 75, 35) : 2,
+                 Victim (7, 5, 0) -> Damage (8, 90, 25) : 4,
+                 Victim (7, 11, 0) -> Damage (256, 90, 30) : 5,
+                 Victim (7, 0, 14) -> Speed (-75, 25, 15) : 8,
+                 Victim (7, 5, 11) -> Drunken (6, 0, 60) : 5,
+                 Victim (7, 0, 13) -> Outfit ((21, 0-0-0-0), 30) : 6,
+                 Origin (2, 12) -> Damage (128, 80, 20) : 6,
+                 Origin (0, 13) -> Summon (51, 2) : 7}*/
+
     attack: [
         { damage_base: 75,
           damage_var: 35,
@@ -690,7 +694,7 @@ const sheep = {
 
 //end of creatures definitions
 
-const creature = [amazon, ancient_scarab, badger, banshee, bear, behemoth, beholder, black_knight, black_sheep, blue_djinn, bonebeast, bug, cave_rat, cobra, crypt_shambler, cyclops, deer, demon, demon_skeleton, dog, dragon, dragon_lord, dwarf, dwarf_geomancer, dwarf_guard, dwarf_soldier, green_djinn, pig, rabbit, sheep];
+const creature = [amazon, ancient_scarab, badger, banshee, bear, behemoth, beholder, black_knight, black_sheep, blue_djinn, bonebeast, bug, cave_rat, cobra, crypt_shambler, cyclops, deer, demon, demon_skeleton, dog, dragon, dragon_lord, dwarf, dwarf_geomancer, dwarf_guard, dwarf_soldier, efreet, green_djinn, pig, rabbit, sheep];
 
 creature.forEach(current_creature => {
     let creatureInfo = "<hr><h3>" + current_creature.name + "</h3>";
