@@ -618,6 +618,45 @@ Spells        = {Actor (13) -> Healing (65, 15) : 7,
            ]
 };
 
+const elder_beholder = {
+    name: "Elder Beholder",
+    xp: 280, hp: 500,
+    atk: 16, def: 26, arm: 13, skill: 45,
+    gostrength: 45,
+    strategy: [100,0,0,0],
+    lose_target: 50,
+    flee_threshold: 0,
+
+    /*
+Flags         = {KickBoxes,
+                 SeeInvisible,
+                 Unpushable,
+                 DistanceFighting,
+                 NoSummon,
+                 NoConvince,
+                 NoPoison,
+                 NoLifeDrain}
+                
+Spells        = {Victim (7, 5, 0) -> Damage (8, 60, 15) : 14,
+                 Victim (7, 4, 0) -> Damage (4, 70, 10) : 15,
+                 Victim (7, 11, 18) -> Damage (1, 80, 10) : 12,
+                 Victim (7, 15, 0) -> Damage (2, 50, 20) : 13,
+                 Victim (7, 0, 14) -> Damage (256, 80, 5) : 18,
+                 Victim (7, 0, 14) -> Damage (256, 80, 5) : 18,
+                 Victim (7, 0, 14) -> Damage (512, 30, 10) : 19,
+                 Victim (7, 0, 14) -> Speed (-90, 20, 20) : 10,
+                 Origin (0, 13) -> Summon (109, 6) : 8,
+                 Origin (0, 13) -> Summon (100, 6) : 9}*/
+    attack: [
+        { damage_base: 80,
+          damage_var: 10,
+          chance:12,
+          type:1,
+          range:7,
+          projectile: 11}  // Attack 1
+          ]
+};
+
 const green_djinn = {
     name: "Green Djinn",
     xp: 190, hp: 330,
@@ -694,7 +733,7 @@ const sheep = {
 
 //end of creatures definitions
 
-const creature = [amazon, ancient_scarab, badger, banshee, bear, behemoth, beholder, black_knight, black_sheep, blue_djinn, bonebeast, bug, cave_rat, cobra, crypt_shambler, cyclops, deer, demon, demon_skeleton, dog, dragon, dragon_lord, dwarf, dwarf_geomancer, dwarf_guard, dwarf_soldier, efreet, green_djinn, pig, rabbit, sheep];
+const creature = [amazon, ancient_scarab, badger, banshee, bear, behemoth, beholder, black_knight, black_sheep, blue_djinn, bonebeast, bug, cave_rat, cobra, crypt_shambler, cyclops, deer, demon, demon_skeleton, dog, dragon, dragon_lord, dwarf, dwarf_geomancer, dwarf_guard, dwarf_soldier, efreet, elder beholder, green_djinn, pig, rabbit, sheep];
 
 creature.forEach(current_creature => {
     let creatureInfo = "<hr><h3>" + current_creature.name + "</h3>";
