@@ -576,6 +576,44 @@ attack: [{ damage_base: 30,
           projectile: 2}]
 };
 
+const efreet = {
+    name: "Efreet",
+    xp: 300, hp: 550,
+    atk: 35, def: 35, arm: 24, skill: 55,
+    gostrength: 77,
+    strategy: [100,0,0,0],
+    lose_target: 0,
+    flee_threshold: 0,
+
+    /*
+Flags         = {KickBoxes,
+                 SeeInvisible,
+                 Unpushable,
+                 NoSummon,
+                 NoIllusion,
+                 NoConvince,
+                 NoBurning,
+                 NoPoison,
+                 NoEnergy,
+                 NoLifeDrain,
+                 NoParalyze}
+                
+Spells        = {Victim (7, 4, 0) -> Damage (4, 60, 15) : 2,
+                 Victim (7, 5, 0) -> Damage (128, 70, 20) : 3,
+                 Victim (7, 11, 0) -> Damage (256, 80, 25) : 4,
+                 Victim (7, 5, 11) -> Drunken (6, 0, 30) : 5,
+                 Victim (7, 0, 13) -> Outfit ((74, 0-0-0-0), 20) : 6}           
+*/
+    attack: [
+        { damage_base: 75,
+          damage_var: 35,
+          chance:2,
+          type:4,
+          range:7,
+          projectile: 4}  // Attack 1
+           ]
+};
+
 const green_djinn = {
     name: "Green Djinn",
     xp: 190, hp: 330,
