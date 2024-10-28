@@ -4,6 +4,6 @@ const creature = [amazon, ancient_scarab, badger, banshee, bear, behemoth, behol
 
 creature.forEach(current_creature => {
     let creatureInfo = "<hr><h3>" + current_creature.name + "</h3>";
-}
+});
     
 document.getElementById('creature_log').innerHTML += creatureInfo;
