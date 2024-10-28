@@ -7,4 +7,3 @@ creature.forEach(current_creature => {
 }
     
 document.getElementById('creature_log').innerHTML += creatureInfo;
-});
