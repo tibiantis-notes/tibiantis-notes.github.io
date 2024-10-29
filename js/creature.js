@@ -7,7 +7,7 @@ creature.sort((a, b) => b.HitPoints - a.HitPoints);
 let creatureInfo = "";
 
 creature.forEach(current_creature => {
-    creatureInfo += "<hr><h3>" + current_creature.name + "</h3>" + "HP = " current_creature.HitPoints + "<br>";
+    creatureInfo += "<hr><h3>" + current_creature.name + "</h3>" + "HP =" + current_creature.HitPoints + "<br>";
 });
 
 document.getElementById('creature_log').innerHTML += creatureInfo;
