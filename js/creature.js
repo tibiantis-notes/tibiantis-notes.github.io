@@ -42,6 +42,7 @@ creature.sort((a, b) => speed_with_haste(b) - speed_with_haste(a));
 /*creature.sort((a, b) => b.HitPoints - a.HitPoints);*/
 
 let creatureInfo = "";
+let creatureTable = "";
 
 creature.forEach(current_creature => {
     creatureInfo += "<hr><h3>" + current_creature.name + "</h3>" +
@@ -50,10 +51,19 @@ creature.forEach(current_creature => {
 "Attack: " + current_creature.Attack + ", Defence: " + current_creature.Defence + ", Skill: " + current_creature.FistFighting + ", Armor: " + current_creature.Armor + "<br>Max Damage: " + max_damage(current_creature) + "<br>" + "Speed " + ("Haste_spell" in current_creature ? "(with haste)" : "") + ": " + speed_with_haste(current_creature) + "<br>";
 });
 
-document.getElementById('creature_log').innerHTML += creatureInfo;
+document.getElementById('creature_log').innerHTML = creatureInfo;
 
-/*if ("cat" in creature) {
-    "(with haste)";}
-} else {
-    console.log("The creature does not have a 'cat' property.");
-}*/
+creatureTable += "<h2>Table: Creature data</h2>
+<table>";
+
+creature.forEach(current_creature => {
+//build columns based on array
+// or lots or conditionals
+// maybe only double the conditionals.
+creatureTable += "1";
+});
+
+creatueeTable += "</table>";
+
+document.getElementById('creature_table').innerHTML = creatureTable;
+
