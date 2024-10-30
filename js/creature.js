@@ -55,12 +55,12 @@ document.getElementById('creature_log').innerHTML = creatureInfo;
 
 creatureTable += "<h2>Table: Creature data</h2><table>";
 
+let header;
 
 creature.forEach(current_creature => {
 //build columns based on array
 // or lots or conditionals
 // maybe only double the conditionals.
-let header; // undefined = false
 if (header == false){
     creatureTable += "<tr><th>Name</th><th>HitPoints</th></tr>";
     header = true;
