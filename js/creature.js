@@ -22,16 +22,6 @@ function speed_with_haste(fn_creature) {
     
     return fn_creature.GoStrength * (1 + haste);
 } // end of haste function
-/*ancient_scarab, 	1	"Haste_spell: ""Self haste spell, 80-90% strength for 9s, chance 13."", "
-behemoth, 	1	"Haste_spell: ""Self haste spell, 40-50% strength for 8s, chance 15."", "
-gazer, 	1	"Haste_spell: ""Self haste spell, 98-100% strength for 4s, chance 11."", "
-giant_spider, 	1	"Haste_spell: ""Self haste spell, 60-70% strength for 20s, chance 18."", "
-monk, 	1	"Haste_spell: ""Self haste spell, 50-60% strength for 2s, chance 10."", "
-orc_berserker, 	1	"Haste_spell: ""Self haste spell, 45-55% strength for 6s, chance 12."", "
-orc_rider, 	1	"Haste_spell: ""Self haste spell, 40-50% strength for 6s, chance 15."", "
-scarab, 	1	"Haste_spell: ""Self haste spell, 40-50% strength for 4s, chance 20."", "
-wild_warrior, 	1	"Haste_spell: ""Self haste spell, 80-90% strength for 9s, chance 13."", "
-*/
     
 return Math.floor((5 * fn_creature.FistFighting + 50) * fn_creature.Attack * (99 + 99) / 2 / 10000);
 }
