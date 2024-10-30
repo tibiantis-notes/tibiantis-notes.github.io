@@ -2,7 +2,7 @@
 
 function max_damage(fn_creature) {
     
-return Math.floor((5 * fn_creature.Skill + 50) * fn_creature.Attack * (99 + 99) / 2 / 10000);
+return Math.floor((5 * fn_creature.FistFighting + 50) * fn_creature.Attack * (99 + 99) / 2 / 10000);
 }
 
 /*min_attack(current_creature.attack[0])*/
