@@ -20,7 +20,7 @@ function speed_with_haste(fn_creature) {
     default: haste = 0;
     } // end of switch
     
-    return fn_creature.GoStrength * (1 + haste);
+    return (fn_creature.GoStrength * 2 + 80) * (1 + haste);
 } // end of haste function
 
 
