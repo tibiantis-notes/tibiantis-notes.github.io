@@ -17,7 +17,7 @@ function speed_with_haste(fn_creature) {
     case scarab: haste = 0.5; break;
     case wild_warrior: haste = 1.0; break;
     
-    default: haste_strength = 0;
+    default: haste = 0;
     } // end of switch
     
     return fn_creature.GoStrength * (1 + haste);
@@ -59,7 +59,7 @@ creature.forEach(current_creature => {
     creatureInfo += "<hr><h3>" + current_creature.name + "</h3>" +
 "Hit Points: " + current_creature.HitPoints + "<br>" + 
 "Experience: " + current_creature.Experience + "<br>" +
-"Attack: " + current_creature.Attack + ", Defence: " + current_creature.Defence + ", Skill: " + current_creature.FistFighting + ", Armor: " + current_creature.Armor + "<br>Max Damage: " + max_damage(current_creature) + "<br>";
+"Attack: " + current_creature.Attack + ", Defence: " + current_creature.Defence + ", Skill: " + current_creature.FistFighting + ", Armor: " + current_creature.Armor + "<br>Max Damage: " + max_damage(current_creature) + "<br>" + "Speed (with haste): " + speed_with_haste(current_creature) + "<br>";
 });
 
 document.getElementById('creature_log').innerHTML += creatureInfo;
