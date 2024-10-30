@@ -62,7 +62,7 @@ creature.forEach(current_creature => {
 //build columns based on array
 // or lots or conditionals
 // maybe only double the conditionals.
-creatureTable += "<tr><td>current_creature.name</td><td>current_creature.HitPoints</td></tr>";
+creatureTable += "<tr><td>" + current_creature.name + "</td><td>" + current_creature.HitPoints + "</td></tr>";
 });
 
 creatureTable += "</table>";
