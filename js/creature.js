@@ -4,7 +4,7 @@ function max_damage(fn_creature) {
 return Math.floor((5 * fn_creature.FistFighting + 50) * fn_creature.Attack * (99 + 99) / 2 / 10000);
 }
 
-function speed_with_haste(fn_creature) {
+/*function speed_with_haste(fn_creature) {
     let haste = 0;
     switch(fn_creature){
     case ancient_scarab: haste = 0.9; break;
@@ -21,7 +21,7 @@ function speed_with_haste(fn_creature) {
     } // end of switch
     
     return fn_creature.GoStrength * (1 + haste);
-} // end of haste function
+}*/ // end of haste function
     
 return Math.floor((5 * fn_creature.FistFighting + 50) * fn_creature.Attack * (99 + 99) / 2 / 10000);
 }
@@ -49,7 +49,7 @@ creature.forEach(current_creature => {
     creatureInfo += "<hr><h3>" + current_creature.name + "</h3>" +
 "Hit Points: " + current_creature.HitPoints + "<br>" + 
 "Experience: " + current_creature.Experience + "<br>" +
-"Attack: " + current_creature.Attack + ", Defence: " + current_creature.Defence + ", Skill: " + current_creature.FistFighting + ", Armor: " + current_creature.Armor + "<br>Max Damage: " + max_damage(current_creature) + "<br>" + "Speed (with haste): " + speed_with_haste(current_creature) + "<br>";
+"Attack: " + current_creature.Attack + ", Defence: " + current_creature.Defence + ", Skill: " + current_creature.FistFighting + ", Armor: " + current_creature.Armor + "<br>Max Damage: " + max_damage(current_creature) + "<br>"/* + "Speed (with haste): " + speed_with_haste(current_creature) + "<br>"*/;
 });
 
 document.getElementById('creature_log').innerHTML += creatureInfo;
