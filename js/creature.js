@@ -5,7 +5,7 @@ return Math.floor((5 * fn_creature.FistFighting + 50) * fn_creature.Attack * (99
 }
 
 function speed_with_haste(fn_creature) {
-    let haste;
+    let haste = 0;
     switch(fn_creature){
     case ancient_scarab: haste = 0.9; break;
     case behemoth: haste = 0.5; break;
