@@ -63,7 +63,7 @@ creature.forEach(current_creature => {
 creatureTable += "1";
 });
 
-creatueeTable += "</table>";
+creatureTable += "</table>";
 
 document.getElementById('creature_table').innerHTML = creatureTable;
 
