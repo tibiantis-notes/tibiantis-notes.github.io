@@ -19,8 +19,7 @@ creature.forEach(current_creature => {
     creatureInfo += "<hr><h3>" + current_creature.name + "</h3>" +
 "Hit Points: " + current_creature.HitPoints + "<br>" + 
 "Experience: " + current_creature.Experience + "<br>" +
-"Attack: " + current_creature.Attack + ", Defence: " + current_creature.Defence + ", Skill: " + current_creature.FistFighting + ", Armor: " + current_creature.Armor + "<br>"
-"Max Damage: " + max_damage(current_creature) + <br>;
+"Attack: " + current_creature.Attack + ", Defence: " + current_creature.Defence + ", Skill: " + current_creature.FistFighting + ", Armor: " + current_creature.Armor + "<br>Max Damage: " + max_damage(current_creature) + "<br>";
 });
 
 document.getElementById('creature_log').innerHTML += creatureInfo;
