@@ -4,6 +4,13 @@ function max_damage(fn_creature) {
 return Math.floor((5 * fn_creature.FistFighting + 50) * fn_creature.Attack * (99 + 99) / 2 / 10000);
 }
 
+function speed_with_haste(fn_creature) {
+    return 0;
+}
+    
+return Math.floor((5 * fn_creature.FistFighting + 50) * fn_creature.Attack * (99 + 99) / 2 / 10000);
+}
+
 // Function max damage reduction,function blocking plus armor
 
 //Tick boxes for include
