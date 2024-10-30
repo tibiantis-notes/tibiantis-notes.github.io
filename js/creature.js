@@ -6,6 +6,8 @@ return Math.floor((5 * fn_creature.FistFighting + 50) * fn_creature.Attack * (99
 
 // Function max damage reduction,function blocking plus armor
 
+//Tick boxes for include
+
 //Sort (toggles) + Toggle for accending/ decending: name, hp, xp, damage, blocking, armor, dam reduction, xp/hp, speed, speed with haste, flee,
 
 // Filters (check box): weak fire, immune fire, erergy, kick boxes, see invis, etc.
