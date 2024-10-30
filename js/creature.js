@@ -53,8 +53,7 @@ creature.forEach(current_creature => {
 
 document.getElementById('creature_log').innerHTML = creatureInfo;
 
-creatureTable += "<h2>Table: Creature data</h2>
-<table><tr><th>Name</th><th>Hit Points</th></tr>";
+creatureTable += "<h2>Table: Creature data</h2><table><tr><th>Name</th><th>Hit Points</th></tr>";
 
 
 creature.forEach(current_creature => {
