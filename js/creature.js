@@ -4,6 +4,16 @@ function max_damage(fn_creature) {
 return Math.floor((5 * fn_creature.FistFighting + 50) * fn_creature.Attack * (99 + 99) / 2 / 10000);
 }
 
+function max_block(fn_creature) {
+    
+return Math.floor((5 * fn_creature.FistFighting + 50) * fn_creature.Defence * (99 + 99) / 2 / 10000);
+}
+
+function arm_and_block(fn_creature) {
+    
+return Math.floor((5 * fn_creature.FistFighting + 50) * fn_creature.Defence * (99 + 99) / 2 / 10000);
+}
+
 function speed_with_haste(fn_creature) {
     let haste = 0;
     switch(fn_creature){
@@ -107,17 +117,17 @@ creatureTable += "<td>" + current_creature.FistFighting + "</td>";}
 if (true){ //Max Hit
 if (header == false){
     creatureTableHeader += "<th>Max<br>Hit</th>";}
-creatureTable += "<td>" + current_creature.FistFighting + "</td>";}
+creatureTable += "<td>" + max_damage(current_creature) + "</td>";}
 
 if (true){ //Max Block
 if (header == false){
     creatureTableHeader += "<th>Max<br>Block</th>";}
-creatureTable += "<td>" + current_creature.FistFighting + "</td>";}
+creatureTable += "<td>" + max_block(current_creature) + "</td>";}
 
 if (true){ //Average Block
 if (header == false){
     creatureTableHeader += "<th>Arm +<br>Block</th>";}
-creatureTable += "<td>" + current_creature.FistFighting + "</td>";}
+creatureTable += "<td>" + arm_and_block(current_creature) + "</td>";}
 
 
 creatureTable += "</tr>";
