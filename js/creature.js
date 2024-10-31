@@ -74,10 +74,6 @@ if (header == false){
     creatureTableHeader += "<th>Exp</th>";}
 creatureTable += "<td>" + current_creature.Experience + "</td>";}
 
-if (true){ //Armor
-if (header == false){
-    creatureTableHeader += "<th>Armor</th>";}
-creatureTable += "<td>" + current_creature.Armor + "</td>";}
 
 if (true){ //Summon
 if (header == false){
@@ -89,6 +85,25 @@ if (header == false){
     creatureTableHeader += "<th>Convince</th>";}
 creatureTable += "<td>" + current_creature.SummonCost + "</td>";}
 
+if (true){ //Attack
+if (header == false){
+    creatureTableHeader += "<th>Atk</th>";}
+creatureTable += "<td>" + current_creature.Attack + "</td>";}
+
+if (true){ //Defence
+if (header == false){
+    creatureTableHeader += "<th>Def</th>";}
+creatureTable += "<td>" + current_creature.Defence + "</td>";}
+
+if (true){ //Armor
+if (header == false){
+    creatureTableHeader += "<th>Armor</th>";}
+creatureTable += "<td>" + current_creature.Armor + "</td>";}
+
+if (true){ //Skill
+if (header == false){
+    creatureTableHeader += "<th>Skill</th>";}
+creatureTable += "<td>" + current_creature.FistFighting + "</td>";}
 
 creatureTable += "</tr>";
 
