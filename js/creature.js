@@ -66,18 +66,29 @@ creatureTable += "<td>" + current_creature.name + "</td>";}
 
 if (true){ //Hit Points
 if (header == false){
-    creatureTableHeader += "<th>Hit<br>Points</th>";}
+    creatureTableHeader += "<th>HP</th>";}
 creatureTable += "<td>" + current_creature.HitPoints + "</td>";}
 
 if (true){ //Experience
 if (header == false){
-    creatureTableHeader += "<th>Experience</th>";}
+    creatureTableHeader += "<th>Exp</th>";}
 creatureTable += "<td>" + current_creature.Experience + "</td>";}
 
 if (true){ //Armor
 if (header == false){
     creatureTableHeader += "<th>Armor</th>";}
 creatureTable += "<td>" + current_creature.Armor + "</td>";}
+
+if (true){ //Summon
+if (header == false){
+    creatureTableHeader += "<th>Summon</th>";}
+creatureTable += "<td>" + current_creature.SummonCost + "</td>";}
+
+if (true){ //Convince
+if (header == false){
+    creatureTableHeader += "<th>Convince</th>";}
+creatureTable += "<td>" + current_creature.SummonCost + "</td>";}
+
 
 creatureTable += "</tr>";
 
