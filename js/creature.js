@@ -66,7 +66,7 @@ if (header == false){
 creatureTable += "<tr><td>" + current_creature.name + "</td><td>" + current_creature.HitPoints + "</td></tr>";
 });
 
-creatureTable = "<h2>Table: Creature data</h2><table>" + creatureTableHeader + creature Table + "</table>";
+creatureTable = "<h2>Table: Creature data</h2><table>" + creatureTableHeader + creatureTable + "</table>";
 
 
 document.getElementById('creature_table').innerHTML = creatureTable;
