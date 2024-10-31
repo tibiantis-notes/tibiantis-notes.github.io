@@ -74,7 +74,6 @@ if (header == false){
     creatureTableHeader += "<th>Exp</th>";}
 creatureTable += "<td>" + current_creature.Experience + "</td>";}
 
-
 if (true){ //Summon
 if (header == false){
     creatureTableHeader += "<th>Summon</th>";}
@@ -104,6 +103,22 @@ if (true){ //Skill
 if (header == false){
     creatureTableHeader += "<th>Skill</th>";}
 creatureTable += "<td>" + current_creature.FistFighting + "</td>";}
+
+if (true){ //Max Hit
+if (header == false){
+    creatureTableHeader += "<th>Max<br>Hit</th>";}
+creatureTable += "<td>" + current_creature.FistFighting + "</td>";}
+
+if (true){ //Max Block
+if (header == false){
+    creatureTableHeader += "<th>Max<br>Block</th>";}
+creatureTable += "<td>" + current_creature.FistFighting + "</td>";}
+
+if (true){ //Average Block
+if (header == false){
+    creatureTableHeader += "<th>Arm +<br>Block</th>";}
+creatureTable += "<td>" + current_creature.FistFighting + "</td>";}
+
 
 creatureTable += "</tr>";
 
