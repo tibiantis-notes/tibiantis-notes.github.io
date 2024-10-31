@@ -36,7 +36,7 @@ let creatureTable = "";
 let creatureTableHeader = "";
 
 creature.forEach(current_creature => {
-    creatureInfo += "<hr><h3>" + current_creature.name + "</h3>" +
+creatureInfo += "<hr><h3>" + current_creature.name + "</h3>" +
 "Hit Points: " + current_creature.HitPoints + "<br>" + 
 "Experience: " + current_creature.Experience + "<br>" +
 "Attack: " + current_creature.Attack + ", Defence: " + current_creature.Defence + ", Skill: " + current_creature.FistFighting + ", Armor: " + current_creature.Armor + "<br>Max Damage: " + max_damage(current_creature) + "<br>" + "Speed " + ("Haste_spell" in current_creature ? "(with haste)" : "") + ": " + speed_with_haste(current_creature) + "<br>";
@@ -71,13 +71,10 @@ creatureTable += "<td>" + current_creature.HitPoints + "</td>";}
 
 creatureTable += "</tr>";
 
-if (header == false){
-creatureTableHeader += "</th>";}
-
 header = true;
 });
 
-creatureTable = "<h2>Table: Creature data</h2><table><tr>" + creatureTableHeader + "</tr>" creatureTable + "</table>";
+creatureTable = "<h2>Table: Creature data</h2><table><tr>" + creatureTableHeader + "</tr>" + creatureTable + "</table>";
 
 
 document.getElementById('creature_table').innerHTML = creatureTable;
