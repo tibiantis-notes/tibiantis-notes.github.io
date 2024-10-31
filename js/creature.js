@@ -55,18 +55,26 @@ let header = false;
 
 
 creature.forEach(current_creature => {
-//build columns based on array
-// or lots or conditionals
-// maybe only double the conditionals.
-if (header == false){
-    creatureTableHeader += "<tr><th>Name</th><th>HitPoints</th></tr>";
-    header = true;
-}
+//build columns and rows
 
-creatureTable += "<tr><td>" + current_creature.name + "</td><td>" + current_creature.HitPoints + "</td></tr>";
+creatureTable += "<tr>";
+
+if (true){ //Name
+if (header == false){
+    creatureTableHeader += "<th>Name</th>";
+    header = true;}
+creatureTable += "<td>" + current_creature.name + "</td>"}
+
+if (true){ //Name
+if (header == false){
+    creatureTableHeader += "<th>Hit<br>Points</th>";
+    header = true;}
+creatureTable += "<td>" + current_creature.HitPoints + "</td>"}
+
+creatureTable += "</tr>";
 });
 
-creatureTable = "<h2>Table: Creature data</h2><table>" + creatureTableHeader + creatureTable + "</table>";
+creatureTable = "<h2>Table: Creature data</h2><table><tr>" + creatureTableHeader + "</tr>" creatureTable + "</table>";
 
 
 document.getElementById('creature_table').innerHTML = creatureTable;
