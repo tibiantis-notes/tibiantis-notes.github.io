@@ -33,6 +33,7 @@ creature.sort((a, b) => speed_with_haste(b) - speed_with_haste(a));
 
 let creatureInfo = "";
 let creatureTable = "";
+let creatureTableHeader = "";
 
 creature.forEach(current_creature => {
     creatureInfo += "<hr><h3>" + current_creature.name + "</h3>" +
@@ -42,8 +43,6 @@ creature.forEach(current_creature => {
 });
 
 document.getElementById('creature_log').innerHTML = creatureInfo;
-
-creatureTable += "<h2>Table: Creature data</h2><table>";
 
 let header = false;
 // Function max damage reduction,function blocking plus armor
@@ -60,13 +59,15 @@ creature.forEach(current_creature => {
 // or lots or conditionals
 // maybe only double the conditionals.
 if (header == false){
-    creatureTable += "<tr><th>Name</th><th>HitPoints</th></tr>";
+    creatureTableHeader += "<tr><th>Name</th><th>HitPoints</th></tr>";
     header = true;
 }
+
 creatureTable += "<tr><td>" + current_creature.name + "</td><td>" + current_creature.HitPoints + "</td></tr>";
 });
 
-creatureTable += "</table>";
+creatureTable = "<h2>Table: Creature data</h2><table>" + creatureTableHeader + creature Table + "</table>";
+
 
 document.getElementById('creature_table').innerHTML = creatureTable;
 
