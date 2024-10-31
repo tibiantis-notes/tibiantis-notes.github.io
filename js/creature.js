@@ -62,7 +62,7 @@ creatureTable += "<tr>";
 if (true){ //Name
 if (header == false){
     creatureTableHeader += "<th>Name</th>";}
-creatureTable += "<td>" + current_creature.name + "</td>"}
+creatureTable += "<td>" + current_creature.name + "</td>";}
 
 if (true){ //Name
 if (header == false){
