@@ -67,7 +67,7 @@ creatureTable += "<td>" + current_creature.name + "</td>"}
 if (true){ //Name
 if (header == false){
     creatureTableHeader += "<th>Hit<br>Points</th>";}
-creatureTable += "<td>" + current_creature.HitPoints + "</td>"}
+creatureTable += "<td>" + current_creature.HitPoints + "</td>";}
 
 creatureTable += "</tr>";
 
