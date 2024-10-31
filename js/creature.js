@@ -61,17 +61,16 @@ creatureTable += "<tr>";
 
 if (true){ //Name
 if (header == false){
-    creatureTableHeader += "<th>Name</th>";
-    header = true;}
+    creatureTableHeader += "<th>Name</th>";}
 creatureTable += "<td>" + current_creature.name + "</td>"}
 
 if (true){ //Name
 if (header == false){
-    creatureTableHeader += "<th>Hit<br>Points</th>";
-    header = true;}
+    creatureTableHeader += "<th>Hit<br>Points</th>";}
 creatureTable += "<td>" + current_creature.HitPoints + "</td>"}
 
 creatureTable += "</tr>";
+header = true;
 });
 
 creatureTable = "<h2>Table: Creature data</h2><table><tr>" + creatureTableHeader + "</tr>" creatureTable + "</table>";
