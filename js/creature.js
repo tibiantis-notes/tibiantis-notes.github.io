@@ -70,6 +70,10 @@ if (header == false){
 creatureTable += "<td>" + current_creature.HitPoints + "</td>"}
 
 creatureTable += "</tr>";
+
+if (header == false){
+creatureTableHeader += "</th>";}
+
 header = true;
 });
 
