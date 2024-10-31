@@ -11,10 +11,14 @@ return Math.floor((5 * fn_creature.FistFighting + 50) * fn_creature.Defence * (9
 
 function arm_and_block(fn_creature) {
 
-let arm_reduction = Math.floor(fn_creature.Armor * 0.5) + Math.floor(fn_creature.Armor * 0.5 * 49.5 / 99);
-            if (fn_creature.Armor == 2 || fn_creature.Armor == 1){ arm_reduction =1;}
-            return arm_reduction;
-}
+let arm_reduction = (Math.floor(fn_creature.Armor * 0.5) + Math.floor(fn_creature.Armor * 0.5 * 90 / 99))/2;
+
+if (fn_creature.Armor == 2 || fn_creature.Armor == 1){ arm_reduction = 0.5;}
+
+arm_reduction += Math.floor((5 * fn_creature.FistFighting + 50) * fn_creature.Defence * (99 + 99) / 2 / 10000)/2;
+
+return arm_reduction;
+} // end of arm and block
 
 function speed_with_haste(fn_creature) {
     let haste = 0;
