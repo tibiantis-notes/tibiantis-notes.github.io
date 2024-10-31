@@ -64,10 +64,20 @@ if (header == false){
     creatureTableHeader += "<th>Name</th>";}
 creatureTable += "<td>" + current_creature.name + "</td>";}
 
-if (true){ //Name
+if (true){ //Hit Points
 if (header == false){
     creatureTableHeader += "<th>Hit<br>Points</th>";}
 creatureTable += "<td>" + current_creature.HitPoints + "</td>";}
+
+if (true){ //Experience
+if (header == false){
+    creatureTableHeader += "<th>Experience</th>";}
+creatureTable += "<td>" + current_creature.Experience + "</td>";}
+
+if (true){ //Armor
+if (header == false){
+    creatureTableHeader += "<th>Armor</th>";}
+creatureTable += "<td>" + current_creature.Armor + "</td>";}
 
 creatureTable += "</tr>";
 
