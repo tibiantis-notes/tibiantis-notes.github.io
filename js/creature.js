@@ -1,3 +1,8 @@
+document.getElementById("id_table_sort").addEventListener("change", function() {
+            const sortBy = this.value; // Get selected sort option
+            sortCreatures(sortBy);
+        });
+
 
 function max_damage(fn_creature) {
     
