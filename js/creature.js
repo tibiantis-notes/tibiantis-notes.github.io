@@ -50,7 +50,7 @@ let creatureInfo = "";
 let creatureTable = "";
 let creatureTableHeader = "";
 
-creature.forEach(current_creature => {
+fn_creature.forEach(current_creature => {
 creatureInfo += "<hr><h3>" + current_creature.name + "</h3>" +
 "Hit Points: " + current_creature.HitPoints + "<br>" + 
 "Experience: " + current_creature.Experience + "<br>" +
@@ -66,7 +66,7 @@ let header = false;
 
 // Filters (check box): weak fire, immune fire, erergy, kick boxes, see invis, etc.
 
-creature.forEach(current_creature => {
+fn_creature.forEach(current_creature => {
 //build columns and rows
 
 creatureTable += "<tr>";
