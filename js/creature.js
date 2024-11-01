@@ -166,4 +166,4 @@ const creature = [amazon, ancient_scarab, badger, banshee, bear, behemoth, behol
 
 /*sortCreatures(creature, "HitPoints");*/
 
-updateTable(creature);
+/*updateTable(creature);*/
