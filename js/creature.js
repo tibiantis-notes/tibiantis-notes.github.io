@@ -49,7 +49,6 @@ const amazon = {name: "Amazon", Experience: 60, SummonCost: 390, FleeThreshold: 
 const creature = [amazon, ancient_scarab, badger, banshee, bear, behemoth, beholder, black_knight, black_sheep, blue_djinn, bonebeast, bug, cave_rat, cobra, crypt_shambler, cyclops, deer, demon, demon_skeleton, dog, dragon, dragon_lord, dwarf, dwarf_geomancer, dwarf_guard, dwarf_soldier, efreet, elder_beholder, elf, elf_arcanist, elf_scout, fire_devil, fire_elemental, frost_troll, gargoyle, gazer, ghost, ghoul, giant_spider, goblin, green_djinn, hero, hunter, hyaena, larva, lich, lion, marid, minotaur, minotaur_archer, minotaur_guard, minotaur_mage, monk, mummy, necromancer, orc, orc_berserker, orc_leader, orc_rider, orc_shaman, orc_spearman, orc_warlord, orc_warrior, pig, poison_spider, polar_bear, priestess, rabbit, rat, rotworm, scarab, scorpion, sheep, skeleton, skunk, slime, snake, spider, stalker, stone_golem, swamp_troll, troll, valkyrie, vampire, warlock, war_wolf, wasp, wild_warrior, winter_wolf, witch, wolf];
 
 /*sortCreatures(creature, "HitPoints");*/
-sortCreatures(creature, document.getElementById('id_table_sort').value.innerHTML;
 
 let creatureInfo = "";
 let creatureTable = "";
