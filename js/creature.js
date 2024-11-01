@@ -40,7 +40,7 @@ function speed_with_haste(fn_creature) {
 } // end of haste function
 
 function sortCreatures(array, property) {
-    return array.sort((a, b) => a[property] - b[property]);
+    return array.sort((a, b) => b[property] - a[property]);
 }
 
 
