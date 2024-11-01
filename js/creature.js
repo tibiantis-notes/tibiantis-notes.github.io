@@ -155,3 +155,8 @@ creatureTable = "<h2>Table: Creature data</h2><table><tr>" + creatureTableHeader
 
 document.getElementById('creature_table').innerHTML = creatureTable;
 
+document.getElementById("id_table_sort").addEventListener("change", function() {
+    const selectedValue = this.value; // Get selected option value
+    sortCreatures(creature, selectedValue);
+});
+
