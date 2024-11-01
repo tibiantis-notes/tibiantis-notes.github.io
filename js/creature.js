@@ -48,8 +48,8 @@ function speed_with_haste(fn_creature) {
     return Math.floor((fn_creature.GoStrength * 2 + 80) * (1 + haste)/2)*2;
 } // end of haste function
 
-function sortCreatures(array, property) {
-    return array.sort((a, b) => b[property] - a[property]);
+function sortCreatures(fn_creature, property) {
+    return fn_creature.sort((a, b) => b[property] - a[property]);
     updateTable(creature);
 }
 
