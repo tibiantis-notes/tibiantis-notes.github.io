@@ -1,6 +1,8 @@
 document.getElementById("id_table_sort").addEventListener("change", function() {
             const sortBy = this.value; // Get selected sort option
+
 document.getElementById('test2').innerHTML = "add event listner was called";
+
             sortCreatures(creature, sortBy);
             
 document.getElementById('test1').innerHTML = document.getElementById('id_table_sort').value;
@@ -50,7 +52,7 @@ function speed_with_haste(fn_creature) {
 
 function sortCreatures(fn_creature, property) {
     return fn_creature.sort((a, b) => b[property] - a[property]);
-    updateTable(creature);
+    updateTable(fn_creature);
 }
 
 function updateTable(fn_creature) {
