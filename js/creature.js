@@ -50,7 +50,7 @@ const creature = [amazon, ancient_scarab, badger, banshee, bear, behemoth, behol
 
 /*creature.sort((a, b) => arm_and_block(b) - arm_and_block(a));*/
 
-sortCreatues(creature, "HitPoints");
+sortCreatures(creature, "HitPoints");
 
 /*creature.sort((a, b) => b.HitPoints - a.HitPoints);*/
 
