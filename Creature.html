@@ -25,7 +25,7 @@ table, th, td {
 
 <form action="/action_page.php">
   <label for="cars">Sort by:</label>
-  <select name="table_sort" id="id_table_sort">
+  <select name="table_sort" id="id_table_sort" <!--onchange="sortTable()"-->
     <option value="volvo">Name</option>
     <option value="saab">Hit Points</option>
     <option value="opel">Experience</option>
@@ -36,10 +36,7 @@ table, th, td {
     <option value="audi">Average blocking + armor</option>
     <option value="volvo">Summon/ convince cost</option>
     <option value="saab">XP/ HP</option>
-    
   </select>
-  <br><br>
-  <input type="submit" value="Submit">
 </form>
 
 Sort by: Name, hp, xp, armor, speed, damage, block, arm + block, summon cost, xp/hp.<br>
