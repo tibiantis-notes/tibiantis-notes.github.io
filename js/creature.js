@@ -58,7 +58,7 @@ creatureInfo += "<hr><h3>" + current_creature.name + "</h3>" +
 "Attack: " + current_creature.Attack + ", Defence: " + current_creature.Defence + ", Skill: " + current_creature.FistFighting + ", Armor: " + current_creature.Armor + "<br>Max Damage: " + max_damage(current_creature) + "<br>" + "Speed " + ("Haste_spell" in current_creature ? "(with haste)" : "") + ": " + speed_with_haste(current_creature) + "<br>";
 });
 
-document.getElementById('creature_log').innerHTML = creatureInfo;
+/*document.getElementById('creature_log').innerHTML = creatureInfo;*/
 
 let header = false;
 // Function max damage reduction,function blocking plus armor
@@ -134,6 +134,11 @@ if (true){ //Average Block
 if (header == false){
     creatureTableHeader += "<th>Arm +<br>Block</th>";}
 creatureTable += "<td>" + arm_and_block(current_creature) + "</td>";}
+
+if (true){ //Speed
+if (header == false){
+    creatureTableHeader += "<th>Max<br>Speed</th>";}
+creatureTable += "<td>" + speed_with_haste(current_creature) + "</td>";}
 
 
 creatureTable += "</tr>";
