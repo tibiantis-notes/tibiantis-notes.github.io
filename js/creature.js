@@ -1,7 +1,7 @@
 document.getElementById("id_table_sort").addEventListener("change", function() {
             const sortBy = this.value; // Get selected sort option
-document.getElementById('test1').innerHTML = "add event listner was called";
-            sortCreatures(sortBy);
+document.getElementById('test2').innerHTML = "add event listner was called";
+            sortCreatures(creature, sortBy);
             
         });
 
