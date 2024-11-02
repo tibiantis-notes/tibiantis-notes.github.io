@@ -64,7 +64,7 @@ function sortCreatures(fn_creature, property) {
     case "Blocking": fn_creature.sort((a, b) => b["HitPoints"] -  a["HitPoints"]); break;
     case "Block_And_Armor": fn_creature.sort((a, b) => b["HitPoints"] -  a["HitPoints"]); break;
     case "Summon_Cost": fn_creature.sort((a, b) => b["SummonCost"] -  a["SummonCost"]); break;
-    case "xpdivhp": fn_creature.sort((a, b) => b["Experience"/"Hitpoints"] -  a["Experience"/"HitPoints"]); break;
+    case "xpdivhp": fn_creature.sort((a, b) => (b["Experience"] / b["HitPoints"]) - (a["Experience"] / a["HitPoints"])); break;
     } // end of switch
     updateTable(fn_creature);
     
