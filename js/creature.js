@@ -52,9 +52,20 @@ function speed_with_haste(fn_creature) {
 
 function sortCreatures(fn_creature, property) {
     fn_creature.sort((a, b) => b[property] -  a[property]);
-    
+
+// Name, HitPoints, Experience, Armor, Speed, Max_Damage, Blocking, Block_And_Armor, Summon_Cost, xpdivhp
     switch (property){
-    case "Speed":
+    case "Name": break;
+    case "HitPoints": break;
+    case "Experience": break;
+    case "Armor": break;
+    case "Speed": break;
+    case "Max_Damage": break;
+    case "Blocking": break;
+    case "Block_And_Armor": break;
+    case "Summon_Cost":break;
+    case "xpdivhp":break;
+    }
     updateTable(fn_creature);
     
     
