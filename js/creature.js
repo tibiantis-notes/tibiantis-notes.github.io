@@ -51,9 +51,15 @@ function speed_with_haste(fn_creature) {
 } // end of haste function
 
 function sortCreatures(fn_creature, property) {
-fn_creature.sort((a, b) => b[property] - a[property]);
+    fn_creature.sort((a, b) => b[property] -  a[property]);
+    
+    switch (property){
+    case "Speed":
     updateTable(fn_creature);
-}
+    
+    
+    
+} // end of sortCreatures
 
 function updateTable(fn_creature) {
 
