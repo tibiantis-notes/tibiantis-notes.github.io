@@ -56,7 +56,7 @@ function sortCreatures(fn_creature, property) {
 // Name, HitPoints, Experience, Armor, Speed, Max_Damage, Blocking, Block_And_Armor, Summon_Cost, xpdivhp
     switch (property){
     case "Name": fn_creature.sort((a, b) => b["name"].localeCompare(a["name"])); break;
-    case "HitPoints": fn_creature.sort((a, b) => b["HitPoints"] -  a["HitPoints"]); break;
+    case "HitPoints": fn_creature.sort((a, b) => a["HitPoints"] -  b["HitPoints"]); break;
     case "Experience": break;
     case "Armor": break;
     case "Speed": break;
