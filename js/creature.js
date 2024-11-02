@@ -51,11 +51,12 @@ function speed_with_haste(fn_creature) {
 } // end of haste function
 
 function sortCreatures(fn_creature, property) {
-    fn_creature.sort((a, b) => b[property] -  a[property]);
+
 
 // Name, HitPoints, Experience, Armor, Speed, Max_Damage, Blocking, Block_And_Armor, Summon_Cost, xpdivhp
     switch (property){
-    case "Name": break;
+    case "Name": fn_creature.sort((a, b) => b[property] -  a[property]);
+    break;
     case "HitPoints": break;
     case "Experience": break;
     case "Armor": break;
