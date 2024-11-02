@@ -31,6 +31,13 @@ arm_reduction += Math.floor((5 * fn_creature.FistFighting + 50) * fn_creature.De
 return arm_reduction;
 } // end of arm and block
 
+function resistances(fn_creature){
+
+//Fire F, Poison P, Energy E, Physical Ph, Life Drain, LD
+return 0;
+
+} // end of resistances
+
 function speed_with_haste(fn_creature) {
     let haste = 0;
     switch(fn_creature){
