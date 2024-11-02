@@ -53,7 +53,6 @@ function speed_with_haste(fn_creature) {
 function sortCreatures(fn_creature, property) {
 
 
-// Name, HitPoints, Experience, Armor, Speed, Max_Damage, Blocking, Block_And_Armor, Summon_Cost, xpdivhp
     switch (property){
     case "Name": fn_creature.sort((a, b) => b["name"].localeCompare(a["name"])); break;
     case "HitPoints": fn_creature.sort((a, b) => b["HitPoints"] -  a["HitPoints"]); break;
@@ -66,6 +65,10 @@ function sortCreatures(fn_creature, property) {
     case "Block_And_Armor": fn_creature.sort((a, b) => arm_and_block(b) -  arm_and_block(a)); break;
     case "Summon_Cost": fn_creature.sort((a, b) => b["SummonCost"] -  a["SummonCost"]); break;
     case "xpdivhp": fn_creature.sort((a, b) => (b["Experience"] / b["HitPoints"]) - (a["Experience"] / a["HitPoints"])); break;
+    case "Attack": fn_creature.sort((a, b) => b["Attack"] - a["Attack"]); break;
+    case "Defence": fn_creature.sort((a, b) => b["Defence"] - a["Defence"]); break;
+    case "Skill": fn_creature.sort((a, b) => b["Skill"] - a["Skill"]); break;
+    
     } // end of switch
     updateTable(fn_creature);
     
