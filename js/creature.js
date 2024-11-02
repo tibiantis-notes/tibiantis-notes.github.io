@@ -55,9 +55,8 @@ function sortCreatures(fn_creature, property) {
 
 // Name, HitPoints, Experience, Armor, Speed, Max_Damage, Blocking, Block_And_Armor, Summon_Cost, xpdivhp
     switch (property){
-    case "Name": fn_creature.sort((a, b) => b[property] -  a[property]);
-    break;
-    case "HitPoints": break;
+    case "Name": fn_creature.sort((a, b) => b["name"] -  a["name"]); break;
+    case "HitPoints": fn_creature.sort((a, b) => b["HitPoints"] -  a["HitPoints"]); break;
     case "Experience": break;
     case "Armor": break;
     case "Speed": break;
@@ -66,7 +65,7 @@ function sortCreatures(fn_creature, property) {
     case "Block_And_Armor": break;
     case "Summon_Cost":break;
     case "xpdivhp":break;
-    }
+    } // end of switch
     updateTable(fn_creature);
     
     
