@@ -57,14 +57,14 @@ function sortCreatures(fn_creature, property) {
     switch (property){
     case "Name": fn_creature.sort((a, b) => b["name"].localeCompare(a["name"])); break;
     case "HitPoints": fn_creature.sort((a, b) => a["HitPoints"] -  b["HitPoints"]); break;
-    case "Experience": break;
-    case "Armor": break;
-    case "Speed": break;
-    case "Max_Damage": break;
-    case "Blocking": break;
-    case "Block_And_Armor": break;
-    case "Summon_Cost":break;
-    case "xpdivhp":break;
+    case "Experience": fn_creature.sort((a, b) => a["Experience"] -  b["Experience"]); break;
+    case "Armor": fn_creature.sort((a, b) => a["Armor"] -  b["Armor"]); break;
+    case "Speed": fn_creature.sort((a, b) => a["GoStrength"] -  b[GoStrength"]); break;
+    case "Max_Damage": fn_creature.sort((a, b) => a["HitPoints"] -  b["HitPoints"]); break;
+    case "Blocking": fn_creature.sort((a, b) => a["HitPoints"] -  b["HitPoints"]); break;
+    case "Block_And_Armor": fn_creature.sort((a, b) => a["HitPoints"] -  b["HitPoints"]); break;
+    case "Summon_Cost": fn_creature.sort((a, b) => a["SummonCost"] -  b["SummonCost"]); break;
+    case "xpdivhp": fn_creature.sort((a, b) => a["HitPoints"] -  b["HitPoints"]); break;
     } // end of switch
     updateTable(fn_creature);
     
