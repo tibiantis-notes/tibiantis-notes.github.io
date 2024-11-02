@@ -67,7 +67,7 @@ function sortCreatures(fn_creature, property) {
     case "xpdivhp": fn_creature.sort((a, b) => (b["Experience"] / b["HitPoints"]) - (a["Experience"] / a["HitPoints"])); break;
     case "Attack": fn_creature.sort((a, b) => b["Attack"] - a["Attack"]); break;
     case "Defence": fn_creature.sort((a, b) => b["Defence"] - a["Defence"]); break;
-    case "Skill": fn_creature.sort((a, b) => b["Skill"] - a["Skill"]); break;
+    case "Skill": fn_creature.sort((a, b) => b["FistFighting"] - a["FistFightint"]); break;
     
     } // end of switch
     updateTable(fn_creature);
