@@ -122,7 +122,7 @@ if (header == false){
     creatureTableHeader += "<th>HP</th>";}
 creatureTable += "<td>" + current_creature.HitPoints + "</td>";}
 
-if (true){ //Experience
+if (document.getElementById('id_col_Experience'.checked){ //Experience
 if (header == false){
     creatureTableHeader += "<th>Exp</th>";}
 creatureTable += "<td>" + current_creature.Experience + "</td>";}
@@ -147,7 +147,7 @@ if (header == false){
     creatureTableHeader += "<th>Def</th>";}
 creatureTable += "<td>" + current_creature.Defence + "</td>";}
 
-if (true){ //Armor
+if (document.getElementById('id_col_Armor'.checked){ //Armor
 if (header == false){
     creatureTableHeader += "<th>Armor</th>";}
 creatureTable += "<td>" + current_creature.Armor + "</td>";}
