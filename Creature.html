@@ -47,11 +47,11 @@ table, th, td {
 <!--Check boxes for columns to in include.-->
 <!--Hp, exp, armor, skill, attack, defence, max damage, resistances, summon cost, block and armor, speed, speed inc haste,-->
 <form>
-  <input type="checkbox" id="id_HitPoints" name="HitPoints" checked>
+  <input type="checkbox" id="id_col_HitPoints" name="HitPoints" checked  onchange="uppdateTable(creature)">
   <label for="id_HitPoints">HP</label><br>
-  <input type="checkbox" id="id_Experience" name="Experience" checked>
+  <input type="checkbox" id="id_col_Experience" name="Experience" checked>
   <label for="id_Experience">Exp</label><br>
-  <input type="checkbox" id="id_Armor" name="Armor" checked>
+  <input type="checkbox" id="id_col_Armor" name="Armor" checked>
   <label for="id_Armor">Armor</label><br><br>
 </form>
 
