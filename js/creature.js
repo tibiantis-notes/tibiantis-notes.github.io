@@ -127,22 +127,22 @@ if (header == false){
     creatureTableHeader += "<th>Exp</th>";}
 creatureTable += "<td>" + current_creature.Experience + "</td>";}
 
-if (true){ //Summon
+if (document.getElementById('id_col_Summon_Cost').checked){ //Summon
 if (header == false){
     creatureTableHeader += "<th>Summon</th>";}
 creatureTable += "<td>" + current_creature.SummonCost + "</td>";}
 
-if (true){ //Convince
+if (document.getElementById('id_col_Convince_Cost').checked){ //Convince
 if (header == false){
     creatureTableHeader += "<th>Convince</th>";}
 creatureTable += "<td>" + current_creature.SummonCost + "</td>";}
 
-if (true){ //Attack
+if (document.getElementById('id_col_Attack').checked){ //Attack
 if (header == false){
     creatureTableHeader += "<th>Atk</th>";}
 creatureTable += "<td>" + current_creature.Attack + "</td>";}
 
-if (true){ //Defence
+if (document.getElementById('id_col_Defence').checked){ //Defence
 if (header == false){
     creatureTableHeader += "<th>Def</th>";}
 creatureTable += "<td>" + current_creature.Defence + "</td>";}
@@ -152,17 +152,17 @@ if (header == false){
     creatureTableHeader += "<th>Armor</th>";}
 creatureTable += "<td>" + current_creature.Armor + "</td>";}
 
-if (true){ //Skill
+if (document.getElementById('id_col_Skill').checked){ //Skill
 if (header == false){
     creatureTableHeader += "<th>Skill</th>";}
 creatureTable += "<td>" + current_creature.FistFighting + "</td>";}
 
-if (true){ //Max Hit
+if (document.getElementById('id_col_Max_Damage').checked){ //Max Hit
 if (header == false){
     creatureTableHeader += "<th>Max<br>Hit</th>";}
 creatureTable += "<td>" + max_damage(current_creature) + "</td>";}
 
-if (true){ //Max Block
+if (document.getElementById('id_col_Max_Block').checked){ //Max Block
 if (header == false){
     creatureTableHeader += "<th>Max<br>Block</th>";}
 creatureTable += "<td>" + max_block(current_creature) + "</td>";}
@@ -172,9 +172,9 @@ if (header == false){
     creatureTableHeader += "<th>Arm +<br>Block</th>";}
 creatureTable += "<td>" + arm_and_block(current_creature) + "</td>";}
 
-if (true){ //Speed
+if (document.getElementById('id_col_Speed_With_Haste').checked){ //Speed
 if (header == false){
-    creatureTableHeader += "<th>Max<br>Speed</th>";}
+    creatureTableHeader += "<th>Speed<br>(Haste)</th>";}
 creatureTable += "<td>" + speed_with_haste(current_creature) + "</td>";}
 
 
