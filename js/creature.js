@@ -186,7 +186,7 @@ if (document.getElementById('id_col_Speed').checked){ //Speed
 if (header == false){
     
     creatureTableHeader += "<th>Speed<br> (Base)</th>";}
-creatureTable += "<td>" + base_speed(current_creature.GoStrength) + "</td>";}
+creatureTable += "<td>" + base_speed(current_creature) + "</td>";}
 
 
 creatureTable += "</tr>";
