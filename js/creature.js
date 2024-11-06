@@ -188,7 +188,7 @@ if (header == false){
     creatureTableHeader += "<th>Speed<br> (Base)</th>";}
 creatureTable += "<td>" + base_speed(current_creature) + "</td>";}
 
-if (document.getElementById('xpdivhp').checked){ // XP over HP
+if (document.getElementById('id_col_xpdivhp').checked){ // XP over HP
 if (header == false){
     
     creatureTableHeader += "<th>XP:HP</th>";}
