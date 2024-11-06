@@ -192,7 +192,7 @@ if (document.getElementById('id_col_xpdivhp').checked){ // XP over HP
 if (header == false){
     
     creatureTableHeader += "<th>XP:HP</th>";}
-creatureTable += "<td>" + Math.floor(current_creature.Experience/current_creature.HitPoints) + "</td>";}
+creatureTable += "<td>" + (current_creature.Experience/current_creature.HitPoints).toFixed(2) + "</td>";}
 
 creatureTable += "</tr>";
 
