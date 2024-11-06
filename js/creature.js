@@ -36,20 +36,19 @@ function resistances(fn_creature){
 //Fire F, Poison P, Energy E, Physical Ph, Life Drain, LD
 let resist_text = "";
  if (fn_creature.NoHit == true){ // type 1
- resist_text += '<img src="/images/physical.png" alt="physical" style = "width:32px;height:32px;">';}
+ resist_text += '<img src="/images/physical.png" alt="physical" style="width:32px;height:32px;">';}
    
 if (fn_creature.NoPoison == true){ // type 2
- resist_text += '<img src="/images/poison.png" alt="poison" style
-= "width:32px;height:32px;">';}
+ resist_text += '<img src="/images/poison.png" alt="poison" style="width:32px;height:32px;">';}
 
 if (fn_creature.NoBurning == true){ // type 4
- resist_text += '<img src="/images/fire.png" alt="fire" style = "width:32px;height:32px;">';}
+ resist_text += '<img src="/images/fire.png" alt="fire" style="width:32px;height:32px;">';}
    
 if (fn_creature.NoEnergy == true){ //type 8
- resist_text += '<img src="/images/energy.png" alt="energy" style = "width:32px;height:32px;">';}
+ resist_text += '<img src="/images/energy.png" alt="energy" style="width:32px;height:32px;">';}
    
 if (fn_creature.NoLifeDrain == true){ // type 255
- resist_text += '<img src="/images/skull.png" alt="skull" style = "width:32px;height:32px;">';}
+ resist_text += '<img src="/images/skull.png" alt="skull" style="width:32px;height:32px;">';}
 
 return resist_text;
 
