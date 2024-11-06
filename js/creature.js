@@ -172,10 +172,15 @@ if (header == false){
     creatureTableHeader += "<th>Arm +<br>Block</th>";}
 creatureTable += "<td>" + arm_and_block(current_creature) + "</td>";}
 
-if (document.getElementById('id_col_Speed_With_Haste').checked){ //Speed
+if (document.getElementById('id_col_Speed_With_Haste').checked){ //Speed with haste
 if (header == false){
     creatureTableHeader += "<th>Speed<br>(Haste)</th>";}
 creatureTable += "<td>" + speed_with_haste(current_creature) + "</td>";}
+
+if (document.getElementById('id_col_Speed').checked){ //Speed
+if (header == false){
+    creatureTableHeader += "<th>Speed<br> (base)</th>";}
+creatureTable += "<td>" + current_creature.GoStrength + "</td>";}
 
 
 creatureTable += "</tr>";
