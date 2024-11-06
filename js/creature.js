@@ -191,7 +191,7 @@ creatureTable += "<td>" + base_speed(current_creature) + "</td>";}
 if (document.getElementById('xpdivhp').checked){ // XP over HP
 if (header == false){
     
-    creatureTableHeader += "<th>Speed<br> (Base)</th>";}
+    creatureTableHeader += "<th>XP:HP</th>";}
 creatureTable += "<td>" + Math.floor(current_creature.Experience/current_creature.HitPoints) + "</td>";}
 
 creatureTable += "</tr>";
