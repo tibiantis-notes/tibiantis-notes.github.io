@@ -38,6 +38,11 @@ return 0;
 
 } // end of resistances
 
+function base_speed(fn_creature) {
+    
+return Math.floor((fn_creature.GoStrength * 2 + 80)/2)*2;
+} // end of haste function
+
 function speed_with_haste(fn_creature) {
     let haste = 0;
     switch(fn_creature){
@@ -179,8 +184,9 @@ creatureTable += "<td>" + speed_with_haste(current_creature) + "</td>";}
 
 if (document.getElementById('id_col_Speed').checked){ //Speed
 if (header == false){
-    creatureTableHeader += "<th>Speed<br> (base)</th>";}
-creatureTable += "<td>" + current_creature.GoStrength + "</td>";}
+    
+    creatureTableHeader += "<th>Speed<br> (Base)</th>";}
+creatureTable += "<td>" + base_speed(current_creature.GoStrength) + "</td>";}
 
 
 creatureTable += "</tr>";
