@@ -36,8 +36,11 @@ function resistances(fn_creature){
 //Fire F, Poison P, Energy E, Physical Ph, Life Drain, LD
 let resist_text = "";
  if (fn_creature.NoFire == true){
- resist_text='<img src="/images/fire.png" alt="fire" style="width:32px;height:32px;">'   
+ //resist_text='<img src="/images/fire.png" alt="fire" style="width:32px;height:32px;">'   
+resist_text= "fire";
 }
+
+
 return resist_text;
 
 } // end of resistances
