@@ -175,7 +175,7 @@ creatureTable += "<td>" + max_block(current_creature) + "</td>";}
 if (true){ //Average Block
 if (header == false){
     creatureTableHeader += "<th>Arm +<br>Block</th>";}
-creatureTable += "<td>" + arm_and_block(current_creature) + "</td>";}
+creatureTable += "<td>" + Math.floor(arm_and_block(current_creature)) + "</td>";}
 
 if (document.getElementById('id_col_Speed_With_Haste').checked){ //Speed with haste
 if (header == false){
@@ -188,6 +188,11 @@ if (header == false){
     creatureTableHeader += "<th>Speed<br> (Base)</th>";}
 creatureTable += "<td>" + base_speed(current_creature) + "</td>";}
 
+if (document.getElementById('xpdivhp').checked){ // XP over HP
+if (header == false){
+    
+    creatureTableHeader += "<th>Speed<br> (Base)</th>";}
+creatureTable += "<td>" + Math.floor(current_creature.Experience/current_creature.HitPoints) + "</td>";}
 
 creatureTable += "</tr>";
 
