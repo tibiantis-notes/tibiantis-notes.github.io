@@ -54,6 +54,13 @@ return resist_text;
 
 } // end of resistances
 
+function abilities(fn_creature)
+{
+    return 0;
+    //see invis, kickboxes, no illusion, paralyze, unpushable, distancefighting 
+}
+
+
 function base_speed(fn_creature) {
     
 return Math.floor((fn_creature.GoStrength * 2 + 80)/2)*2;
