@@ -70,7 +70,7 @@ function sortCreatures(fn_creature, property) {
     case "HitPoints": fn_creature.sort((a, b) => b["HitPoints"] -  a["HitPoints"]); break;
     case "Experience": fn_creature.sort((a, b) => b["Experience"] -  a["Experience"]); break;
     case "Armor": fn_creature.sort((a, b) => b["Armor"] -  a["Armor"]); break;
-    case "Speed": fn_creature.sort((a, b) => b["GoStrength"] -  a["GoStrength"]); break;
+    case "Base_Speed": fn_creature.sort((a, b) => b["GoStrength"] -  a["GoStrength"]); break;
     case "Speed_With_Haste": fn_creature.sort((a, b) => speed_with_haste(b) -  speed_with_haste(a)); break;
     case "Max_Damage": fn_creature.sort((a, b) => max_damage(b) -  max_damage(a)); break;
     case "Blocking": fn_creature.sort((a, b) => max_block(b) -  max_block(a)); break;
