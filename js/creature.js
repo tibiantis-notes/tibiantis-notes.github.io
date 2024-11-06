@@ -47,17 +47,7 @@ if (fn_creature.NoEnergy == true){ //type 8
  resist_text='<img src="/images/energy.png" alt="energy" style="width:32px;height:32px;">'
    
 if (fn_creature.NoLifeDrain == true){ // type 255
- resist_text='<img src="/images/skull.png" alt="skull" style="width:32px;height:32px;"><br>'   
-/*<img src="/images/fire.png" alt="fire" style="width:32px;height:32px;">
-
-<img src="/images/energy.png" alt="energy" style="width:32px;height:32px;">
-  
-<img src="/images/poison.png" alt="poison" style="width:32px;height:32px;">
-
-<img src="/images/physical.png" alt="physical" style="width:32px;height:32px;">
-
-<img src="/images/skull.png" alt="skull" style="width:32px;height:32px;"><br>*/
-
+ resist_text='<img src="/images/skull.png" alt="skull" style="width:32px;height:32px;">'
 }
 
 
