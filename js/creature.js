@@ -162,8 +162,8 @@ creatureTable += "<td>" + current_creature.SummonCost + "</td>";}
 
 if (document.getElementById('id_col_Convince_Cost').checked){ //Convince
 if (header == false){
-    creatureTableHeader += "<th>Convince</th>";}
-creatureTable += "<td>" + current_creature.SummonCost + "</td>";}
+creatureTableHeader += "<th>Convince</th>";}
+creatureTable += "<td>" + (current_creature.NoConvince == true ? 0 : current_creature.SummonCost) + "</td>";}
 
 if (document.getElementById('id_col_Attack').checked){ //Attack
 if (header == false){
