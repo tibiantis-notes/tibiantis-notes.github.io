@@ -1,13 +1,9 @@
 document.getElementById("id_table_sort").addEventListener("change", function() {
             const sortBy = this.value; // Get selected sort option
 
-document.getElementById('test2').innerHTML = "add event listner was called";
-
-            sortCreatures(creature, sortBy);
+sortCreatures(creature, sortBy);
             
-document.getElementById('test1').innerHTML = document.getElementById('id_table_sort').value;
-            
-        });
+});
 
 
 function max_damage(fn_creature) {
@@ -227,17 +223,17 @@ if (header == false){
     creatureTableHeader += "<th>XP:HP</th>";}
 creatureTable += "<td>" + (current_creature.Experience/current_creature.HitPoints).toFixed(2) + "</td>";}
 
+if (document.getElementById('id_col_Healing').checked){ // Healing
+if (header == false){
+    
+    creatureTableHeader += "<th>Resistances</th>";}
+creatureTable += "<td>" + healing(current_creature) + "</td>";}
+
 if (document.getElementById('id_col_Resistances').checked){ // Resist
 if (header == false){
     
     creatureTableHeader += "<th>Resistances</th>";}
 creatureTable += "<td>" + resistances(current_creature) + "</td>";}
-
-if (document.getElementById('id_col_Resistances').checked){ // Healing
-if (header == false){
-    
-    creatureTableHeader += "<th>Resistances</th>";}
-creatureTable += "<td>" + healing(current_creature) + "</td>";}
 
 
 creatureTable += "</tr>";
