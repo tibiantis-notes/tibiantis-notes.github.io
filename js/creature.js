@@ -36,7 +36,7 @@ function resistances(fn_creature){
 //Fire F, Poison P, Energy E, Physical Ph, Life Drain, LD
 let resist_text = "";
  if (fn_creature.NoHit == true){ // type 1
- resist_text += '<img src="/images/physical.png" alt="physical" style="width:32px;height:32px;">';}
+ resist_text += '<img src="/images/physical.png" alt="physical" style="width:32px;height:32px;" title="Physical Immune">';}
    
 if (fn_creature.NoPoison == true){ // type 2
  resist_text += '<img src="/images/poison.png" alt="poison" style="width:32px;height:32px;" title="Poison Immune">';}
