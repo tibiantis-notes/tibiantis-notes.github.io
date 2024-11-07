@@ -195,7 +195,7 @@ if (header == false){
     creatureTableHeader += "<th>Max<br>Block</th>";}
 creatureTable += "<td>" + max_block(current_creature) + "</td>";}
 
-if (true){ //Average Block
+if (document.getElementById('id_col_Arm_And_Block').checked){ //Average Block
 if (header == false){
     creatureTableHeader += "<th>Arm +<br>Block</th>";}
 creatureTable += "<td>" + Math.floor(arm_and_block(current_creature)) + "</td>";}
