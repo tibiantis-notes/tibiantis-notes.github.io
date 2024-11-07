@@ -226,7 +226,7 @@ creatureTable += "<td>" + (current_creature.Experience/current_creature.HitPoint
 if (document.getElementById('id_col_Healing').checked){ // Healing
 if (header == false){
     
-    creatureTableHeader += "<th>Resistances</th>";}
+    creatureTableHeader += "<th>Healing<br>Per Turn</th>";}
 creatureTable += "<td>" + healing(current_creature) + "</td>";}
 
 if (document.getElementById('id_col_Resistances').checked){ // Resist
