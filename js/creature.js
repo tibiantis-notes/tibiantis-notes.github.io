@@ -30,7 +30,7 @@ return arm_reduction;
 function healing(fn_creature){
     let heal_text = "";
     if (fn_creature.heal_base > 1){
-    heal_text = "1";
+    heal_text = (fn_creature.heal_base/fn_creature.heal_frequency).toFixed(1);
     } // end of if    
     
 return heal_text;
