@@ -158,7 +158,7 @@ creatureTable += "<td>" + current_creature.Experience + "</td>";}
 if (document.getElementById('id_col_Summon_Cost').checked){ //Summon
 if (header == false){
     creatureTableHeader += "<th>Summon</th>";}
-creatureTable += "<td>" + current_creature.SummonCost + "</td>";}
+creatureTable += "<td>" + (current_creature.NoSummon == true ? 0 : current_creature.SummonCost) + "</td>";}
 
 if (document.getElementById('id_col_Convince_Cost').checked){ //Convince
 if (header == false){
