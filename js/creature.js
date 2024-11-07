@@ -217,7 +217,7 @@ if (header == false){
     creatureTableHeader += "<th>XP:HP</th>";}
 creatureTable += "<td>" + (current_creature.Experience/current_creature.HitPoints).toFixed(2) + "</td>";}
 
-if (true){ // Resist
+if (document.getElementById('id_col_Resistances').checked){ // Resist
 if (header == false){
     
     creatureTableHeader += "<th>Resistances</th>";}
