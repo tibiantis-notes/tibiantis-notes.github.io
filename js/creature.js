@@ -223,6 +223,13 @@ if (header == false){
     creatureTableHeader += "<th>Resistances</th>";}
 creatureTable += "<td>" + resistances(current_creature) + "</td>";}
 
+if (document.getElementById('id_col_Resistances').checked){ // Healing
+if (header == false){
+    
+    creatureTableHeader += "<th>Resistances</th>";}
+creatureTable += "<td>" + resistances(current_creature) + "</td>";}
+
+
 creatureTable += "</tr>";
 
 header = true;
