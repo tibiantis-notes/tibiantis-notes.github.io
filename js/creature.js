@@ -31,6 +31,16 @@ arm_reduction += Math.floor((5 * fn_creature.FistFighting + 50) * fn_creature.De
 return arm_reduction;
 } // end of arm and block
 
+function healing(fn_creature){
+    let heal_text = "";
+    if (fn_creature.heal_base > 1){
+    heal_text = "1";
+    } // end of if    
+    
+return heal_text;
+} // end of healing
+
+
 function resistances(fn_creature){
 
 //Fire F, Poison P, Energy E, Physical Ph, Life Drain, LD
