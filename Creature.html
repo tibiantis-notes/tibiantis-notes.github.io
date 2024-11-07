@@ -34,6 +34,7 @@ img {
     <option value="Name">Name</option>
     <option value="HitPoints">Hit Points</option>
     <option value="Experience">Experience</option>
+    <option value="xpdivhp">XP/ HP</option>
     <option value="Armor">Armor</option>
     <option value="Attack">Attack</option>
     <option value="Defence">Defence</option>
@@ -44,8 +45,7 @@ img {
     <option value="Blocking">Blocking</option>
     <option value="Block_And_Armor">Average blocking + armor</option>
     <option value="Summon_Cost">Summon/ convince cost</option>
-    <option value="xpdivhp">XP/ HP</option>
-  <option value="Healing">Healing Per Turn</option>
+    <option value="Healing">Healing Per Turn</option>
   </select>
 </form>
 
@@ -59,9 +59,12 @@ img {
   
   <input type="checkbox" id="id_col_Experience" name="Experience" onchange="updateTable(creature)" checked  >
   <label for="id_col_Experience">Experience</label>
-  
+
+  <input type="checkbox" id="id_col_xpdivhp" name="xpdivhp" onchange="updateTable(creature)"  >
+<label for="id_col_xpdivhp">XP:HP</label><br>
+
   <input type="checkbox" id="id_col_Armor" name="Armor" onchange="updateTable(creature)" checked>
-  <label for="id_col_Armor">Armor</label><br>
+  <label for="id_col_Armor">Armor</label>
 
   <input type="checkbox" id="id_col_Attack" name="Attack" onchange="updateTable(creature)"  >
   <label for="id_col_Attack">Attack</label>
@@ -86,9 +89,6 @@ img {
   
 <input type="checkbox" id="id_col_Arm_And_Block" name="ArmAndBlock" onchange="updateTable(creature)" checked  >
 <label for="id_col_Arm_And_Block">Average Armor and Block</label><br>
-  
-<input type="checkbox" id="id_col_xpdivhp" name="xpdivhp" onchange="updateTable(creature)"  >
-<label for="id_col_xpdivhp">XP:HP</label><br>
 
 <input type="checkbox" id="id_col_Summon_Cost" name="SummonCost" onchange="updateTable(creature)"  >
 <label for="id_col_Summon_Cost">Summon Cost</label>
