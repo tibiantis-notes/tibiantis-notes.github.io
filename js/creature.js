@@ -48,7 +48,7 @@ if (fn_creature.NoEnergy == true){ //type 8
  resist_text += '<img src="/images/energy.png" alt="energy" style="width:32px;height:32px;">';}
    
 if (fn_creature.NoLifeDrain == true){ // type 255
- resist_text += '<img src="/images/skull.png" alt="skull" style="width:32px;height:32px;">';}
+ resist_text += '<img src="/images/skull.png" alt="life drain" style="width:32px;height:32px;">';}
 
 return resist_text;
 
