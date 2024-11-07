@@ -39,16 +39,16 @@ let resist_text = "";
  resist_text += '<img src="/images/physical.png" alt="physical" style="width:32px;height:32px;">';}
    
 if (fn_creature.NoPoison == true){ // type 2
- resist_text += '<img src="/images/poison.png" alt="poison" style="width:32px;height:32px;">';}
+ resist_text += '<img src="/images/poison.png" alt="poison" style="width:32px;height:32px;" title="Poison Immune">';}
 
 if (fn_creature.NoBurning == true){ // type 4
- resist_text += '<img src="/images/fire.png" alt="fire" style="width:32px;height:32px;">';}
+ resist_text += '<img src="/images/fire.png" alt="fire" style="width:32px;height:32px;" title="Fire Immune" >';}
    
 if (fn_creature.NoEnergy == true){ //type 8
- resist_text += '<img src="/images/energy.png" alt="energy" style="width:32px;height:32px;">';}
+ resist_text += '<img src="/images/energy.png" alt="energy" style="width:32px;height:32px;" title="Energy Immune">';}
    
 if (fn_creature.NoLifeDrain == true){ // type 255
- resist_text += '<img src="/images/skull.png" alt="life drain" style="width:32px;height:32px;">';}
+ resist_text += '<img src="/images/skull.png" alt="life drain" style="width:32px;height:32px;" title="Life Drain Immune">';}
 
 return resist_text;
 
