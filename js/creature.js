@@ -248,7 +248,7 @@ if (header == false){
 if (document.getElementById('id_col_Resistances').checked){ // Distance Fighting
 if (header == false){
     
-    creatureTableHeader += "<th>Distance<br>Fightint</th>";}
+    creatureTableHeader += "<th>Distance<br>Fighting</th>";}
 creatureTable += "<td>" + resistances(current_creature) + "</td>";}
 
     creatureTableHeader += "<th>Retarget</th>";}
