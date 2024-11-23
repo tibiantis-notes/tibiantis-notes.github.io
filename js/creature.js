@@ -244,7 +244,13 @@ creatureTable += "<td>" + resistances(current_creature) + "</td>";}
 
 if (document.getElementById('id_col_Resistances').checked){ // Retarget
 if (header == false){
+
+if (document.getElementById('id_col_Resistances').checked){ // Distance Fighting
+if (header == false){
     
+    creatureTableHeader += "<th>Distance<br>Fightint</th>";}
+creatureTable += "<td>" + resistances(current_creature) + "</td>";}
+
     creatureTableHeader += "<th>Retarget</th>";}
 creatureTable += "<td>" + resistances(current_creature) + "</td>";}
 
