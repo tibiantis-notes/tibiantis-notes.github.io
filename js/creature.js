@@ -245,15 +245,20 @@ creatureTable += "<td>" + "£" + "</td>";}
 if (document.getElementById('id_col_Resistances').checked){ // Retarget
 if (header == false){
 
+   creatureTableHeader += "<th>Retarget</th>";}
+creatureTable += "<td>" + "£" + "</td>";}
+
 if (document.getElementById('id_col_Resistances').checked){ // Distance Fighting
 if (header == false){
     
     creatureTableHeader += "<th>Distance<br>Fighting</th>";}
 creatureTable += "<td>" + "£" + "</td>";}
 
-    creatureTableHeader += "<th>Retarget</th>";}
+if (document.getElementById('id_col_Resistances').checked){ // Strategy
+if (header == false){
+    
+    creatureTableHeader += "<th>Strategy</th>";}
 creatureTable += "<td>" + "£" + "</td>";}
-
 
 
 creatureTable += "</tr>";
