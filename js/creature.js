@@ -236,25 +236,25 @@ if (header == false){
     creatureTableHeader += "<th>Resistances</th>";}
 creatureTable += "<td>" + resistances(current_creature) + "</td>";}
 
-if (document.getElementById('id_col_Resistances').checked){ // Flee
+if (document.getElementById('id_col_Behaviour').checked){ // Flee
 if (header == false){
     
     creatureTableHeader += "<th>Flee<br>HP</th>";}
 creatureTable += "<td>" + current_creature.FleeThreshold + "</td>";}
 
-if (document.getElementById('id_col_Resistances').checked){ // Retarget
+if (document.getElementById('id_col_Behaviour').checked){ // Retarget
 if (header == false){
 
    creatureTableHeader += "<th>Retarget</th>";}
 creatureTable += "<td>" + current_creature.LoseTarget + "</td>";}
 
-if (document.getElementById('id_col_Resistances').checked){ // Distance Fighting
+if (document.getElementById('id_col_Behaviour').checked){ // Distance Fighting
 if (header == false){
     
     creatureTableHeader += "<th>Distance<br>Fighting</th>";}
 creatureTable += "<td>" + (current_creature.DistanceFighting == true ? "YES" : "") + "</td>";}
 
-if (document.getElementById('id_col_Resistances').checked){ // Strategy
+if (document.getElementById('id_col_Behaviour').checked){ // Strategy
 if (header == false){
     
     creatureTableHeader += "<th>Strategy</th>";}
