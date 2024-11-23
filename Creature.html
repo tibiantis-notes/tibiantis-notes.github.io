@@ -120,7 +120,11 @@ Notes:<br>
 <li> Creature haste is has a range and the maximum is displayed here.
 <li> 'Arm + Block' is the average reduction of incoming melee attacks from armor and blocking (shielding).
 <li> Attack, Defence, Skill and Armor values can be used in the damage calculator.
-<li> Distance Fighting will make the creature keep distance from its target (a 3 tile gap). All distance fighting creatures have a retarget chance of 50%.
+<li> Flee HP is the HP below which the monster will flee. In 7.4 the monster has a limiting distance it can flee from its spawning point - you may see deer flee only so far. If a monster chases you past this distance it will no longer be constrained and can flee an unlimited distance.
+<li> Chance creature will retarget. The frequency that this chance is rolled is to be confirmed but likely to be either once per second or once per turn (TBC).
+<li> Distance Fighting will make the creature keep distance from its target (a 3 tile gap). All distance fighting creatures have a retarget chance of 50% and simple strategy - 100% chance to regarget closest. This makes their behaviour consistent.
+<li> Strategy decides how creature choses a new target once the target has been lost. The four numbers represent the likelihood to: 1) Attack closest, 2) Attack lowest hp (current or max to be confirmed), 3) Attack highest damage (mechanics TBC), and 4) Attack random.
+
 </ol>
 
 </body>
