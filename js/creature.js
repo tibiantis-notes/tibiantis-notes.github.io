@@ -240,25 +240,25 @@ if (document.getElementById('id_col_Resistances').checked){ // Flee
 if (header == false){
     
     creatureTableHeader += "<th>Flee<br>HP</th>";}
-creatureTable += "<td>" + "£" + "</td>";}
+creatureTable += "<td>" + current_creature.FleeThreshold + "</td>";}
 
 if (document.getElementById('id_col_Resistances').checked){ // Retarget
 if (header == false){
 
    creatureTableHeader += "<th>Retarget</th>";}
-creatureTable += "<td>" + "£" + "</td>";}
+creatureTable += "<td>" + current_creature.LoseTarget + "</td>";}
 
 if (document.getElementById('id_col_Resistances').checked){ // Distance Fighting
 if (header == false){
     
     creatureTableHeader += "<th>Distance<br>Fighting</th>";}
-creatureTable += "<td>" + "£" + "</td>";}
+creatureTable += "<td>" + current_creature.Experience + "</td>";}
 
 if (document.getElementById('id_col_Resistances').checked){ // Strategy
 if (header == false){
     
     creatureTableHeader += "<th>Strategy</th>";}
-creatureTable += "<td>" + "£" + "</td>";}
+creatureTable += "<td>" + current_creature.Strategy + "</td>";}
 
 
 creatureTable += "</tr>";
