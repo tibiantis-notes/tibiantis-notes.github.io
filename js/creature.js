@@ -240,7 +240,7 @@ if (document.getElementById('id_col_Resistances').checked){ // Flee
 if (header == false){
     
     creatureTableHeader += "<th>Flee<br>HP</th>";}
-creatureTable += "<td>" + resistances(current_creature) + "</td>";}
+creatureTable += "<td>" + "£" + "</td>";}
 
 if (document.getElementById('id_col_Resistances').checked){ // Retarget
 if (header == false){
