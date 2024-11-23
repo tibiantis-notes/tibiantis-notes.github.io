@@ -236,6 +236,23 @@ if (header == false){
     creatureTableHeader += "<th>Resistances</th>";}
 creatureTable += "<td>" + resistances(current_creature) + "</td>";}
 
+if (document.getElementById('id_col_Resistances').checked){ // Flee
+if (header == false){
+    
+    creatureTableHeader += "<th>Flee<br>HP</th>";}
+creatureTable += "<td>" + resistances(current_creature) + "</td>";}
+
+if (document.getElementById('id_col_Resistances').checked){ // Retarget
+if (header == false){
+    
+    creatureTableHeader += "<th>Retarget</th>";}
+creatureTable += "<td>" + resistances(current_creature) + "</td>";}
+
+if (document.getElementById('id_col_Resistances').checked){ // Strategy
+if (header == false){
+    
+    creatureTableHeader += "<th>Strategy</th>";}
+creatureTable += "<td>" + resistances(current_creature) + "</td>";}
 
 creatureTable += "</tr>";
 
