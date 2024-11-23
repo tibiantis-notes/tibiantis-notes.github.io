@@ -254,11 +254,7 @@ creatureTable += "<td>" + "£" + "</td>";}
     creatureTableHeader += "<th>Retarget</th>";}
 creatureTable += "<td>" + "£" + "</td>";}
 
-if (document.getElementById('id_col_Resistances').checked){ // Strategy
-if (header == false){
-    
-    creatureTableHeader += "<th>Strategy</th>";}
-creatureTable += "<td>" + "£" + "</td>";}
+
 
 creatureTable += "</tr>";
 
