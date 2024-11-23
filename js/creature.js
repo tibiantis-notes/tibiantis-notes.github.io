@@ -252,7 +252,7 @@ if (document.getElementById('id_col_Resistances').checked){ // Distance Fighting
 if (header == false){
     
     creatureTableHeader += "<th>Distance<br>Fighting</th>";}
-creatureTable += "<td>" + current_creature.DistanceFighting == true ? "YES" : "no" + "</td>";}
+creatureTable += "<td>" + (current_creature.DistanceFighting == true ? "YES" : "") + "</td>";}
 
 if (document.getElementById('id_col_Resistances').checked){ // Strategy
 if (header == false){
