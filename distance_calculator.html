@@ -155,13 +155,14 @@
             var max_damage = damage(modified_stat,skill,198,0); // looks at the damage highest roll
             
             //run block distribution
-            let modified_block = attack_modifier(defence,var_defender_stance,3);
+            let modified_block = 0;
+            
             for (let i = 0; i <= 198; i++) {
-                let for_block = parseInt(damage(modified_block,defender_skill,i,0));
+                let for_block = 0;
                 initial_block_distrib[for_block] += two_dice_distrib[i];
             }
             
-            var max_block = damage(modified_block,defender_skill,198,0); // highest block roll
+            var max_block = 0;
             
             //run armour distribution
             for (let i = 0; i <= 99; i++) {
