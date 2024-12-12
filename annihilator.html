@@ -69,7 +69,17 @@ for (i=0; i<90; i++) {
   }//end of fireball for
 fireball_damage[0] = 2/3;
 
+for (i=0; i<120; i++) {
+  energy_damage[i+300] = (1/120)*(1/10);
+  }//end of fireball for
+energy_damage[0] = 9/10;
+
 //merge two fire ball. Then cycle 5 times.
+for (i=0; i<200; i++) {
+  for (j=0; j<200; j++) {
+    fireball_damage_total[i+j] += fireball_damage[i] * fireball_damage[j];
+    } //end of j loop
+  } // end of i loop
 
 document.getElementById('test2').innerHTML = "end of code<br>";
 
