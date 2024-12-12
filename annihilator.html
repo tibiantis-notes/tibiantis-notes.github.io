@@ -79,12 +79,13 @@ energy_damage[0] = 9/10;
 fireball_damage_intermediate = Array.from(fireball_damage);
 
 //merge two fire ball. Then cycle 5 times.
-for (i=0; i<200; i++) {
+for (i=0; i<1300; i++) {
   for (j=0; j<200; j++) {
-    fireball_damage_final[i+j] += fireball_damage[i] * fireball_damage[j];
+    fireball_damage_final[i+j] += fireball_damage_intermediate[i] * fireball_damage[j];
     } //end of j loop
   } // end of i loop
-
+fireball_damage_intermediate = Array.from(fireball_damage_final);
+fireball_damage_final.fill(0);
 document.getElementById('test2').innerHTML = "end of code<br>";
 
 
