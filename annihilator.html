@@ -91,9 +91,12 @@ document.getElementById('test2').innerHTML = "end of code<br>";
 
 for (i=0; i<3000; i++) {
   if (fireball_damage_intermediate[i] != 0) {
-   document.getElementById('test2').innerHTML += i + " = " fireball_damage_intermediate[i] + "<br>";
+   test2_text += i + " = " + fireball_damage_intermediate[i] + "<br>";
      }
     }
+    document.getElementById('test2').innerHTML += test2_text;
+
+
 } // end of calc distrib
 
 calculate_distrib();
