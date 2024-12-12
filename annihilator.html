@@ -88,7 +88,10 @@ fireball_damage_intermediate = Array.from(fireball_damage_total);
 fireball_damage_total.fill(0);
 document.getElementById('test2').innerHTML = "end of code<br>";
 
-
+for (i=0; i<3000; i++) {
+  if (fireball_damage_intermediate[i] == 0) {
+   document.getElementById('test2').innerHTML = "end of code<br>";
+     }
 } // end of calc distrib
 
 calculate_distrib();
