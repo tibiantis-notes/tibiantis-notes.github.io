@@ -80,9 +80,9 @@ energy_damage[0] = 9/10;
 fireball_damage_intermediate = Array.from(fireball_damage);
 
 //merge two fire ball. Then cycle 5 times.
-for (k=0; k<1; k++) {
-  for (i=0; i<1300; i++) {
-    for (j=0; j<200; j++) {
+for (k=0; k<1; k++) { // loop through number of demons (5.5)
+  for (i=0; i<1300; i++) { // loop through running total
+    for (j=0; j<200; j++) { // loop through fireball
       fireball_damage_total[i+j] += fireball_damage_intermediate[i] * fireball_damage[j];
       } //end of j loop
     } // end of i loop
