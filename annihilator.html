@@ -62,7 +62,11 @@ let energy_damage_total = new Array(1300).fill(0);
 let damage_total = new Array(2600).fill(0);
 let i=0; let j=0;
 
-for (i=0; i<
+for (i=0; i<90; i++) {
+  fireball_damage[i+110] = (1/90)*(1/3);
+  }//end of fireball for
+fireball_damage[0] = 2/3;
+
 } // end of calc distrib
 
 calculate_distrib();
