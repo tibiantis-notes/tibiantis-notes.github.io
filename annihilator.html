@@ -65,6 +65,7 @@ let energy_damage_intermediate = new Array(1300).fill(0);
 let energy_damage_total = new Array(1300).fill(0);
 let damage_total = new Array(2600).fill(0);
 let i=0; let j=0;
+let test2_text;
 
 for (i=0; i<90; i++) {
   fireball_damage[i+110] = (1/90)*(1/3);
@@ -92,6 +93,7 @@ for (i=0; i<3000; i++) {
   if (fireball_damage_intermediate[i] != 0) {
    document.getElementById('test2').innerHTML += i + " = " fireball_damage_intermediate[i] + "<br>";
      }
+    }
 } // end of calc distrib
 
 calculate_distrib();
