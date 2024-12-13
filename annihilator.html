@@ -140,11 +140,11 @@ for (i=0; i<1300; i++) {
 
 for (i=0; i<2600; i++) { // combine big and small hits
 damage_total[i] = (damage_total_a[i] + damage_total_b[i])/2;
-} // end of if
+} // end of for
 
 for (i=0; i<2600; i++) { // shrink to 10s
 damage_total_tens[Math.floor(i/10)] += damage_total[i];
-} // end of if
+} // end of for
 
 document.getElementById('test2').innerHTML = 
 "end of code<br>";
