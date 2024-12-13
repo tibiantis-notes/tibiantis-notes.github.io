@@ -146,8 +146,9 @@ for (i=0; i<2600; i++) { // shrink to 10s
 damage_total_tens[Math.floor(i/10)] += damage_total[i];
 } // end of for
 
-for (i=0; i<20; i++) { // accumulate
-damage_total_above[i] = if(i>0) {
+damage_total_above[0] += damage_total[0];
+for (i=1; i<20; i++) { // accumulate
+damage_total_above[i] =
   damage_total_above[i-1] + damage_total[i];
   } // end of if
 } // end of for
