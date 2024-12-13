@@ -65,7 +65,10 @@ let energy_damage = new Array(420).fill(0);
 let energy_damage_intermediate = new Array(1300).fill(0);
 let energy_damage_total = new Array(1300).fill(0);
 let energy_damage_total_b = new Array(1300).fill(0);
-let damage_total = new Array(2600).fill(0);
+let damage_total_a = new Array(2600).fill(0); //big hit
+let damage_total_b = new Array(2600).fill(0); //small hit
+let damage_total = new Array(2600).fill(0); //average hit
+
 let i=0; let j=0; let k=0;
 let test2_text="";
 
@@ -124,15 +127,27 @@ for (k=0; k<2; k++) { // loop through number of demons (5.5)
     energy_damage_total = Array.from(energy_damage_intermediate);
     } // end of if
   } //end of loop energy
-  
+
+// Fire+energy a
+for (i=0; i<1300; i++) {
+  for (j=0; j<1300; j++) {
+    damage_total_a[i+j] += fire_damage_total[i] * energy_damage_total[j]; // bit hit
+    damage_total_b[i+j] += fire_damage_total_b[i] * energy_damage_total_b[j]; // small hit
+    } // end of i
+  } // end of j
+
+for (i=0; i<2600; i++) { // combine big and small hits
+damage_total[i] = (damage_total_a[i] + damage_total_b[i])/2;
+} // end of if
+
 document.getElementById('test2').innerHTML = 
 "end of code<br>";
 
 
-for (i=0; i<1300; i++) { // print
+for (i=0; i<2600; i++) { // print
   //if (fireball_damage_intermediate[i] > 0) {
 if(true){
-   test2_text += i + " = " + energy_damage_intermediate[i] + "<br>";
+   test2_text += i + " = " + damage_total_a[i] + "<br>";
      } // end of if
     } // end of for print
     document.getElementById('test2').innerHTML += test2_text;
