@@ -146,15 +146,17 @@ for (i=0; i<2600; i++) { // shrink to 10s
 damage_total_tens[Math.floor(i/10)] += damage_total[i];
 } // end of for
 
+for (i=1; i<260; i++) { // accumulate
+damage_total_above[259-i] = damage_total_above[259-i+1] + damage_total[259-i];
+} // end of for
+
 document.getElementById('test2').innerHTML = 
 "end of code<br>";
 
 
 for (i=0; i<260; i++) { // print
-  //if (fireball_damage_intermediate[i] > 0) {
-if(true){
-   test2_text += i + " = " + damage_total_tens[i] + "<br>";
-     } // end of if
+   test2_text += i + " = " + //damage_total_tens[i] + "<br>";
+damage_total_above[i] + "<br>";
     } // end of for print
     document.getElementById('test2').innerHTML += test2_text;
 
