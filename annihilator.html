@@ -61,6 +61,7 @@ let fireball_damage = new Array(200).fill(0);
 let energy_damage = new Array(420).fill(0);
 let fireball_damage_intermediate = new Array(1300).fill(0);
 let fireball_damage_total = new Array(1300).fill(0);
+let fireball_damage_total_b = new Array(1300).fill(0);
 let energy_damage_intermediate = new Array(1300).fill(0);
 let energy_damage_total = new Array(1300).fill(0);
 let damage_total = new Array(2600).fill(0);
@@ -90,6 +91,14 @@ for (k=0; k<5; k++) { // loop through number of demons (5.5)
     } // end of i loop
   fireball_damage_intermediate = Array.from(fireball_damage_total);
   fireball_damage_total.fill(0);
+  
+  if(k=3){ // k= 3 -> 5th fb.
+    fireball_damage_total = Array.from(fireball_damage_intermediate_b);
+    } // end of if
+
+  if(k=4){ // k= 4 -> 6th fb.
+    fireball_damage_total = Array.from(fireball_damage_intermediate);
+    } // end of if
   } //end of loop
   
 document.getElementById('test2').innerHTML = 
