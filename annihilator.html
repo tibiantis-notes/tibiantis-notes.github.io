@@ -68,6 +68,8 @@ let energy_damage_total_b = new Array(1300).fill(0);
 let damage_total_a = new Array(2600).fill(0); //big hit
 let damage_total_b = new Array(2600).fill(0); //small hit
 let damage_total = new Array(2600).fill(0); //average hit
+let damage_total_tens = new Array(260).fill(0); //average hit
+let damage_total_above = new Array(260).fill(0); //average hit
 
 let i=0; let j=0; let k=0;
 let test2_text="";
@@ -140,14 +142,18 @@ for (i=0; i<2600; i++) { // combine big and small hits
 damage_total[i] = (damage_total_a[i] + damage_total_b[i])/2;
 } // end of if
 
+for (i=0; i<2600; i++) { // shrink to 10s
+damage_total_tens[Math.floor(i/10)] += damage_total[i];
+} // end of if
+
 document.getElementById('test2').innerHTML = 
 "end of code<br>";
 
 
-for (i=0; i<2600; i++) { // print
+for (i=0; i<260; i++) { // print
   //if (fireball_damage_intermediate[i] > 0) {
 if(true){
-   test2_text += i + " = " + damage_total[i] + "<br>";
+   test2_text += i + " = " + damage_total_tens[i] + "<br>";
      } // end of if
     } // end of for print
     document.getElementById('test2').innerHTML += test2_text;
