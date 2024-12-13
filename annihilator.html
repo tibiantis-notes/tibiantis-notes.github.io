@@ -77,7 +77,9 @@ for (i=0; i<120; i++) {
   }//end of fireball for
 energy_damage[0] = 9/10;
 
-fireball_damage_intermediate = Array.from(fireball_damage);
+for (let i = 0; i < fireball_damage.length; i++) {
+    fireball_damage_intermediate[i] = fireball_damage[i];
+}
 
 //merge two fire ball. Then cycle 5 times.
 for (k=0; k<1; k++) { // loop through number of demons (5.5)
