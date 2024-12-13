@@ -58,12 +58,13 @@ function calculate_distrib() {
 document.getElementById('test1').innerHTML = "Start of code<br>";
 
 let fireball_damage = new Array(200).fill(0);
-let energy_damage = new Array(420).fill(0);
 let fireball_damage_intermediate = new Array(1300).fill(0);
 let fireball_damage_total = new Array(1300).fill(0);
 let fireball_damage_total_b = new Array(1300).fill(0);
+let energy_damage = new Array(420).fill(0);
 let energy_damage_intermediate = new Array(1300).fill(0);
 let energy_damage_total = new Array(1300).fill(0);
+let energy_damage_total_b = new Array(1300).fill(0);
 let damage_total = new Array(2600).fill(0);
 let i=0; let j=0; let k=0;
 let test2_text="";
@@ -78,11 +79,15 @@ for (i=0; i<120; i++) {
   }//end of fireball for
 energy_damage[0] = 9/10;
 
-for (let i = 0; i < fireball_damage.length; i++) {
+for (let i = 0; i < fireball_damage.length; i++) { //apply first fireball
     fireball_damage_intermediate[i] = fireball_damage[i];
 }
 
-//merge two fire ball. Then cycle 5 times.
+for (let i = 0; i < energy_damage.length; i++) { // apply first energy beam
+    energy_damage_intermediate[i] = energy_damage[i];
+}
+
+//merge fire ball and total. Then cycle 5 times.
 for (k=0; k<5; k++) { // loop through number of demons (5.5)
   for (i=0; i<1100; i++) { // loop through running total
     for (j=0; j<200; j++) { // loop through fireball
@@ -99,16 +104,35 @@ for (k=0; k<5; k++) { // loop through number of demons (5.5)
   if(k==4){ // k= 4 -> 6th fb.
     fireball_damage_total = Array.from(fireball_damage_intermediate);
     } // end of if
-  } //end of loop
+  } //end of loop fireball
+
+//merge energy veam and total. Then cycle 5 times.
+for (k=0; k<2; k++) { // loop through number of demons (5.5)
+  for (i=0; i<900; i++) { // loop through running total
+    for (j=0; j<420; j++) { // loop through energy
+      energy_damage_total[i+j] += energy_damage_intermediate[i] * energy_damage[j];
+      } //end of j loop
+    } // end of i loop
+  energy_damage_intermediate = Array.from(energy_damage_total);
+  energy_damage_total.fill(0);
+  
+  if(k==0){ // k= 3 -> 5th fb.
+    energy_damage_total_b = Array.from(energy_damage_intermediate);
+    } // end of if
+
+  if(k==1){ // k= 4 -> 6th fb.
+    energy_damage_total = Array.from(energy_damage_intermediate);
+    } // end of if
+  } //end of loop energy
   
 document.getElementById('test2').innerHTML = 
 "end of code<br>";
 
 
-for (i=0; i<1200; i++) {
+for (i=0; i<1200; i++) { // print
   //if (fireball_damage_intermediate[i] > 0) {
 if(true){
-   test2_text += i + " = " + fireball_damage_intermediate[i] + "<br>";
+   test2_text += i + " = " + 3!energy_damage_intermediate[i] + "<br>";
      }
     }
     document.getElementById('test2').innerHTML += test2_text;
