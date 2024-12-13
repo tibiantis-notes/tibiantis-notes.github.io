@@ -82,7 +82,7 @@ for (let i = 0; i < fireball_damage.length; i++) {
 }
 
 //merge two fire ball. Then cycle 5 times.
-for (k=0; k<1; k++) { // loop through number of demons (5.5)
+for (k=0; k<5; k++) { // loop through number of demons (5.5)
   for (i=0; i<1100; i++) { // loop through running total
     for (j=0; j<200; j++) { // loop through fireball
       fireball_damage_total[i+j] += fireball_damage_intermediate[i] * fireball_damage[j];
