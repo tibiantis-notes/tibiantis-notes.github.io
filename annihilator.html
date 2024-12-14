@@ -23,6 +23,8 @@ img {
 <meta title ="Tibiantis Notes - Annihilator quest">
 <meta name="author" content="Tarsal">
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
 <body>
 <a href="https://tibiantis-notes.github.io/">Home</a>
 <h1>Tibia 7.4/ Tibiantis notes</h1>
@@ -54,6 +56,8 @@ The average damage on turn 1 and 2 is therefore 310 + 108 = 418, and 258 + 72 = 
 <script>
 
 function calculate_distrib() {
+
+<canvas id="damage_distribution" style="width:100%;max-width:600px"></canvas>
 
 document.getElementById('test1').innerHTML = "Start of code<br>";
 
@@ -165,6 +169,28 @@ for (i=0; i<260; i++) { // print
 } // end of calc distrib
 
 calculate_distrib();
+
+const xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+const yValues = [55, 49, 44, 24, 15];
+const barColors = ["red", "green","blue","orange","brown"];
+
+new Chart("myChart", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "World Wine Production 2018"
+    }
+  }
+});
 
 </script>
 
