@@ -51,6 +51,31 @@ The average damage on turn 1 and 2 is therefore 310 + 108 = 418, and 258 + 72 = 
 
 <canvas id="damage_distribution" style="width:100%;max-width:600px"></canvas>
 
+<script>
+const xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+const yValues = [55, 49, 44, 24, 15];
+const barColors = ["red", "green","blue","orange","brown"];
+
+new Chart("myChart", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "World Wine Production 2018"
+    }
+  }
+});
+
+</script>
+
 <p id="test1"></p>
 <p id="test2"></p>
 
@@ -172,27 +197,6 @@ for (i=0; i<260; i++) { // print
 
 calculate_distrib();
 
-const xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
-const yValues = [55, 49, 44, 24, 15];
-const barColors = ["red", "green","blue","orange","brown"];
-
-new Chart("myChart", {
-  type: "bar",
-  data: {
-    labels: xValues,
-    datasets: [{
-      backgroundColor: barColors,
-      data: yValues
-    }]
-  },
-  options: {
-    legend: {display: false},
-    title: {
-      display: true,
-      text: "World Wine Production 2018"
-    }
-  }
-});
 
 </script>
 
