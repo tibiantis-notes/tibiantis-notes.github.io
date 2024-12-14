@@ -148,8 +148,8 @@ damage_total_tens[Math.floor(i/10)] += damage_total[i];
 
 damage_total_above[259] = damage_total_tens[259];
 for (i=258; i>=0; i--) { // accumulate
-damage_total_above[259-i] =
-  damage_total_above[259-i+1] + damage_total_tens[259-i];
+damage_total_above[i] =
+  damage_total_above[i+1] + damage_total_tens[i];
 } // end of for
 
 document.getElementById('test2').innerHTML = 
