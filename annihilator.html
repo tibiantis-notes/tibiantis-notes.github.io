@@ -184,14 +184,18 @@ const yValues = [8.533, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 
 
 /*const barColors = ["red", "green","blue","orange","brown"];*/
 
+const barColors ="red";
+//Chart.defaults.backgroundColor = rgb(54, 162, 235);
+
+
 new Chart("myChart", {
   type: "bar",
   data: {
     labels: xValues,
     datasets: [{
-      //backgroundColor: barColors,
+      backgroundColor: barColors,
       data: yValues
-      Chart.defaults.backgroundColor = rgb(54, 162, 235);
+      
     }]
   },
   options: {
