@@ -201,7 +201,7 @@ new Chart("myChart", {
     legend: { display: false },
     title: {
       display: true,
-      text: "World Wine Production 2018"
+      text: "Annihilator Damage Distribution - non blocker"
     },
     scales: {
       xAxes: [{
@@ -211,18 +211,18 @@ new Chart("myChart", {
         },
         scaleLabel: {
           display: true,
-          labelString: "Production"
+          labelString: "Damage"
         }
       }],
       yAxes: [{
         ticks: {
           min: 0,
           max: 4,
-          stepSize: 1
+          stepSize: 0.25
         },
         scaleLabel: {
           display: true,
-          labelString: "Countries"
+          labelString: "% chance of damage occuring (multiples of 10)"
         }
       }]
     }
