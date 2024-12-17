@@ -204,9 +204,10 @@ new Chart("myChart", {
       display: true,
       text: "World Wine Production 2018"
     },
-      xAxes: [{ticks: {suggestedMin: 0, suggestedMax:1500}}],
+      scales: {
+        xAxes: [{ticks: {suggestedMin: 0, suggestedMax:1500}}],
     yAxes: [{ticks: {suggestedMin: 0, suggestedMax:4}}]
-  }
+  }}
 });
 
 </script>
