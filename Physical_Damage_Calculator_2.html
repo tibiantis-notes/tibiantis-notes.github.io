@@ -270,10 +270,11 @@
             document.getElementById('top_10000_hit').innerHTML = high_hit[4];
             document.getElementById('id_user_hit_chance').innerHTML = user_hit_chance.toFixed(2) + "%";
             
-
+let odds_string="";
 for (i=0;i<1000;i++) {
-    document.getElementById('odds').innerHTML += final_damage_distrib[i] + "<br>";
+    odds_string += final_damage_distrib[i] + "<br>";
 }
+document.getElementById('odds').innerHTML = odds_string;
              
             
             //document.getElementById('test2').innerHTML = "Test2: " + var_stance;
