@@ -126,9 +126,6 @@
             let final_damage_distrib = new Array(1000).fill(0); // after block and    
 
 
-            // I want damage distribution
-            // I want damage after shielding reduced i.e poff
-            // I want damage after armor i.e armor chink.
 
             // code that calculates odds of each 2 dice result. 199 long ends in 198
             for (let i = 0; i <= 99; i++) {
@@ -273,7 +270,10 @@
             document.getElementById('top_10000_hit').innerHTML = high_hit[4];
             document.getElementById('id_user_hit_chance').innerHTML = user_hit_chance.toFixed(2) + "%";
             
-document.getElementById('odds').innerHTML = "yotoyo.";
+
+for (i=0;i<1000;i++) {
+    document.getElementById('odds').innerHTML += final_damage_distrib[i] + "<br>";
+}
              
             
             //document.getElementById('test2').innerHTML = "Test2: " + var_stance;
