@@ -121,6 +121,8 @@ let damage_total_b = new Array(2600).fill(0); //small hit
 let damage_total = new Array(2600).fill(0); //average hit
 let damage_total_tens = new Array(260).fill(0); //average hit
 let damage_total_above = new Array(260).fill(0); //average hit
+let physical_damage = new Array(500).fill(0); //physical hit
+let blocker_total_a = new Array(3100).fill(0); //physical hit + spells big hit
 
 let i=0; let j=0; let k=0;
 let test2_text="";
@@ -186,6 +188,13 @@ for (i=0; i<1300; i++) {
   for (j=0; j<1300; j++) {
     damage_total_a[i+j] += fireball_damage_total[i] * energy_damage_total[j]; // bit hit
     damage_total_b[i+j] += fireball_damage_total_b[i] * energy_damage_total_b[j]; // small hit
+    } // end of i
+  } // end of j
+
+// Magic + melee - big hit
+for (i=0; i<2600; i++) {
+  for (j=0; j<500; j++) {
+    blocker_total_a[i+j] += damage_total_a[i] * physical_damage[j]; // bit hit
     } // end of i
   } // end of j
 
