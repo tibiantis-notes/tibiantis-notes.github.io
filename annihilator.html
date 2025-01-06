@@ -198,16 +198,16 @@ for (i=0; i<2600; i++) {
     } // end of i
   } // end of j
 
-for (i=0; i<2600; i++) { // combine big and small hits
-damage_total[i] = (damage_total_a[i] + damage_total_b[i])/2;
-} // end of for
+for (i=0; i<3100; i++) { // combine big and small hits
+damage_total[i] = (blocker_total[i] + damage_total_b[i])/2;
+} // end of for (alwas damage total a +)
 
-for (i=0; i<2600; i++) { // shrink to 10s
+for (i=0; i<3100; i++) { // shrink to 10s
 damage_total_tens[Math.floor(i/10)] += damage_total[i];
 } // end of for
 
-damage_total_above[259] = damage_total_tens[259];
-for (i=258; i>=0; i--) { // accumulate
+damage_total_above[309] = damage_total_tens[309];
+for (i=308; i>=0; i--) { // accumulate
 damage_total_above[i] =
   damage_total_above[i+1] + damage_total_tens[i];
 } // end of for
@@ -216,7 +216,7 @@ document.getElementById('test2').innerHTML =
 "end of code<br>";
 
 
-for (i=0; i<260; i++) { // print
+for (i=0; i<310; i++) { // print
    test2_text += 10*i + "\t" + damage_total_tens[i] + "\t" + damage_total_above[i] + "<br>";
     } // end of for print
     document.getElementById('test2').innerHTML += test2_text;
