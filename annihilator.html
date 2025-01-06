@@ -210,6 +210,9 @@ for (i=0; i<3100; i++) { // shrink to 10s
 damage_total_tens[Math.floor(i/10)] += damage_total[i];
 } // end of for
 
+document.getElementById('test2').innerHTML = 
+"i got to here3<br>";
+
 damage_total_above[309] = damage_total_tens[309];
 for (i=308; i>=0; i--) { // accumulate
 damage_total_above[i] =
