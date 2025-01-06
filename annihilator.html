@@ -191,8 +191,6 @@ for (i=0; i<1300; i++) {
     } // end of i
   } // end of j
 
-document.getElementById('test2').innerHTML = 
-"i got to here<br>";
 
 // Magic + melee - big hit
 for (i=0; i<2600; i++) {
@@ -200,6 +198,9 @@ for (i=0; i<2600; i++) {
     blocker_total_a[i+j] += damage_total_a[i] * physical_damage[j]; // bit hit
     } // end of i
   } // end of j
+
+document.getElementById('test2').innerHTML = 
+"i got to here2<br>";
 
 for (i=0; i<3100; i++) { // combine big and small hits
 damage_total[i] = (blocker_total[i] + damage_total_b[i])/2;
