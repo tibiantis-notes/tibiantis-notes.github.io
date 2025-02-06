@@ -82,13 +82,15 @@ Then resulting value is rounded down to the nearest even number. The negative sp
   
 The time for each step, in seconds, is speed divided by the terrain factor, then rounded up to the nearest 50 milliseconds. The rounding can have a significant impact on speed causing noticable jumps at certain 'breakpoints'. The higher the speed, the more spreadout but impactful these breakpoints become.<br><br>
 
+At the extreme a level 290 mage with strong haste, BoH and a Time ring will have 1400 speed on a sandstone floor will reach the 0.05s breakpoint and travel at 20 tiles/ second but at level 289 would travel at 10 tiles/s.<br><br>
+
 &emsp;<em>DiagonalFactor = 3 for diagonal or 1 for orthogonal</em><br><br>
 
 Using Pythagoras a diagonal step should take 1.41x longer than an orthogonal one, but instead it takes 3 times longer! This is not an efficient way to move except to avoid fire fields, creature boxing and in PvP. Speed appears to be related to tile you are moving to. When you move a step from the game's perspective you are immediately on the new tile and then need to wait the step duration for the next action.<br><br>
 
   
 <h2>Terrain</h2>
-Different terrain tiles can be traversed at different speeds determined by the Terrain Factor which ranges from 70 (fastest) to 200 (slowest). There are a huge number of tiles with varying factors including averaged values for tiles that transition from one type to another. The game pathing will take tile speed into account when choosing the optimal route.<br><br>
+Different terrain tiles can be traversed at different speeds determined by the Terrain Factor of the tile you are moving to which ranges from 70 (fastest) to 200 (slowest). There are a huge number of tiles with varying factors including averaged values for tiles that transition from one type to another. The game pathing will take tile speed into account when choosing the optimal route.<br><br>
   
 The following list should be taken as a rough guide: sandstone floor = 70, drawbridge (Ab'dendriel walkways) = 90, cobbled, wooden, marble, tiled floor = 100, dirt, ice = 110, rock = 120, grass, gravel = 150, sand = 160, mud = 120/130/140/160/200, snow = 200. You can only collect mud (liquid) from the slowest mud tile.<br><br>
 
