@@ -405,5 +405,30 @@ Notes:<br>
 </ol>
 </div>
 
+<label for="creature">Select a Creature:</label>
+    <select id="creature" onchange="showArmor()">
+        <option value="">--Choose a creature--</option>
+        <option value="Amazon">Amazon</option>
+        <option value="Orc">Orc</option>
+        <option value="Dragon">Dragon</option>
+        <option value="Demon">Demon</option>
+    </select>
+    <p id="armorValue"></p>
+
+    <script>
+        var creatureArmor = {
+            "Amazon": 8,
+            "Orc": 6,
+            "Dragon": 20,
+            "Demon": 30
+        };
+
+        function showArmor() {
+            var selectedCreature = document.getElementById("creature").value;
+            var armorText = selectedCreature ? "Armor: " + (creatureArmor[selectedCreature] || "Unknown") : "";
+            document.getElementById("armorValue").innerText = armorText;
+        }
+    </script>
+
 </body>
 </html>
