@@ -81,6 +81,13 @@
   
         }//end of stat modifier function
 
+function damage(fn_modified_stat, fn_skill, fn_roll_1, fn_roll_2) {
+            //roll is a number between 0-99
+            let fn_damage = Math.floor((5 * parseInt(fn_skill) + 50) * (fn_modified_stat) * Math.floor((fn_roll_1 + fn_roll_2) / 2) / 10000);
+            return fn_damage;
+        
+        }// end of damage function
+
 function calculateSum() {
 
 // Get the input values for Attack and Skill
