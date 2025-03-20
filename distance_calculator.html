@@ -51,6 +51,36 @@
             var armorText = selectedCreature ? "Armor: " + (creatureArmor[selectedCreature] || "Unknown") : "";
             document.getElementById("armorValue").innerText = armorText;
         }
+        
+        function attack_modifier(fn_attack, fn_stance) {
+            //fn_stance is a number 1-3 where 1 is offensive
+            let fn_switch = parseInt(fn_stance); // position is 0 or 3
+            fn_attack = parseInt(fn_attack);
+            let fn_modified_stat = 0;
+            
+            switch(fn_switch) {
+              case 1:
+                // attacking - offensive
+                fn_modified_stat = fn_attack + Math.floor(0.2 * fn_attack);
+                break;
+              case 2:
+                // attacking - balanced
+                fn_modified_stat = fn_attack;
+                break;
+              case 3:
+                // attacking - defensive
+               fn_modified_stat = fn_attack - Math.floor(0.4 * fn_attack);
+                break;
+         
+                default:
+               fn_modified_stat = 999;
+
+            } //end of switch
+         
+        
+        return fn_modified_stat;
+  
+        }//end of stat modifier function
     </script>
 
 </head>
