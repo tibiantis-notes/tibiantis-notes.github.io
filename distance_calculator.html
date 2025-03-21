@@ -56,7 +56,7 @@ if (fn_tiles == 1){
 
 let part_1 = 15 * fn_tiles - 1; // for skill 50 at at 5 tiles this is this is 50/74
 
-accuracy_val = Math.max(fn_skill / part_1, 1); //
+accuracy_val = Math.min(fn_skill / part_1, 1); //
 
 return accuracy_val;
 } // end of accuracy function
