@@ -48,15 +48,15 @@
 
 function accuracy_raw(fn_skill,fn_tiles) {
 //tiles is defined as 1 = adjacent, 2 = 1sqm gap, etc
-let accuracy_val=0;
+let accuracy_val = 0;
 
-if (fn_tiles==1){
-  fn_tiles=5;
+if (fn_tiles == 1){
+  fn_tiles = 5;
 }//end of if - adjacent tiles treated as 5 tiles
 
 let part_1 = 15 * fn_tiles - 1; // for skill 50 at at 5 tiles this is this is 50/74
 
-accuracy_val = max(fn_skill / part_1,1); //
+accuracy_val = max(fn_skill / part_1, 1); //
 
 return accuracy_val;
 } // end of accuracy function
