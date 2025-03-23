@@ -136,7 +136,7 @@ var skill_accuracy = accuracy_raw(skill,5);
 // Display the result
             document.getElementById('max_damage').innerHTML = "Max damage (before armor): " + max_damage;
             
-document.getElementById('chance_to_hit_skill').innerHTML = "Accuracy from skill: " + skill_accuracy * 100 + "%";
+document.getElementById('chance_to_hit_skill').innerHTML = "Accuracy from skill: " + (skill_accuracy * 100).toFixed(2) + "%";
 
 // End of display the result        
                
