@@ -142,7 +142,7 @@ var overall_accuracy = skill_accuracy * weapon_accuracy;
             
 document.getElementById('chance_to_hit_skill').innerHTML = "Accuracy from skill: " + (skill_accuracy * 100).toFixed(2) + "%";
 
-document.getElementById('chance_to_hit_ammo').innerHTML = "Accuracy from ammo: " + (weapon_accuracy * 100).toFixed(2) + "%";
+document.getElementById('chance_to_hit_ammo').innerHTML = "Accuracy from weapon: " + (weapon_accuracy * 100).toFixed(2) + "%";
 
 document.getElementById('chance_to_hit').innerHTML = "Accuracy: " + (overall_accuracy * 100).toFixed(2) + "%";
 
@@ -196,6 +196,14 @@ document.getElementById('chance_to_hit').innerHTML = "Accuracy: " + (overall_acc
     <label for="skill">Skill: </label>
     <input type="number" id="attacker_skill" min="0" max="130" value="90" oninput="calculateSum()"><br><br>
 
+Attacker weapon:<br>
+    <input type="radio" id="bolt" name="weapon" value="90" checked onchange="calculateSum()">
+    <label for="bolt">Arrows & bolts (90%)</label><br>
+
+    <input type="radio" id="spear" name="weapon" value="75" onchange="calculateSum()">
+    <label ="spear">Thrown (75%)</label><br>
+
+<br><br>
 
 </td>
             
