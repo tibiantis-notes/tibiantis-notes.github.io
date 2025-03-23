@@ -127,6 +127,8 @@ function calculateSum() {
             // Check which stance is selected
             var var_stance = parseInt(document.querySelector('input[name="stance"]:checked').value);
 
+var tiles = parseInt(document.getElementById('tiles').value);
+
 var modified_stat = attack_modifier(attack, var_stance);
 
 var max_damage = damage(modified_stat,skill,198,0); // looks at the damage highest roll 99+99
