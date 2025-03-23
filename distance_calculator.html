@@ -50,7 +50,7 @@ function accuracy_raw(fn_skill,fn_tiles) {
 //tiles is defined as 1 = adjacent, 2 = 1sqm gap, etc
 let accuracy_val = 0;
 
-if (fn_tiles == 1){
+if (fn_tiles < 2){
   fn_tiles = 5;
 }//end of if - adjacent tiles treated as 5 tiles
 
@@ -131,7 +131,7 @@ var modified_stat = attack_modifier(attack, var_stance);
 
 var max_damage = damage(modified_stat,skill,198,0); // looks at the damage highest roll 99+99
 
-var skill_accuracy = accuracy_raw(skill,5);
+var skill_accuracy = accuracy_raw(skill,tiles);
 var weapon_accuracy = 90/99;
 var overall_accuracy = skill_accuracy * weapon_accuracy;
            
