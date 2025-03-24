@@ -103,7 +103,7 @@ function calculateSum() {
             var attack = parseInt(document.getElementById('attack').value);
             var skill = parseInt(document.getElementById('attacker_skill').value);
             
-            var manual_armour = parseInt(document.getElementById('defender_armour').value);
+            var manual_armor = parseInt(document.getElementById('defender_armor').value);
 
 // selectedCreature retrieves armor
 var selectedCreature = document.getElementById("creature").value;
@@ -115,8 +115,8 @@ var selectedCreature = document.getElementById("creature").value;
             }//end of if
             
             // Check if armour is valid integers between 0 and 120
-            if (isNaN(manual_armour) || manual_armour < 0 || manual_armour > 100) {
-                document.getElementById('result').innerHTML = "Please enter an armour value between 0 and 100.";
+            if (isNaN(manual_armor) || manual_armor < 0 || manual_armor > 100) {
+                document.getElementById('result').innerHTML = "Please enter an armor value between 0 and 100.";
                 return;
             }//end of if
 
