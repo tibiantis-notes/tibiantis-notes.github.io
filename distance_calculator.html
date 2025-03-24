@@ -97,6 +97,18 @@ function damage(fn_modified_stat, fn_skill, fn_roll_1, fn_roll_2) {
         
         }// end of damage function
 
+function handleArmorInput() {
+            var selectedCreature = document.getElementById("creature").value;
+            var defenderArmorInput = document.getElementById('defender_armor');
+            if (selectedCreature === "manual") {
+                defenderArmorInput.disabled = false;
+                defenderArmorInput.classList.remove("disabled");
+            } else {
+                defenderArmorInput.disabled = true;
+                defenderArmorInput.classList.add("disabled");
+            }
+        }
+
 function calculateSum() {
 
 // Get the input values for Attack and Skill
