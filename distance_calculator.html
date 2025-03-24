@@ -164,24 +164,6 @@ document.getElementById('chance_to_hit').innerHTML = "Accuracy (before armor): "
 
 <div style="width: 900px">
 
-
-<label for="creature">Select a Creature:</label>
-    <select id="creature" onchange="showArmor()">
-        <option value="">--Choose a creature--</option>
-       <option value="manual">manual</option>
-       <option value="amazon">amazon</option>
-<option value="ancient scarab">ancient scarab</option>
-<option value="badger">badger</option>
-<option value="banshee">banshee</option>
-<option value="bear">bear</option>
-<option value="behemoth">behemoth</option>
-<option value="beholder">beholder</option>
-<option value="black knight">black knight</option>
-<option value="black sheep">black sheep</option>
-<option value="blue djinn">blue djinn</option>
-<option value="bonebeast">bonebeast</option>
-<option value="bug">bug</option>
-    </select>
     
     <table style="width:400px">
         <tr>
@@ -208,6 +190,24 @@ Attacker weapon:<br>
 </td>
             
 <td>
+  <label for="creature">Select a Creature:</label>
+    <select id="creature" onchange="showArmor()">
+        <option value="">--Choose a creature--</option>
+       <option value="manual">manual</option>
+       <option value="amazon">amazon</option>
+<option value="ancient scarab">ancient scarab</option>
+<option value="badger">badger</option>
+<option value="banshee">banshee</option>
+<option value="bear">bear</option>
+<option value="behemoth">behemoth</option>
+<option value="beholder">beholder</option>
+<option value="black knight">black knight</option>
+<option value="black sheep">black sheep</option>
+<option value="blue djinn">blue djinn</option>
+<option value="bonebeast">bonebeast</option>
+<option value="bug">bug</option>
+    </select>
+    
     <label for="armour">Armour: </label>
     <input type="number" id="defender_armour" min="0" max="100" value="30" oninput="calculateSum()"><br><br>
 
