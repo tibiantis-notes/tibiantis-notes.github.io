@@ -129,7 +129,7 @@ var weapon = parseInt(document.querySelector('input[name="weapon"]:checked').val
 
 var armor=0;
 
-if(creatureArmor[selectedCreature] == -1){  
+if(selectedCreature == "manual"){  
 armor = manual_armor;
 }
 else {
@@ -145,8 +145,8 @@ var weapon_accuracy = weapon/99;
 var overall_accuracy = skill_accuracy * weapon_accuracy;
            
 // Display the result
- document.getElementById("armorValue").innerText = "Armour: " + armor;                      
-      document.getElementById('max_damage').innerHTML = "Max damage (before armor): " + max_damage;
+ document.getElementById("armorValue").innerText = "Armour: " + armor;                   
+document.getElementById('max_damage').innerHTML = "Max damage (before armor): " + max_damage;
             
 document.getElementById('chance_to_hit_skill').innerHTML = "Accuracy from skill: " + (skill_accuracy * 100).toFixed(1) + "%";
 
