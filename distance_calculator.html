@@ -210,7 +210,7 @@ Attacker weapon:<br>
 </td>
             
 <td>
-  <label for="creature">Select a Creature:</label>
+  <label for="creature">Select a Creature:<br></label>
     <select id="creature" onchange="handleArmorInput(); calculateSum();">
        <option value="manual">manual</option>
        <option value="amazon">amazon</option>
@@ -230,17 +230,6 @@ Attacker weapon:<br>
     <label for="armor">Armor: </label>
     <input type="number" id="defender_armor" min="0" max="100" value="30" oninput="handleArmorInput(); calculateSum();"><br><br>
 
-<label for="tiles">Distance from shooter:</label>
-    <select id="tiles" onchange="calculateSum()">
-        <option value=0>0</option>
-        <option value=1>1</option>
-        <option value=2>2</option>
-        <option value=3>3</option>
-        <option value=4>4</option>
-        <option value=5 selected>5</option>
-        <option value=6>6</option>
-        <option value=7>7</option>
-    </select>
 
 </td>
         </tr>
@@ -258,7 +247,17 @@ Attacker weapon:<br>
 </td>
 
 <td>
-    <!--cell not used-->
+<label for="tiles">Distance from shooter:</label>
+    <select id="tiles" onchange="calculateSum()">
+        <option value=0>0</option>
+        <option value=1>1</option>
+        <option value=2>2</option>
+        <option value=3>3</option>
+        <option value=4>4</option>
+        <option value=5 selected>5</option>
+        <option value=6>6</option>
+        <option value=7>7</option>
+    </select>
 </td>
         </tr>
 
