@@ -125,16 +125,18 @@ function calculateSum() {
             }//end of if
             
             // Check which stance is selected
-            var var_stance = parseInt(document.querySelector('input[name="stance"]:checked').value);
+var var_stance = parseInt(document.querySelector('input[name="stance"]:checked').value);
 
 var tiles = parseInt(document.getElementById('tiles').value);
+
+var weapon = parseInt(document.querySelector('input[name="weapon"]:checked').value);
 
 var modified_stat = attack_modifier(attack, var_stance);
 
 var max_damage = damage(modified_stat,skill,198,0); // looks at the damage highest roll 99+99
 
 var skill_accuracy = accuracy_raw(skill,tiles);
-var weapon_accuracy = 90/99;
+var weapon_accuracy = weapon/99;
 var overall_accuracy = skill_accuracy * weapon_accuracy;
            
 // Display the result
