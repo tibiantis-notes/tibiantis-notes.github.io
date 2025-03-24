@@ -31,7 +31,7 @@
 //scriptnchange
 
         var creatureArmor = {
-"manual": 5,
+"manual": -1,
 "amazon": 11,
 "ancient scarab": 36,
 "badger": 1,
@@ -60,20 +60,6 @@ accuracy_val = Math.min(fn_skill / part_1, 1);
 
 return accuracy_val;
 } // end of accuracy function
-
-
-        function showArmor() {
-            var selectedCreature = document.getElementById("creature").value;
-            
-var armorText; // string for armor display
-
-if(selectedCreature == "manual"){  
-
-armorText = selectedCreature ? "Armor: " + (creatureArmor[selectedCreature] || "Unknown") : "";
-} // end of if for armor            
-            
-            document.getElementById("armorValue").innerText = armorText;
-        }
         
         function attack_modifier(fn_attack, fn_stance) {
             //fn_stance is a number 1-3 where 1 is offensive
@@ -119,6 +105,9 @@ function calculateSum() {
             
             var manual_armour = parseInt(document.getElementById('defender_armour').value);
 
+// selectedCreature retrieves armor
+var selectedCreature = document.getElementById("creature").value;
+
             // Check if Attack and Skill are valid integers between 0 and 120
             if (isNaN(attack) || attack < 1 || attack > 100 || isNaN(skill) || skill < 10 || skill > 130) {
                 document.getElementById('result').innerHTML = "Attack values must me from 1 to 100 and skill from 10 to 130.";
@@ -130,13 +119,22 @@ function calculateSum() {
                 document.getElementById('result').innerHTML = "Please enter an armour value between 0 and 100.";
                 return;
             }//end of if
-            
-            // Check which stance is selected
+
+// Check which stance is selected
 var var_stance = parseInt(document.querySelector('input[name="stance"]:checked').value);
 
 var tiles = parseInt(document.getElementById('tiles').value);
 
 var weapon = parseInt(document.querySelector('input[name="weapon"]:checked').value);
+
+var armor=0;
+
+if(selectedCreature == -1){  
+armor = manual_armor;
+}
+else {
+armor = selectedCreature;
+} // end of if for armor            
 
 var modified_stat = attack_modifier(attack, var_stance);
 
@@ -147,7 +145,8 @@ var weapon_accuracy = weapon/99;
 var overall_accuracy = skill_accuracy * weapon_accuracy;
            
 // Display the result
-            document.getElementById('max_damage').innerHTML = "Max damage (before armor): " + max_damage;
+ document.getElementById("armorValue").innerText = "Armour: " + armor;                      
+      document.getElementById('max_damage').innerHTML = "Max damage (before armor): " + max_damage;
             
 document.getElementById('chance_to_hit_skill').innerHTML = "Accuracy from skill: " + (skill_accuracy * 100).toFixed(1) + "%";
 
