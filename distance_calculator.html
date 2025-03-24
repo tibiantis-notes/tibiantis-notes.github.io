@@ -142,9 +142,9 @@ var overall_accuracy = skill_accuracy * weapon_accuracy;
 // Display the result
             document.getElementById('max_damage').innerHTML = "Max damage (before armor): " + max_damage;
             
-document.getElementById('chance_to_hit_skill').innerHTML = "Accuracy from skill: " + (skill_accuracy * 100).toFixed(2) + "%";
+document.getElementById('chance_to_hit_skill').innerHTML = "Accuracy from skill: " + (skill_accuracy * 100).toFixed(1) + "%";
 
-document.getElementById('chance_to_hit').innerHTML = "Accuracy: " + (overall_accuracy * 100).toFixed(2) + "%";
+document.getElementById('chance_to_hit').innerHTML = "Accuracy: " + (overall_accuracy * 100).toFixed(1) + "%";
 
 
 // End of display the result        
