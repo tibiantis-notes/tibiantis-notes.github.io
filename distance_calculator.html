@@ -159,7 +159,7 @@ var weapon_accuracy = weapon/99;
 var overall_accuracy = skill_accuracy * weapon_accuracy;
            
 // Display the result
- document.getElementById("armorValue").innerText = "Armour: " + armor;                   
+
 document.getElementById('max_damage').innerHTML = "Max damage (before armor): " + max_damage;
             
 document.getElementById('chance_to_hit_skill').innerHTML = "Accuracy from skill: " + (skill_accuracy * 100).toFixed(1) + "%";
@@ -229,8 +229,6 @@ Attacker weapon:<br>
     
     <label for="armor">Armor: </label>
     <input type="number" id="defender_armor" min="0" max="100" value="30" oninput="handleArmorInput(); calculateSum();"><br><br>
-
-<p id="armorValue"></p>
 
 <label for="tiles">Distance from shooter:</label>
     <select id="tiles" onchange="calculateSum()">
