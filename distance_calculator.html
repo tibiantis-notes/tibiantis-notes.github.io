@@ -107,7 +107,7 @@ function calculateSum() {
 
 // selectedCreature retrieves armor
 var selectedCreature = document.getElementById("creature").value;
-
+ 
             // Check if Attack and Skill are valid integers between 0 and 120
             if (isNaN(attack) || attack < 1 || attack > 100 || isNaN(skill) || skill < 10 || skill > 130) {
                 document.getElementById('result').innerHTML = "Attack values must me from 1 to 100 and skill from 10 to 130.";
@@ -129,11 +129,11 @@ var weapon = parseInt(document.querySelector('input[name="weapon"]:checked').val
 
 var armor=0;
 
-if(selectedCreature == -1){  
+if(creatureArmor[selectedCreature] == -1){  
 armor = manual_armor;
 }
 else {
-armor = selectedCreature;
+armor = creatureArmor[selectedCreature];
 } // end of if for armor            
 
 var modified_stat = attack_modifier(attack, var_stance);
