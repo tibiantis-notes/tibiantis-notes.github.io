@@ -64,7 +64,14 @@ return accuracy_val;
 
         function showArmor() {
             var selectedCreature = document.getElementById("creature").value;
-            var armorText = selectedCreature ? "Armor: " + (creatureArmor[selectedCreature] || "Unknown") : "";
+            
+var armorText; // string for armor display
+
+if(selectedCreature == "manual"){  
+
+armorText = selectedCreature ? "Armor: " + (creatureArmor[selectedCreature] || "Unknown") : "";
+} // end of if for armor            
+            
             document.getElementById("armorValue").innerText = armorText;
         }
         
@@ -110,7 +117,7 @@ function calculateSum() {
             var attack = parseInt(document.getElementById('attack').value);
             var skill = parseInt(document.getElementById('attacker_skill').value);
             
-            var armour = parseInt(document.getElementById('defender_armour').value);
+            var manual_armour = parseInt(document.getElementById('defender_armour').value);
 
             // Check if Attack and Skill are valid integers between 0 and 120
             if (isNaN(attack) || attack < 1 || attack > 100 || isNaN(skill) || skill < 10 || skill > 130) {
@@ -119,7 +126,7 @@ function calculateSum() {
             }//end of if
             
             // Check if armour is valid integers between 0 and 120
-            if (isNaN(armour) || armour < 0 || armour > 100) {
+            if (isNaN(manual_armour) || manual_armour < 0 || manual_armour > 100) {
                 document.getElementById('result').innerHTML = "Please enter an armour value between 0 and 100.";
                 return;
             }//end of if
