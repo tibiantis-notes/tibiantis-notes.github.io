@@ -197,23 +197,38 @@ document.getElementById('chance_to_hit').innerHTML = "Accuracy (before armor): "
 
     <label for="skill">Skill: </label>
     <input type="number" id="attacker_skill" min="0" max="130" value="90" oninput="calculateSum()"><br><br>
-
+</td>
+        </tr>
+        <tr>
+          <td>
 Attacker weapon:<br>
     <input type="radio" id="bolt" name="weapon" value="90" checked onchange="calculateSum()">
     <label for="bolt">Arrows & bolts (90.9 %)</label><br>
 
     <input type="radio" id="spear" name="weapon" value="75" onchange="calculateSum()">
     <label ="spear">Thrown (75.8 %)</label><br>
-
-<br><br>
-
 </td>
+<td>
+  <label for="tiles">Distance from shooter:</label>
+    <select id="tiles" onchange="calculateSum()">
+        <option value=0>0</option>
+        <option value=1>1</option>
+        <option value=2>2</option>
+        <option value=3>3</option>
+        <option value=4>4</option>
+        <option value=5 selected>5</option>
+        <option value=6>6</option>
+        <option value=7>7</option>
+    </select> 
+</td>
+
+</tr>
             
 <td>
   <label for="creature">Select a Creature:<br></label>
     <select id="creature" onchange="handleArmorInput(); calculateSum();">
-       <option value="manual">manual</option>
-       <option value="amazon">amazon</option>
+<option value="manual">manual</option>
+<option value="amazon">amazon</option>
 <option value="ancient scarab">ancient scarab</option>
 <option value="badger">badger</option>
 <option value="banshee">banshee</option>
@@ -247,17 +262,7 @@ Attacker weapon:<br>
 </td>
 
 <td>
-<label for="tiles">Distance from shooter:</label>
-    <select id="tiles" onchange="calculateSum()">
-        <option value=0>0</option>
-        <option value=1>1</option>
-        <option value=2>2</option>
-        <option value=3>3</option>
-        <option value=4>4</option>
-        <option value=5 selected>5</option>
-        <option value=6>6</option>
-        <option value=7>7</option>
-    </select>
+<-- empty cell --!>
 </td>
         </tr>
 
