@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding-left: 5px;
+  padding-right: 5px;
+  text-align: center;
+}
+img {
+  image-rendering: pixelated; /* Nearest-neighbor scaling */
+}
+
+</style>
+</head>
+<body>
+<div style="width: 900px">
+<a href="https://tibiantis-notes.github.io/">Home</a>
+<h1>Tibia 7.4/ Tibiantis notes</h1>
+<p><i>by Tarsal.</i></p>
+<hr>
+<h1>Poison</h1>
+
+
+<h2>Poison Damage - Mechanics</h2>
+
+<p>
+<ol>
+<li>For any periodic poison effect a total damage is first calculated, then for each cycle 5% of the remaining amount will be inflicted as poison damage, rounded up. Cycles last 4 seconds.
+<li>New poison attacks will replace the remaining damage only if it is higher. For example you cant reduce scorpion poison with a poison field.
+<li>Higher damage poison attacks will last longer than shorter ones, but this is largely due to the longer tail end and the first half of damage will be dealt in a similar timeframe for poison damages above 100.
+</ol>
+</p>
+
+<h2>Monster Poison Melee Attacks - Mechanics</h2>
+
+<ol>
+<li>Each poisoning monster has a poison stat. Total damage is randomly distributed between 50-100% of this value.
+<li>You have a 100% chance to be poisoned by a damaging hit (green blood hit).
+<li>You have a 20% chance to be poisoned by a monster that bypasses your shielding (armor spark).
+<li>You will not be poisoned by a monster whose poison melee attack is blocked by shielding (poff). You can therefore significantly reduce your chance of getting poisoned by equipping a shield and going on defence mode.
+<li>Using the damage calculator, you can calculate your chances to take a blood hit by default (entering your armor, shielding and skill). You can calculate the chance to bypass shielding by setting armor to zero.
+</ol>
+
+<h2>Poison Arrows</h2>
+<img src="/images/poison_arrows.PNG" alt="Poison Arrows" style="width:64px;height:64px;"><br>
+Poison arrows inflict poison with a power of 30, which is not very strong. The arrows have 10 atk damage making it good(ish) for training. The poison dagger does not inflict poison.
+
+<h2>Poison Fields</h2>
+<img src="/images/poison_field.PNG" alt="Poison Field" style="width:64px;height:64px;"><br>
+The poison field does 100 periodic poison damage plus an instant 5 damage for 105 total. Damage increments start at 5. The fields lasts for 248 (4:08) seconds which is less than the first two stages of the fire field. Damage stacks with other damage over time types. Fields can be removed with destroy field, which works at a distance. Magic Wall or wild growth will not remove fields (TBC).
+
+<h2>Poison Field Rune</h2>
+<img src="/images/poison_field_rune.PNG" alt="Poison field rune" style="width:64px;height:64px;"><br>
+- Poison field (50 mana, 3 charges, 17 mana per cast). This is quite good in terms of damage per mana but fairly impractical. Minotaurs and minotaur archers are killed in one shot so you could charge around as a low level mage killing all in one hit and then collecting loot on second round.
+
+<h2>Poison Bomb Rune</h2>
+<img src="/images/poison_bomb_rune.PNG" alt="Poison Bomb Rune" style="width:64px;height:64px;"><br>
+ (130 mana, 2 charges, 65 per cast). Poison bomb is useful in PvP as a longer duration, easy to place field that can prevent users being pushed by players,  obstacles, or using rope spots without magic rope. The tread damage of 5 is much less useful than fire bomb. Also useful to block corpses from being opened/ moved.
+
+<h2>Poison Wall Rune</h2>
+<img src="/images/poison_wall_rune.PNG" alt="Poison Wall Rune" style="width:64px;height:64px;"><br>
+(160 mana, 4 charges, 40 per cast). Cheapest way to create field wall however few relevant mons are weak to poison except for orc warlords and orc leaders that could even filter berserkers from warlords.
+- The other obvious downside of this rune is that it allows other players to give you a white skill. After xx seconds you will be safe from white skull.
+- The cheapest option to inflict poison on a warlord and mitigate its invisibility casting.
+- It can be used to dispatch minotaur mages who are immune to energy.
+
+<h2>Envenom Rune</h2>
+<img src="/images/envenom_rune.PNG" alt="Envenom Rune" style="width:64px;height:64px;"><br>
+<ol>
+<li>Power: 50-90 (70 average) * magic power for 100 mana and 3 charges (33 mana per hit).
+<li>Damage per mana is slightly better than HMM, and power is more than even exploison; this extra power may be useful for one hit killing cyclops (around level 100).
+<li>You can calculate ahead of time what poison cycl is required to kill them, a cyclops has 260hp so you would need over 5%, i.e 14 to kill it. Any less than this and you can fire a HMM/ LMM.
+<li>This would require either not looting or waiting the second lap, to avoid the large damage spread causing the monster to survive. Another downside is that in the time it takes poison to kill a mon you are reducing its respawn a bit.
+</ol>
+
+<h2>Poison Storm</h2>
+
+<ol>
+<li>Power: 150-250 (200 average) for 400 mana (600 originally).
+<li>Greater range than UE, and the greatest of any player area spell.
+<li>There are few uses for this spell except to have fun. You will overspill damage on most weaker monsters and stronger monsters are immune.
+<li>Fire elementals are, surprisingly, not immune to poison so poison storm can be used to clear the few rooms with large numbers of them. This is helpful when fire elemental spam can be deadly.
+<li>In PvP most players will just cast antidote leaving this spell little more than a nuisance. PvP damage is not halved for poison spells so it is ironically the highest damaging PvP spell in the game.
+<li>If you run about gathering as many monsters as possible to get the maximum effect of this spell they will still be alive after you cast and so getting out can be problematic.
+<li>A level 200 druid with magic level 80 will cause 1600 damage, start at 80 damage and last 117 cycles (7.8 minutes). Almost half the damage is dealt in the first minute.
+</ol>
+
+<h2>Antidote</h2>
+<img src="/images/magic_spark.PNG" alt="Antidote Spell" style="width:64px;height:64px;"><br>
+<ol>
+<li>Name: exevo pox, 30 mana, instant.
+<li>The infamous exana pox an early must have spell for any character, if only to prevent a slow and painful death from the occasional scorpion.
+<li>At higher levels healing power becomes quite significant and its not always efficient to use exana pox. For example a  minimum healing UH rune heal/ cost is 250/150=1.66 compared to a manafluid spent preventing 100 damage 100/(2*30)=1.66.
+</ol>
+<h2>Antidote rune</h2>
+<img src="/images/antidote_rune.PNG" alt="Antidote Rune" style="width:64px;height:64px;"><br>
+<ol>
+<li>Adana Pox, 50 mana, 1 charge
+<li>One of the most useless spells. Expensive and you would be better served bringing mana fluids and casting exana pox. It has the unique ability of heal another player or summon of poison.
+<li>Temple NPCs can also heal poison by saying heal.
+</ol>
+<h2>Poison Damage Reduction</h2>
+<ol>
+<li>Silver amulet reduces by 10% rounded up for 200 charges.
+<li>The reduced damage is then rounded down, for example 3 damage would become 2.7 and then rounded down to 2.
+<li>This rounding means small 1 damage poison from larvas or snakes is reduced by 100%.
+<li>Scorpion poison is reduced by more than 25% (due to rounding) which could save your life from scorpion pk.
+<li>Elven amulet and might ring also reduce poison damage but - you might be able to waste chargest on an opponent in PvP.
+</ol>
+
+<h2>Poisonous Creatures</h2>
+
+Several monsters, such as Scarabs and Necromancers deal a direct poison attacks or create poison fields. These are not detailed.
+
+<h2>Table: Creature Periodic Poison Attacks</h2>
+<table>
+<tr><th>Name</th><th>Total<br>Poison Damage</th><th>1st Cycle<br>Damage</th><th>Additional<br>information</th></tr>
+<tr><th>Swamp Troll</th><td>5-10</td><td>1</td><td></td></tr>
+
+<tr><th>Larva</th><td>7-15</td><td>1</td><td></td></tr>
+
+<tr><th>Snake</th><td>10-20</td><td>1-2</td><td></td></tr>
+
+<tr><th>Wasp</th><td>12-25</td><td>1-2</td><td></td></tr>
+
+<tr><th>Poison Spider</th><td>15-30</td><td>1-2</td><td></td></tr>
+
+<tr><th>Mummy</th><td>32-65</td><td>2-4</td><td></td></tr>
+
+<tr><th>Banshee</th><td>32-65</td><td>2-4</td><td></td></tr>
+
+<tr><th>Necromancer</th><td>45-90</td><td>3-5</td><td></td></tr>
+
+<tr><th>Cobra</th><td>50-100</td><td>3-5</td><td>Ranged poison. 5 range. 14-26 (TBC) total. 1-2 per cycle. 1:4 chance.</td></tr>
+
+<tr><th>Ancient Scarab</th><td>50-100</td><td>3-5</td><td>Poison area on self, Fireball range. 400-500 damage (rounding TBC). 20-25 per cycle. 1:6 chance but there are two identical spells coded so its 11:36 chance. Its paralyze spell has the same area and grapic.</td></tr>
+
+<tr><th>Bonebeast</th><td>55-110</td><td>3-6</td><td>Poison area on self, Exori range. 60-80 (rounding TBC). 3-4 per cycle. 1:8 chance.</td></tr>
+
+<tr><th>Giant Spider</th><td>75-150</td><td>4-8</td><td></td>Throws poison field with 7 range.</tr>
+
+<tr><th>Priestess</th><td>125-250</td><td>7-13</td><td></td></tr>
+
+<tr><th>Scorpion</th><td>175-350</td><td>9-18</td><td></td></tr>
+
+<tr><th>Lich</th><td>200-400</td><td>10-20</td><td>Poison Beam, range TBC. 400-500 damage (rounding TBC). 20-25 per cycle. 1:12 chance.</td></tr>
+
+</table>
+</div>
+</body>
+</html>
+
+<h3>Scorpion</h3>
+<img src="/images/scorpion.PNG" alt="Scorpion" style="width:64px;height:64px;"><br>
+The most iconic poisoner punching far above its weight with a poison power of 350. In compensation this creature has great xp for its health.<br><br>There are various strategies, outside of ranged attacks, to minimise damage from these annoying creatures which apply to other lesser poisoners too.
+
+<ol>
+<li>Dont let get your shielding get broken. This will allow the third mob to bypass shielding and get an armor ping or blood hit.
+<li>Similarly wear decent shield on defence mode. For knights will not slow down killing speed.
+<li>Let them hit you first before attacking on full attack - this will keep you on defence mode.
+<li>Better yet - attack them first. Running up to them will normally give an even chance for scorpion to hit first as whoever moves towards the other will hit first. By using a diagonal step you can move two tiles at once and be guaranteed to hit first.
+<li>Weaken with a trap. This roughly halves their HP making more likely to kill in one hit. In this manner (and above strategies) mages can reliably kill scorpions with melee weapons without getting poisoned.
+</ol>
+Summoned scorpions can be used to kill in PvP without taking a frag. The target should take poison from the scorpion, then kill the scorpion and atleast 60 seconds must pass before the target dies. This could also be done by a player but they would have to suicide.
+
+<h3>Ancient Scarab</h3>
+<img src="/images/ancient_scarab.PNG" alt="Ancient Scarab" style="width:64px;height:64px;"><br>
+Ancient scarabs possess one of the most potent poison spells of any monster the game at 400-500 (20 to 25 for the initial cycle) for their area spell.<br><br>
+One benefit is that with multiple scarabs, the damage does not stack. If you stay at range you should be able to avoid the poison. High level players 100+ may start to find that UH is as cost effective as exana pox.
+
+
+<h2>Slime (liquid)</h2>
+<img src="/images/vial_of_slime.PNG" alt="Vial of Slime" style="width:64px;height:64px;"><br>
+A vial of slime when drunk will poison you for 200 damage. This liquid can be collected from many corpses, swamp terrain, etc.
