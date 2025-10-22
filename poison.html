@@ -52,7 +52,7 @@ Player spells such as Envenom and Poison Storm do damage randomly between a min 
 Poisoning monsters have a poison stat. Total damage is randomly distributed between 50-100% of this value. For example MonsterPoison of 7 would take a value from 3, 4, ... 7.<br>
 
 &emsp;<em>TotalPoisonDamage = random( roundDown( 
-  <span style="display:inline-block; vertical-align:middle; text-align:center; font-size: 27px;">
+  <span style="display:inline-block; vertical-align:middle; text-align:center;">
     <span style="display:block; border-bottom:1px solid black;">
       MonsterPoison
     </span>
@@ -72,7 +72,7 @@ For periodic poison damage, 5% of remaining damage is used, <strong>rounded up</
 &emsp;while ( RemainingDamage > 0 )<br>
 &emsp;{<br>
 &emsp;&emsp;wait( 4 seconds );<br><br>
-&emsp;&emsp;PeriodicDamage = roundUp(  <span style="display:inline-block; vertical-align:middle; text-align:center; font-size: 27px;">
+&emsp;&emsp;PeriodicDamage = roundUp(  <span style="display:inline-block; vertical-align:middle; text-align:center;">
     <span style="display:block; border-bottom:1px solid black;">
       RemainingDamage
     </span>
