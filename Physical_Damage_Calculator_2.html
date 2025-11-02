@@ -74,12 +74,12 @@
     
             function fn_armour(fn_armour_value, fn_roll) {
             //roll is a number between 0-99
-            fn_armor_value = parseInt(fn_armour_value);
-            let fn_armour_reduction = parseInt(fn_armor_value * 0.5) + parseInt(fn_armor_value * 0.5 * fn_roll / 99);
-            if (fn_armour_value == 2 || fn_armor_value == 1){ fn_armour_reduction =1;}
+            fn_armour_value = parseInt(fn_armour_value);
+            let fn_armour_reduction = parseInt(fn_armour_value * 0.5) + parseInt(fn_armour_value * 0.5 * fn_roll / 99);
+            if (fn_armour_value == 2 || fn_armour_value == 1){ fn_armour_reduction =1;}
             return fn_armour_reduction;
         
-        }// end of fn_armor function
+        }// end of fn_armour function
     
         function calculateSum() {
             // Get the input values for Attack and Skill
