@@ -97,6 +97,15 @@ function damage(fn_modified_stat, fn_skill, fn_roll_1, fn_roll_2) {
         
         }// end of damage function
 
+ function fn_armor(fn_armor_value, fn_roll) {
+            //roll is a number between 0-99
+            fn_armor_value = parseInt(fn_armor_value);
+            let fn_armor_reduction = parseInt(fn_armor_value * 0.5) + parseInt(fn_armor_value * 0.5 * fn_roll / 99);
+            if (fn_armor_value == 2 || fn_armor_value == 1){ fn_armor_reduction =1;}
+            return fn_armor_reduction;
+        
+        }// end of fn_armor
+
 function handleArmorInput() {
             var selectedCreature = document.getElementById("creature").value;
             var defenderArmorInput = document.getElementById('defender_armor');
@@ -128,7 +137,7 @@ var selectedCreature = document.getElementById("creature").value;
                 return;
             }//end of if
             
-            // Check if armour is valid integers between 0 and 120
+            // Check if armor is valid integers between 0 and 120
             if (isNaN(manual_armor) || manual_armor < 0 || manual_armor > 100) {
                 document.getElementById('result').innerHTML = "Please enter an armor value between 0 and 100.";
                 return;
@@ -157,15 +166,106 @@ var max_damage = damage(modified_stat,skill,198,0); // looks at the damage highe
 var skill_accuracy = accuracy_raw(skill,tiles);
 var weapon_accuracy = weapon/99;
 var overall_accuracy = skill_accuracy * weapon_accuracy;
-           
+
+//****
+//new programming from damage calc
+//****
+
+            
+            let two_dice_distrib = [];
+            
+            // array with max of 1000.
+            let initial_damage_distrib = new Array(1000).fill(0); // initial damage
+            let initial_block_distrib = new Array(1000).fill(0); // initial block
+            let initial_armor_distrib = new Array(1000).fill(0); // initial block
+         
+            let damage_after_block_distrib = new Array(1000).fill(0); // after block only
+            let final_damage_distrib = new Array(1000).fill(0); // after block and    
+
+
+
+            // code that calculates odds of each 2 dice result. 199 long ends in 198. Two parts triangular distribution
+
+            for (let i = 0; i <= 99; i++) {
+                two_dice_distrib.push((i + 1) / 10000);
+            }
+            
+            for (let i = 100; i <= 198; i++) {
+                two_dice_distrib.push((199 - i) / 10000);
+            }
+            
+        
+//run damage distribution
+
+            modified_stat = attack_modifier(attack,var_stance);
+            for (let i = 0; i <= 198; i++) {
+                let for_dam = parseInt(damage(modified_stat,skill,i,0));
+                initial_damage_distrib[for_dam] += two_dice_distrib[i];
+            }
+
+
+//run armour distribution
+            for (let i = 0; i <= 99; i++) {
+                let for_armor = fn_armor(armor,i);
+                initial_armor_distrib[for_armor] += 1/100;
+            }
+
+var min_armor = fn_armor(armor,0);
+var max_armor = fn_armor(armor,99);
+
+// attack minus armor
+            for (let i = 0; i < max_damage+1; i++) //damage
+            {
+                for (let j = min_armor; j < max_armor+1; j++) //armor
+                {
+                    let hit = 0;
+                    if (i-j < 0)
+                    {
+                        hit = 0;    
+                    }
+                    else
+                    {
+                        hit = i-j; // sub zero values become zero   
+                    }
+                     final_damage_distrib[hit] +=  initial_damage_distrib[i] * initial_armor_distrib[j];
+                } //end of for j
+            } // end of for i
+
+            
+// calculate average from distribution
+let average_damage_after_armor = 0;
+let average_damage_overall = 0;
+
+for (let i = 0; i< max_damage+1; i++) {
+                average_damage_after_armor += final_damage_distrib[i] * i;
+}
+       
+average_damage_overall = average_damage_after_armor * overall_accuracy;
+
+let chance_blood_hit= (1 - final_damage_distrib[0]) * overall_accuracy;
+
+let training_efficiency = (1 + chance_blood_hit)/1.909;
+
+//****
+//end of new programming
+//****
+          
 // Display the result
 
-document.getElementById('max_damage').innerHTML = "Max damage (before armor): " + max_damage;
             
 document.getElementById('chance_to_hit_skill').innerHTML = "Accuracy from skill: " + (skill_accuracy * 100).toFixed(1) + "%";
 
 document.getElementById('chance_to_hit').innerHTML = "Accuracy (before armor): " + (overall_accuracy * 100).toFixed(1) + "%";
 
+document.getElementById('chance_blood_hit').innerHTML = "Accuracy (blood hit): " + (chance_blood_hit * 100).toFixed(1) + "%";
+
+document.getElementById('training_efficiency').innerHTML = "Training efficiency: " + (training_efficiency * 100).toFixed(1) + "%";
+
+document.getElementById('max_damage').innerHTML = "Max damage (before armor): " + max_damage;
+
+document.getElementById('average_damage_after_armor').innerHTML = "Average Damage (after armor): " + average_damage_after_armor.toFixed(2);
+
+document.getElementById('average_damage_overall').innerHTML = "Average Damage (overall): " + average_damage_overall.toFixed(2);
 
 // End of display the result        
                
@@ -237,7 +337,7 @@ Attacker weapon:<br>
   <label for="tiles">Distance from shooter:</label>
     <select id="tiles" onchange="calculateSum()">
         <option value=0>0</option>
-        <option value=1>1</option>
+        <option value=1>1 (adjacent)</option>
         <option value=2>2</option>
         <option value=3>3</option>
         <option value=4>4</option>
@@ -270,17 +370,35 @@ Attacker weapon:<br>
 <tr><td colspan="2">
     
 <h3>Results:</h3>
-    <p id="max_damage"></p> 
-    <p id="modified_attack_"></p>
+
     <p id="average_damage"></p>
     <p id="average_hit"></p>
     <p id="chance_to_hit_skill"></p>
     <p id="chance_to_hit"></p>
-    <p id="odds"></p>
-    <p id="result"></p>
+<p id="chance_blood_hit"></p>
+<p id="training_efficiency"></p>
+   <p id="max_damage"></p> 
+    <p id="average_damage_after_armor"></p>
+<p id="average_damage_overall"></p>
 
 </td></tr>
 </table>
+
+<div style="width: 900px">
+Notes:<br>
+<ol>
+<li>This calculator provides average distance damage and accuracy including the effects armour.</li>
+<li>Shielding does not reduce damage for PvE or PvP distance attacks.</li>
+<li>For PvP, resultant damage is halved.</li>
+<li>Accuracy is based on projectile type, skill, and distance from target. Accuracy from projectiles is fixed and is stated next to the projectile choice. Accuracy from skill and distance is approximately max(100,skill/(dist*15)) where dist is 5 for adjacent, 2 for a 1 square gap, 3 for a 2 sq gap etc. At a distance of 2 you need approx 30 skill for maximum accuracy, at a distance of 7 you would need 105 skill. At 75 skill you achieve maximum accuracy while standing adjacent.</li>
+<li>Accuracy from projectiles and skill are combined in 'Accuracy (before armor)'.</li>
+<li>As blood hits count double for skill progression, 100% skill efficiency is displayed relative to constant blood hits with 90% accurate bow or crossbow ammunition, this is roughly 190% of the maximum melee progression. As distance weapons regularly achieve blood hits, the effect of blocking is not included (37% chance for blood hit progresses shielding 99% of time).</li>
+<li>You can assess your hunt training efficiency by multiplying the training efficiency by the bolts used per hour divided by maximum bolts per hour (1,800).</li>
+<li>‘Average hit’ is the average of blood hits - this is the average of the numbers you see.</li>
+<li>‘Average Damage (overall)’ is the average damage effects of accuracy and armor.</li>
+</ol>
+</div>
+
 
 </body>
 </html>
