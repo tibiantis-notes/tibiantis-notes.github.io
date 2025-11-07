@@ -285,7 +285,7 @@ document.getElementById('average_damage_overall').innerHTML = "Average Damage (o
 <div style="width: 900px">
 
     
-    <table style="width:400px">
+    <table style="width:600px">
         <tr>
             <th><h3>Attacker</h3></th>
             <th><h3>Defender</h3></th>
@@ -396,7 +396,8 @@ Notes:<br>
 <li>You can assess your hunt training efficiency by multiplying the training efficiency by the bolts used per hour divided by maximum bolts per hour (1,800).</li>
 <li>‘Average hit’ is the average of blood hits - this is the average of the numbers you see.</li>
 <li>‘Average Damage (overall)’ is the average damage effects of accuracy and armor.</li>
-</ol>
+<li>Burst arrows that miss the 'accuracy (before armor)' check randomly land on one square in a 3x3 around the target. As burst arrows deal damage in a 3x3 area they are 100% accurate for their target, however adjacent targets might be missed. A typical example would be a mage hunting behemoths with a blocker using burst arrows and explosion runes, where the burst arrow frequently misses one of the behemoths. The chance for burst arrows to hit their target is 'accuracy(before armor) x 8/9 + 1/9 to account for the 1/9 chance to miss but still land in the center. If some of the 3x3 around the target are blocked by walls then the chance to randomly land in the available tiled increases. For a knight blocking 3 behemoth in a corner, the mage should target the knight as any miss would still hit all 3. Without the help of walls mages can significantly increase their burst arrow accuracy by training a few skill levels and standing with a 1 tile gap.</li> 
+  </ol>
 </div>
 
 
