@@ -164,7 +164,7 @@ var modified_stat = attack_modifier(attack, var_stance);
 var max_damage = damage(modified_stat,skill,198,0); // looks at the damage highest roll 99+99
 
 var skill_accuracy = accuracy_raw(skill,tiles);
-var weapon_accuracy = weapon/99;
+var weapon_accuracy = weapon/100;
 var overall_accuracy = skill_accuracy * weapon_accuracy;
 
 //****
@@ -244,7 +244,7 @@ average_damage_overall = average_damage_after_armor * overall_accuracy;
 
 let chance_blood_hit= (1 - final_damage_distrib[0]) * overall_accuracy;
 
-let training_efficiency = (1 + chance_blood_hit)/1.909;
+let training_efficiency = (1 + chance_blood_hit)/1.91;
 
 //****
 //end of new programming
@@ -327,11 +327,11 @@ document.getElementById('average_damage_overall').innerHTML = "Average Damage (o
         <tr>
           <td>
 Attacker weapon:<br>
-    <input type="radio" id="bolt" name="weapon" value="90" checked onchange="calculateSum()">
-    <label for="bolt">Arrows & bolts (90.9 %)</label><br>
+    <input type="radio" id="bolt" name="weapon" value="91" checked onchange="calculateSum()">
+    <label for="bolt">Arrows & bolts (91%)</label><br>
 
-    <input type="radio" id="spear" name="weapon" value="75" onchange="calculateSum()">
-    <label ="spear">Thrown (75.8 %)</label><br><br>
+    <input type="radio" id="spear" name="weapon" value="76" onchange="calculateSum()">
+    <label ="spear">Thrown (76 %)</label><br><br>
 </td>
 <td>
   <label for="tiles">Distance from shooter:</label>
