@@ -32,18 +32,98 @@
 
         var creatureArmor = {
 "manual": -1,
-"amazon": 11,
-"ancient scarab": 36,
-"badger": 1,
-"banshee": 25,
-"bear": 6,
-"behemoth": 50,
-"beholder": 5,
-"black knight": 42,
-"black sheep": 1,
-"blue djinn": 20,
-"bonebeast": 40,
-"bug": 2,
+"Amazon": 11,
+"Ancient Scarab": 36,
+"Badger": 1,
+"Banshee": 25,
+"Bear": 6,
+"Behemoth": 50,
+"Beholder": 5,
+"Black Knight": 42,
+"Black Sheep": 1,
+"Blue Djinn": 20,
+"Bonebeast": 40,
+"Bug": 2,
+"Cave Rat": 1,
+"Cobra": 1,
+"Crypt Shambler": 30,
+"Cyclops": 17,
+"Deer": 2,
+"Demon": 40,
+"Demon Skeleton": 25,
+"Dog": 1,
+"Dragon": 25,
+"Dragon Lord": 32,
+"Dwarf": 8,
+"Dwarf Geomancer": 15,
+"Dwarf Guard": 15,
+"Dwarf Soldier": 9,
+"Efreet": 24,
+"Elder Beholder": 13,
+"Elf": 6,
+"Elf Arcanist": 15,
+"Elf Scout": 7,
+"Fire Devil": 13,
+"Fire Elemental": 18,
+"Frost Troll": 7,
+"Gargoyle": 26,
+"Gazer": 4,
+"Ghost": 10,
+"Ghoul": 8,
+"Giant Spider": 30,
+"Goblin": 6,
+"Green Djinn": 20,
+"Hero": 35,
+"Hunter": 8,
+"Hyaena": 1,
+"Kobold": 8,
+"Larva": 5,
+"Lich": 50,
+"Lion": 6,
+"Marid": 24,
+"Minotaur": 11,
+"Minotaur Archer": 7,
+"Minotaur Guard": 15,
+"Minotaur Mage": 18,
+"Monk": 25,
+"Mummy": 14,
+"Necromancer": 50,
+"Orc": 4,
+"Orc Berserker": 12,
+"Orc Leader": 20,
+"Orc Rider": 9,
+"Orc Shaman": 8,
+"Orc Spearman": 6,
+"Orc Warlord": 28,
+"Orc Warrior": 8,
+"Pig": 2,
+"Poison Spider": 2,
+"Polar Bear": 7,
+"Priestess": 30,
+"Rabbit": 1,
+"Rat": 1,
+"Rotworm": 8,
+"Scarab": 21,
+"Scorpion": 14,
+"Sheep": 1,
+"Skeleton": 2,
+"Skunk": 1,
+"Slime": 3,
+"Snake": 0,
+"Spider": 2,
+"Stalker": 14,
+"Stone Golem": 30,
+"Swamp Troll": 6,
+"Troll": 6,
+"Valkyrie": 12,
+"Vampire": 27,
+"War Wolf": 8,
+"Warlock": 32,
+"Wasp": 4,
+"Wild Warrior": 9,
+"Winter Wolf": 2,
+"Witch": 8,
+"Wolf": 1,
         };
 
 function accuracy_raw(fn_skill,fn_tiles) {
@@ -303,18 +383,98 @@ document.getElementById('average_damage_overall').innerHTML = "Average Damage (o
   <label for="creature">Select a Creature:<br></label>
     <select id="creature" onchange="handleArmorInput(); calculateSum();">
 <option value="manual">manual</option>
-<option value="amazon">amazon</option>
-<option value="ancient scarab">ancient scarab</option>
-<option value="badger">badger</option>
-<option value="banshee">banshee</option>
-<option value="bear">bear</option>
-<option value="behemoth">behemoth</option>
-<option value="beholder">beholder</option>
-<option value="black knight">black knight</option>
-<option value="black sheep">black sheep</option>
-<option value="blue djinn">blue djinn</option>
-<option value="bonebeast">bonebeast</option>
-<option value="bug">bug</option>
+<option value="Amazon"></option>
+<option value="Ancient Scarab"></option>
+<option value="Badger"></option>
+<option value="Banshee"></option>
+<option value="Bear"></option>
+<option value="Behemoth"></option>
+<option value="Beholder"></option>
+<option value="Black Knight"></option>
+<option value="Black Sheep"></option>
+<option value="Blue Djinn"></option>
+<option value="Bonebeast"></option>
+<option value="Bug"></option>
+<option value="Cave Rat"></option>
+<option value="Cobra"></option>
+<option value="Crypt Shambler"></option>
+<option value="Cyclops"></option>
+<option value="Deer"></option>
+<option value="Demon"></option>
+<option value="Demon Skeleton"></option>
+<option value="Dog"></option>
+<option value="Dragon"></option>
+<option value="Dragon Lord"></option>
+<option value="Dwarf"></option>
+<option value="Dwarf Geomancer"></option>
+<option value="Dwarf Guard"></option>
+<option value="Dwarf Soldier"></option>
+<option value="Efreet"></option>
+<option value="Elder Beholder"></option>
+<option value="Elf"></option>
+<option value="Elf Arcanist"></option>
+<option value="Elf Scout"></option>
+<option value="Fire Devil"></option>
+<option value="Fire Elemental"></option>
+<option value="Frost Troll"></option>
+<option value="Gargoyle"></option>
+<option value="Gazer"></option>
+<option value="Ghost"></option>
+<option value="Ghoul"></option>
+<option value="Giant Spider"></option>
+<option value="Goblin"></option>
+<option value="Green Djinn"></option>
+<option value="Hero"></option>
+<option value="Hunter"></option>
+<option value="Hyaena"></option>
+<option value="Kobold"></option>
+<option value="Larva"></option>
+<option value="Lich"></option>
+<option value="Lion"></option>
+<option value="Marid"></option>
+<option value="Minotaur"></option>
+<option value="Minotaur Archer"></option>
+<option value="Minotaur Guard"></option>
+<option value="Minotaur Mage"></option>
+<option value="Monk"></option>
+<option value="Mummy"></option>
+<option value="Necromancer"></option>
+<option value="Orc"></option>
+<option value="Orc Berserker"></option>
+<option value="Orc Leader"></option>
+<option value="Orc Rider"></option>
+<option value="Orc Shaman"></option>
+<option value="Orc Spearman"></option>
+<option value="Orc Warlord"></option>
+<option value="Orc Warrior"></option>
+<option value="Pig"></option>
+<option value="Poison Spider"></option>
+<option value="Polar Bear"></option>
+<option value="Priestess"></option>
+<option value="Rabbit"></option>
+<option value="Rat"></option>
+<option value="Rotworm"></option>
+<option value="Scarab"></option>
+<option value="Scorpion"></option>
+<option value="Sheep"></option>
+<option value="Skeleton"></option>
+<option value="Skunk"></option>
+<option value="Slime"></option>
+<option value="Snake"></option>
+<option value="Spider"></option>
+<option value="Stalker"></option>
+<option value="Stone Golem"></option>
+<option value="Swamp Troll"></option>
+<option value="Troll"></option>
+<option value="Valkyrie"></option>
+<option value="Vampire"></option>
+<option value="War Wolf"></option>
+<option value="Warlock"></option>
+<option value="Wasp"></option>
+<option value="Wild Warrior"></option>
+<option value="Winter Wolf"></option>
+<option value="Witch"></option>
+<option value="Wolf"></option>
     </select>
     
     <label for="armor"><br><br>Armor: </label>
