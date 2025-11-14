@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="description" content="Tibiantis Notes - Tibia 7.4 Distance Calculator">
+  <meta name="keywords" content="Tibiantis, Tibia, 7.4, notes, distance, accuracy, xbow, spear, bow, bolt">
+<meta name="author" content="Tarsal">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <title>Tibiantis Notes - Distance Calculator</title>
+    <style>
+        table, th, td {
+        /*border: 1px solid black;*/
+        border-collapse: collapse;
+        padding-left: 5px;
+        padding-right: 5px;
+        text-align: left;
+        vertical-align: top;
+        }
+        #id_user_hit {
+        border: none;
+        outline: none;
+        /*background-color: #f0f0f0;*/
+        padding: 5px;
+        }
+    </style>
+
+    <script>
+           
+    
+//scriptnchange
+
+        var creatureArmor = {
+"manual": -1,
+"Amazon": 11,
+"Ancient Scarab": 36,
+"Badger": 1,
+"Banshee": 25,
+"Bear": 6,
+"Behemoth": 50,
+"Beholder": 5,
+"Black Knight": 42,
+"Black Sheep": 1,
+"Blue Djinn": 20,
+"Bonebeast": 40,
+"Bug": 2,
+"Cave Rat": 1,
+"Cobra": 1,
+"Crypt Shambler": 30,
+"Cyclops": 17,
+"Deer": 2,
+"Demon": 40,
+"Demon Skeleton": 25,
+"Dog": 1,
+"Dragon": 25,
+"Dragon Lord": 32,
+"Dwarf": 8,
+"Dwarf Geomancer": 15,
+"Dwarf Guard": 15,
+"Dwarf Soldier": 9,
+"Efreet": 24,
+"Elder Beholder": 13,
+"Elf": 6,
+"Elf Arcanist": 15,
+"Elf Scout": 7,
+"Fire Devil": 13,
+"Fire Elemental": 18,
+"Frost Troll": 7,
+"Gargoyle": 26,
+"Gazer": 4,
+"Ghost": 10,
+"Ghoul": 8,
+"Giant Spider": 30,
+"Goblin": 6,
+"Green Djinn": 20,
+"Hero": 35,
+"Hunter": 8,
+"Hyaena": 1,
+"Kobold": 8,
+"Larva": 5,
+"Lich": 50,
+"Lion": 6,
+"Marid": 24,
+"Minotaur": 11,
+"Minotaur Archer": 7,
+"Minotaur Guard": 15,
+"Minotaur Mage": 18,
+"Monk": 25,
+"Mummy": 14,
+"Necromancer": 50,
+"Orc": 4,
+"Orc Berserker": 12,
+"Orc Leader": 20,
+"Orc Rider": 9,
+"Orc Shaman": 8,
+"Orc Spearman": 6,
+"Orc Warlord": 28,
+"Orc Warrior": 8,
+"Pig": 2,
+"Poison Spider": 2,
+"Polar Bear": 7,
+"Priestess": 30,
+"Rabbit": 1,
+"Rat": 1,
+"Rotworm": 8,
+"Scarab": 21,
+"Scorpion": 14,
+"Sheep": 1,
+"Skeleton": 2,
+"Skunk": 1,
+"Slime": 3,
+"Snake": 0,
+"Spider": 2,
+"Stalker": 14,
+"Stone Golem": 30,
+"Swamp Troll": 6,
+"Troll": 6,
+"Valkyrie": 12,
+"Vampire": 27,
+"War Wolf": 8,
+"Warlock": 32,
+"Wasp": 4,
+"Wild Warrior": 9,
+"Winter Wolf": 2,
+"Witch": 8,
+"Wolf": 1
+        };
+
+function accuracy_raw(fn_skill,fn_tiles) {
+//tiles is defined as 1 = adjacent, 2 = 1sqm gap, etc
+let accuracy_val = 0;
+
+if (fn_tiles < 2){
+  fn_tiles = 5;
+}//end of if - adjacent tiles treated as 5 tiles
+
+let part_1 = 15 * fn_tiles - 1; // for skill 50 at at 5 tiles this is this is 50/74
+
+accuracy_val = Math.min(fn_skill / part_1, 1);
+
+return accuracy_val;
+} // end of accuracy function
+        
+        function attack_modifier(fn_attack, fn_stance) {
+            //fn_stance is a number 1-3 where 1 is offensive
+            
+            fn_stance = parseInt(fn_stance); // position is 0 or 3
+            fn_attack = parseInt(fn_attack);
+            let fn_modified_stat = 0;
+            
+            switch(fn_stance) {
+              case 1:
+                // attacking - offensive
+                fn_modified_stat = fn_attack + Math.floor(0.2 * fn_attack);
+                break;
+              case 2:
+                // attacking - balanced
+                fn_modified_stat = fn_attack;
+                break;
+              case 3:
+                // attacking - defensive
+               fn_modified_stat = fn_attack - Math.floor(0.4 * fn_attack);
+                break;
+         
+                default:
+               fn_modified_stat = 999;
+            } //end of switch
+         
+        return fn_modified_stat;
+  
+        }//end of stat modifier function
+
+function damage(fn_modified_stat, fn_skill, fn_roll_1, fn_roll_2) {
+            //roll is a number between 0-99
+            let fn_damage = Math.floor((5 * parseInt(fn_skill) + 50) * (fn_modified_stat) * Math.floor((fn_roll_1 + fn_roll_2) / 2) / 10000);
+            return fn_damage;
+        
+        }// end of damage function
+
+ function fn_armor(fn_armor_value, fn_roll) {
+            //roll is a number between 0-99
+            fn_armor_value = parseInt(fn_armor_value);
+            let fn_armor_reduction = parseInt(fn_armor_value * 0.5) + parseInt(fn_armor_value * 0.5 * fn_roll / 99);
+            if (fn_armor_value == 2 || fn_armor_value == 1){ fn_armor_reduction =1;}
+            return fn_armor_reduction;
+        
+        }// end of fn_armor
+
+function handleArmorInput() {
+            var selectedCreature = document.getElementById("creature").value;
+            var defenderArmorInput = document.getElementById('defender_armor');
+            if (selectedCreature === "manual") {
+                defenderArmorInput.disabled = false;
+                defenderArmorInput.classList.remove("disabled");
+            } else {
+                defenderArmorInput.disabled = true;
+                defenderArmorInput.classList.add("disabled");
+                
+defenderArmorInput.value = creatureArmor[selectedCreature];          
+            }
+        }
+
+function calculateSum() {
+
+// Get the input values for Attack and Skill
+            var attack = parseInt(document.getElementById('attack').value);
+            var skill = parseInt(document.getElementById('attacker_skill').value);
+            
+            var manual_armor = parseInt(document.getElementById('defender_armor').value);
+
+// selectedCreature retrieves armor
+var selectedCreature = document.getElementById("creature").value;
+ 
+            // Check if Attack and Skill are valid integers between 0 and 120
+            if (isNaN(attack) || attack < 1 || attack > 100 || isNaN(skill) || skill < 10 || skill > 130) {
+                document.getElementById('result').innerHTML = "Attack values must me from 1 to 100 and skill from 10 to 130.";
+                return;
+            }//end of if
+            
+            // Check if armor is valid integers between 0 and 120
+            if (isNaN(manual_armor) || manual_armor < 0 || manual_armor > 100) {
+                document.getElementById('result').innerHTML = "Please enter an armor value between 0 and 100.";
+                return;
+            }//end of if
+
+// Check which stance is selected
+var var_stance = parseInt(document.querySelector('input[name="stance"]:checked').value);
+
+var tiles = parseInt(document.getElementById('tiles').value);
+
+var weapon = parseInt(document.querySelector('input[name="weapon"]:checked').value);
+
+var armor=0;
+
+if(selectedCreature == "manual"){  
+armor = manual_armor;
+}
+else {
+armor = creatureArmor[selectedCreature];
+} // end of if for armor            
+
+var modified_stat = attack_modifier(attack, var_stance);
+
+var max_damage = damage(modified_stat,skill,198,0); // looks at the damage highest roll 99+99
+
+var skill_accuracy = accuracy_raw(skill,tiles);
+var weapon_accuracy = weapon/100;
+var overall_accuracy = skill_accuracy * weapon_accuracy;
+
+//****
+//new programming from damage calc
+//****
+
+            
+            let two_dice_distrib = [];
+            
+            // array with max of 1000.
+            let initial_damage_distrib = new Array(1000).fill(0); // initial damage
+            let initial_block_distrib = new Array(1000).fill(0); // initial block
+            let initial_armor_distrib = new Array(1000).fill(0); // initial block
+         
+            let damage_after_block_distrib = new Array(1000).fill(0); // after block only
+            let final_damage_distrib = new Array(1000).fill(0); // after block and    
+
+
+
+            // code that calculates odds of each 2 dice result. 199 long ends in 198. Two parts triangular distribution
+
+            for (let i = 0; i <= 99; i++) {
+                two_dice_distrib.push((i + 1) / 10000);
+            }
+            
+            for (let i = 100; i <= 198; i++) {
+                two_dice_distrib.push((199 - i) / 10000);
+            }
+            
+        
+//run damage distribution
+
+            modified_stat = attack_modifier(attack,var_stance);
+            for (let i = 0; i <= 198; i++) {
+                let for_dam = parseInt(damage(modified_stat,skill,i,0));
+                initial_damage_distrib[for_dam] += two_dice_distrib[i];
+            }
+
+
+//run armour distribution
+            for (let i = 0; i <= 99; i++) {
+                let for_armor = fn_armor(armor,i);
+                initial_armor_distrib[for_armor] += 1/100;
+            }
+
+var min_armor = fn_armor(armor,0);
+var max_armor = fn_armor(armor,99);
+
+// attack minus armor
+            for (let i = 0; i < max_damage+1; i++) //damage
+            {
+                for (let j = min_armor; j < max_armor+1; j++) //armor
+                {
+                    let hit = 0;
+                    if (i-j < 0)
+                    {
+                        hit = 0;    
+                    }
+                    else
+                    {
+                        hit = i-j; // sub zero values become zero   
+                    }
+                     final_damage_distrib[hit] +=  initial_damage_distrib[i] * initial_armor_distrib[j];
+                } //end of for j
+            } // end of for i
+
+            
+// calculate average from distribution
+let average_damage_after_armor = 0;
+let average_damage_overall = 0;
+
+for (let i = 0; i< max_damage+1; i++) {
+                average_damage_after_armor += final_damage_distrib[i] * i;
+}
+       
+average_damage_overall = average_damage_after_armor * overall_accuracy;
+
+let chance_blood_hit= (1 - final_damage_distrib[0]) * overall_accuracy;
+
+let training_efficiency = (1 + overall_accuracy)/1.91;
+
+//****
+//end of new programming
+//****
+          
+// Display the result
+
+            
+document.getElementById('chance_to_hit_skill').innerHTML = "Accuracy from skill: " + (skill_accuracy * 100).toFixed(1) + "%";
+
+document.getElementById('chance_to_hit').innerHTML = "Accuracy (before armor): " + (overall_accuracy * 100).toFixed(1) + "%";
+
+document.getElementById('chance_blood_hit').innerHTML = "Accuracy (blood hit): " + (chance_blood_hit * 100).toFixed(1) + "%";
+
+document.getElementById('training_efficiency').innerHTML = "Training efficiency: " + (training_efficiency * 100).toFixed(1) + "%";
+
+document.getElementById('max_damage').innerHTML = "Max damage (before armor): " + max_damage;
+
+document.getElementById('average_damage_after_armor').innerHTML = "Average Damage (after armor): " + average_damage_after_armor.toFixed(2);
+
+document.getElementById('average_damage_overall').innerHTML = "Average Damage (overall): " + average_damage_overall.toFixed(2);
+
+// End of display the result        
+               
+} //end of calculate sum
+    </script>
+
+</head>
+<body>
+    <a href="https://tibiantis-notes.github.io/">Home</a>
+    <h1>Tibia 7.4/ Tibiantis notes</h1>
+    <p><i>by Tarsal.</i></p>
+    <hr>
+    
+    <h2>Distance Damage Calculator</h2>
+
+
+<div style="width: 900px">
+
+    
+    <table style="width:600px">
+        <tr>
+            <th><h3>Attacker</h3></th>
+            <th><h3>Defender</h3></th>
+        </tr>
+        <tr>
+<td>
+    <label for="attack">Attack: </label>
+    <input type="number" id="attack" min="1" max="100" value="30" oninput="calculateSum()"><br><br>
+
+    <label for="skill">Skill: </label>
+    <input type="number" id="attacker_skill" min="0" max="130" value="90" oninput="calculateSum()"><br><br>
+</td>
+
+<td>
+  <label for="creature">Select a Creature:<br></label>
+    <select id="creature" onchange="handleArmorInput(); calculateSum();">
+<option value="manual">manual</option>
+<option value="Amazon">Amazon</option>
+<option value="Ancient Scarab">Ancient Scarab</option>
+<option value="Badger">Badger</option>
+<option value="Banshee">Banshee</option>
+<option value="Bear">Bear</option>
+<option value="Behemoth">Behemoth</option>
+<option value="Beholder">Beholder</option>
+<option value="Black Knight">Black Knight</option>
+<option value="Black Sheep">Black Sheep</option>
+<option value="Blue Djinn">Blue Djinn</option>
+<option value="Bonebeast">Bonebeast</option>
+<option value="Bug">Bug</option>
+<option value="Cave Rat">Cave Rat</option>
+<option value="Cobra">Cobra</option>
+<option value="Crypt Shambler">Crypt Shambler</option>
+<option value="Cyclops">Cyclops</option>
+<option value="Deer">Deer</option>
+<option value="Demon">Demon</option>
+<option value="Demon Skeleton">Demon Skeleton</option>
+<option value="Dog">Dog</option>
+<option value="Dragon">Dragon</option>
+<option value="Dragon Lord">Dragon Lord</option>
+<option value="Dwarf">Dwarf</option>
+<option value="Dwarf Geomancer">Dwarf Geomancer</option>
+<option value="Dwarf Guard">Dwarf Guard</option>
+<option value="Dwarf Soldier">Dwarf Soldier</option>
+<option value="Efreet">Efreet</option>
+<option value="Elder Beholder">Elder Beholder</option>
+<option value="Elf">Elf</option>
+<option value="Elf Arcanist">Elf Arcanist</option>
+<option value="Elf Scout">Elf Scout</option>
+<option value="Fire Devil">Fire Devil</option>
+<option value="Fire Elemental">Fire Elemental</option>
+<option value="Frost Troll">Frost Troll</option>
+<option value="Gargoyle">Gargoyle</option>
+<option value="Gazer">Gazer</option>
+<option value="Ghost">Ghost</option>
+<option value="Ghoul">Ghoul</option>
+<option value="Giant Spider">Giant Spider</option>
+<option value="Goblin">Goblin</option>
+<option value="Green Djinn">Green Djinn</option>
+<option value="Hero">Hero</option>
+<option value="Hunter">Hunter</option>
+<option value="Hyaena">Hyaena</option>
+<option value="Kobold">Kobold</option>
+<option value="Larva">Larva</option>
+<option value="Lich">Lich</option>
+<option value="Lion">Lion</option>
+<option value="Marid">Marid</option>
+<option value="Minotaur">Minotaur</option>
+<option value="Minotaur Archer">Minotaur Archer</option>
+<option value="Minotaur Guard">Minotaur Guard</option>
+<option value="Minotaur Mage">Minotaur Mage</option>
+<option value="Monk">Monk</option>
+<option value="Mummy">Mummy</option>
+<option value="Necromancer">Necromancer</option>
+<option value="Orc">Orc</option>
+<option value="Orc Berserker">Orc Berserker</option>
+<option value="Orc Leader">Orc Leader</option>
+<option value="Orc Rider">Orc Rider</option>
+<option value="Orc Shaman">Orc Shaman</option>
+<option value="Orc Spearman">Orc Spearman</option>
+<option value="Orc Warlord">Orc Warlord</option>
+<option value="Orc Warrior">Orc Warrior</option>
+<option value="Pig">Pig</option>
+<option value="Poison Spider">Poison Spider</option>
+<option value="Polar Bear">Polar Bear</option>
+<option value="Priestess">Priestess</option>
+<option value="Rabbit">Rabbit</option>
+<option value="Rat">Rat</option>
+<option value="Rotworm">Rotworm</option>
+<option value="Scarab">Scarab</option>
+<option value="Scorpion">Scorpion</option>
+<option value="Sheep">Sheep</option>
+<option value="Skeleton">Skeleton</option>
+<option value="Skunk">Skunk</option>
+<option value="Slime">Slime</option>
+<option value="Snake">Snake</option>
+<option value="Spider">Spider</option>
+<option value="Stalker">Stalker</option>
+<option value="Stone Golem">Stone Golem</option>
+<option value="Swamp Troll">Swamp Troll</option>
+<option value="Troll">Troll</option>
+<option value="Valkyrie">Valkyrie</option>
+<option value="Vampire">Vampire</option>
+<option value="War Wolf">War Wolf</option>
+<option value="Warlock">Warlock</option>
+<option value="Wasp">Wasp</option>
+<option value="Wild Warrior">Wild Warrior</option>
+<option value="Winter Wolf">Winter Wolf</option>
+<option value="Witch">Witch</option>
+<option value="Wolf">Wolf</option>
+    </select>
+    
+    <label for="armor"><br><br>Armor: </label>
+    <input type="number" id="defender_armor" min="0" max="100" value="30" oninput="handleArmorInput(); calculateSum();"><br><br>
+
+
+</td>
+
+        </tr>
+        <tr>
+          <td>
+Attacker weapon:<br>
+    <input type="radio" id="bolt" name="weapon" value="91" checked onchange="calculateSum()">
+    <label for="bolt">Arrows & bolts (91%)</label><br>
+
+    <input type="radio" id="spear" name="weapon" value="76" onchange="calculateSum()">
+    <label ="spear">Thrown (76 %)</label><br><br>
+</td>
+<td>
+  <label for="tiles">Distance from shooter:</label>
+    <select id="tiles" onchange="calculateSum()">
+        <option value=0>0</option>
+        <option value=1>1 (adjacent)</option>
+        <option value=2>2</option>
+        <option value=3>3</option>
+        <option value=4>4</option>
+        <option value=5 selected>5</option>
+        <option value=6>6</option>
+        <option value=7>7</option>
+    </select> 
+</td>
+
+</tr>
+            
+        <tr>
+<td>
+    Attacker stance:<br>
+    <input type="radio" id="stance_offensive" name="stance" value="1" checked onchange="calculateSum()">
+    <label for="stance_offensive">Offensive (1.2)</label><br>
+
+    <input type="radio" id="stance_balanced" name="stance" value="2" onchange="calculateSum()">
+    <label ="stance_balanced">Balanced (1.0)</label><br>
+
+    <input type="radio" id="stance_defensive" name="stance" value="3" onchange="calculateSum()">
+    <label ="stance_defensive">Defensive (0.6)</label><br><br>
+</td>
+
+<td>
+<!-- empty cell -->
+</td>
+        </tr>
+
+<tr><td colspan="2">
+    
+<h3>Results:</h3>
+
+    <p id="average_damage"></p>
+    <p id="average_hit"></p>
+    <p id="chance_to_hit_skill"></p>
+    <p id="chance_to_hit"></p>
+<p id="chance_blood_hit"></p>
+<p id="training_efficiency"></p>
+   <p id="max_damage"></p> 
+    <p id="average_damage_after_armor"></p>
+<p id="average_damage_overall"></p>
+
+</td></tr>
+</table>
+
+<div style="width: 900px">
+Notes:<br>
+<ol>
+<li>This calculator provides average distance damage and accuracy including the effects armour.</li>
+<li>Shielding does not reduce damage for PvE or PvP distance attacks.</li>
+<li>For PvP, resultant damage is halved.</li>
+<li>Accuracy is based on projectile type, skill, and distance from target. Accuracy from projectiles is fixed and is stated next to the projectile choice. Accuracy from skill and distance is approximately max(100,skill/(dist x 15)) where dist = 2 for a 1 square gap, dist = 3 for a 2 sq gap and so on except for adjacent monsters where dist = 5 to reduce accuracy for adjacent monsters. At a distance of 2 you need 29 skill for maximum accuracy, at a distance of 7 you would need 105 skill. At 75 skill you achieve maximum accuracy while standing adjacent.</li>
+<li>Accuracy from projectiles and skill are combined in 'Accuracy (before armor)'.</li>
+<li>Blood and armor hits both count double for skill progression, 100% skill efficiency is displayed relative to constant blood or armor hits with 90% accurate bow or crossbow ammunition, this is 191% of the maximum melee progression. Skill progression still relies on ahieving blood hits every 10-30 hits but this is not calculated.</li>
+<li>You can assess your hunt training efficiency by multiplying the training efficiency by the bolts used per hour divided by maximum bolts per hour (1,800).</li>
+<li>‘Average hit’ is the average of blood hits - this is the average of the numbers you see.</li>
+<li>‘Average Damage (overall)’ is the average damage effects of accuracy and armor.</li>
+<li>Burst arrows that miss the 'accuracy (before armor)' check randomly land on one square in a 3x3 around the target. As burst arrows deal damage in a 3x3 area they are 100% accurate for their target, however adjacent targets might be missed. A typical example would be a mage hunting behemoths with a blocker using burst arrows and explosion runes, where the burst arrow frequently misses one of the behemoths. The chance for burst arrows to hit their target is 'accuracy(before armor) x 8/9 + 1/9 to account for the 1/9 chance to still land in the center after a miss. If some of the 3x3 around the target are blocked by walls then the chance to randomly land in the available tiles increases. For a knight blocking 3 behemoth in a corner, the mage should target the knight as any miss would still hit all 3. Mages who train their distance skill can attain close to maximum burst arrow accuracy with a 1 tile gap.</li> 
+  </ol>
+</div>
+
+
+</body>
+</html>
