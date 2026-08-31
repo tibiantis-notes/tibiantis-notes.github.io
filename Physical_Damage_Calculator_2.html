@@ -22,6 +22,145 @@
     </style>
 
     <script>
+        var creatureData = {
+        "manual": {hp: -1, armor: -1, xp: -1, attack: -1, defence: -1, skill: -1},
+        "Amazon": {hp: 110, armor: 11, xp: 60, attack: 16, defence: 11, skill: 24},
+        "Ancient Scarab": {hp: 1000, armor: 36, xp: 720, attack: 50, defence: 33, skill: 80},
+        "Badger": {hp: 23, armor: 1, xp: 5, attack: 10, defence: 3, skill: 17},
+        "Banshee": {hp: 1000, armor: 25, xp: 900, attack: 30, defence: 65, skill: 45},
+        "Bear": {hp: 80, armor: 6, xp: 23, attack: 17, defence: 6, skill: 15},
+        "Behemoth": {hp: 4000, armor: 50, xp: 2500, attack: 75, defence: 65, skill: 110},
+        "Beholder": {hp: 260, armor: 5, xp: 170, attack: 12, defence: 20, skill: 35},
+        "Black Knight": {hp: 1800, armor: 42, xp: 1600, attack: 60, defence: 60, skill: 88},
+        "Black Sheep": {hp: 20, armor: 1, xp: 0, attack: 0, defence: 2, skill: 0},
+        "Blue Djinn": {hp: 330, armor: 20, xp: 190, attack: 30, defence: 30, skill: 50},
+        "Bonebeast": {hp: 515, armor: 40, xp: 580, attack: 47, defence: 45, skill: 75},
+        "Bug": {hp: 29, armor: 2, xp: 18, attack: 9, defence: 3, skill: 23},
+        "Cave Rat": {hp: 30, armor: 1, xp: 10, attack: 8, defence: 4, skill: 18},
+        "Cobra": {hp: 65, armor: 1, xp: 30, attack: 15, defence: 6, skill: 23},
+        "Crypt Shambler": {hp: 330, armor: 30, xp: 195, attack: 39, defence: 25, skill: 60},
+        "Cyclops": {hp: 260, armor: 17, xp: 150, attack: 30, defence: 24, skill: 50},
+        "Deer": {hp: 25, armor: 2, xp: 0, attack: 2, defence: 2, skill: 10},
+        "Demon": {hp: 8200, armor: 40, xp: 6000, attack: 80, defence: 65, skill: 120},
+        "Demon Skeleton": {hp: 400, armor: 25, xp: 240, attack: 45, defence: 35, skill: 70},
+        "Dog": {hp: 20, armor: 1, xp: 0, attack: 0, defence: 2, skill: 0},
+        "Dragon": {hp: 1000, armor: 25, xp: 700, attack: 42, defence: 38, skill: 55},
+        "Dragon Lord": {hp: 1900, armor: 32, xp: 2100, attack: 55, defence: 48, skill: 65},
+        "Dwarf": {hp: 90, armor: 8, xp: 45, attack: 14, defence: 14, skill: 23},
+        "Dwarf Geomancer": {hp: 380, armor: 15, xp: 245, attack: 30, defence: 35, skill: 50},
+        "Dwarf Guard": {hp: 245, armor: 15, xp: 165, attack: 39, defence: 37, skill: 55},
+        "Dwarf Soldier": {hp: 135, armor: 9, xp: 70, attack: 21, defence: 20, skill: 42},
+        "Efreet": {hp: 550, armor: 24, xp: 300, attack: 35, defence: 35, skill: 55},
+        "Elder Beholder": {hp: 500, armor: 13, xp: 280, attack: 16, defence: 26, skill: 45},
+        "Elf": {hp: 100, armor: 6, xp: 42, attack: 12, defence: 12, skill: 20},
+        "Elf Arcanist": {hp: 220, armor: 15, xp: 175, attack: 20, defence: 20, skill: 25},
+        "Elf Scout": {hp: 160, armor: 7, xp: 75, attack: 18, defence: 18, skill: 25},
+        "Fire Devil": {hp: 200, armor: 13, xp: 110, attack: 22, defence: 15, skill: 30},
+        "Fire Elemental": {hp: 280, armor: 18, xp: 220, attack: 38, defence: 20, skill: 38},
+        "Frost Troll": {hp: 55, armor: 7, xp: 23, attack: 11, defence: 9, skill: 19},
+        "Gargoyle": {hp: 250, armor: 26, xp: 150, attack: 24, defence: 30, skill: 45},
+        "Gazer": {hp: 120, armor: 4, xp: 90, attack: 9, defence: 15, skill: 25},
+        "Ghost": {hp: 150, armor: 10, xp: 120, attack: 28, defence: 20, skill: 45},
+        "Ghoul": {hp: 100, armor: 8, xp: 85, attack: 26, defence: 17, skill: 37},
+        "Giant Spider": {hp: 1300, armor: 30, xp: 900, attack: 65, defence: 40, skill: 80},
+        "Goblin": {hp: 50, armor: 6, xp: 25, attack: 10, defence: 8, skill: 15},
+        "Green Djinn": {hp: 330, armor: 20, xp: 190, attack: 30, defence: 30, skill: 50},
+        "Hero": {hp: 1400, armor: 35, xp: 1200, attack: 58, defence: 50, skill: 80},
+        "Hunter": {hp: 150, armor: 8, xp: 150, attack: 13, defence: 10, skill: 18},
+        "Hyaena": {hp: 60, armor: 1, xp: 20, attack: 11, defence: 5, skill: 18},
+        "Kobold": {hp: 120, armor: 8, xp: 60, attack: 21, defence: 24, skill: 30},
+        "Larva": {hp: 70, armor: 5, xp: 44, attack: 20, defence: 11, skill: 30},
+        "Lich": {hp: 880, armor: 50, xp: 900, attack: 40, defence: 60, skill: 40},
+        "Lion": {hp: 80, armor: 6, xp: 30, attack: 20, defence: 13, skill: 32},
+        "Marid": {hp: 550, armor: 24, xp: 300, attack: 35, defence: 35, skill: 55},
+        "Minotaur": {hp: 100, armor: 11, xp: 50, attack: 15, defence: 11, skill: 25},
+        "Minotaur Archer": {hp: 100, armor: 7, xp: 65, attack: 15, defence: 8, skill: 20},
+        "Minotaur Guard": {hp: 185, armor: 15, xp: 160, attack: 35, defence: 32, skill: 50},
+        "Minotaur Mage": {hp: 155, armor: 18, xp: 150, attack: 15, defence: 40, skill: 18},
+        "Monk": {hp: 240, armor: 25, xp: 200, attack: 42, defence: 52, skill: 55},
+        "Mummy": {hp: 240, armor: 14, xp: 150, attack: 32, defence: 23, skill: 50},
+        "Necromancer": {hp: 580, armor: 50, xp: 580, attack: 40, defence: 40, skill: 30},
+        "Orc": {hp: 70, armor: 4, xp: 25, attack: 13, defence: 8, skill: 22},
+        "Orc Berserker": {hp: 210, armor: 12, xp: 195, attack: 65, defence: 12, skill: 50},
+        "Orc Leader": {hp: 450, armor: 20, xp: 270, attack: 48, defence: 45, skill: 52},
+        "Orc Rider": {hp: 180, armor: 9, xp: 110, attack: 41, defence: 20, skill: 48},
+        "Orc Shaman": {hp: 115, armor: 8, xp: 110, attack: 13, defence: 10, skill: 20},
+        "Orc Spearman": {hp: 105, armor: 6, xp: 38, attack: 17, defence: 12, skill: 19},
+        "Orc Warlord": {hp: 950, armor: 28, xp: 670, attack: 68, defence: 55, skill: 72},
+        "Orc Warrior": {hp: 125, armor: 8, xp: 50, attack: 19, defence: 14, skill: 42},
+        "Pig": {hp: 25, armor: 2, xp: 0, attack: 0, defence: 2, skill: 10},
+        "Poison Spider": {hp: 26, armor: 2, xp: 22, attack: 12, defence: 6, skill: 25},
+        "Polar Bear": {hp: 85, armor: 7, xp: 28, attack: 18, defence: 10, skill: 19},
+        "Priestess": {hp: 390, armor: 30, xp: 420, attack: 20, defence: 50, skill: 25},
+        "Rabbit": {hp: 15, armor: 1, xp: 0, attack: 0, defence: 2, skill: 0},
+        "Rat": {hp: 20, armor: 1, xp: 5, attack: 7, defence: 3, skill: 15},
+        "Rotworm": {hp: 65, armor: 8, xp: 40, attack: 18, defence: 11, skill: 26},
+        "Scarab": {hp: 320, armor: 21, xp: 120, attack: 25, defence: 26, skill: 42},
+        "Scorpion": {hp: 45, armor: 14, xp: 45, attack: 21, defence: 5, skill: 35},
+        "Sheep": {hp: 20, armor: 1, xp: 0, attack: 0, defence: 2, skill: 0},
+        "Skeleton": {hp: 50, armor: 2, xp: 35, attack: 14, defence: 9, skill: 18},
+        "Skunk": {hp: 20, armor: 1, xp: 3, attack: 4, defence: 5, skill: 15},
+        "Slime": {hp: 150, armor: 3, xp: 160, attack: 42, defence: 10, skill: 22},
+        "Snake": {hp: 15, armor: 0, xp: 10, attack: 5, defence: 1, skill: 11},
+        "Spider": {hp: 20, armor: 2, xp: 12, attack: 7, defence: 2, skill: 19},
+        "Stalker": {hp: 120, armor: 14, xp: 90, attack: 30, defence: 20, skill: 40},
+        "Stone Golem": {hp: 270, armor: 30, xp: 160, attack: 38, defence: 25, skill: 52},
+        "Swamp Troll": {hp: 55, armor: 6, xp: 25, attack: 12, defence: 10, skill: 20},
+        "Troll": {hp: 50, armor: 6, xp: 20, attack: 10, defence: 8, skill: 15},
+        "Valkyrie": {hp: 190, armor: 12, xp: 85, attack: 20, defence: 14, skill: 35},
+        "Vampire": {hp: 450, armor: 27, xp: 290, attack: 42, defence: 38, skill: 65},
+        "War Wolf": {hp: 140, armor: 8, xp: 55, attack: 24, defence: 16, skill: 39},
+        "Warlock": {hp: 3200, armor: 32, xp: 4000, attack: 40, defence: 50, skill: 50},
+        "Wasp": {hp: 35, armor: 4, xp: 24, attack: 12, defence: 8, skill: 23},
+        "Wild Warrior": {hp: 135, armor: 9, xp: 60, attack: 16, defence: 18, skill: 46},
+        "Winter Wolf": {hp: 30, armor: 2, xp: 20, attack: 13, defence: 6, skill: 21},
+        "Witch": {hp: 300, armor: 8, xp: 120, attack: 18, defence: 12, skill: 18},
+        "Wolf": {hp: 25, armor: 1, xp: 18, attack: 12, defence: 4, skill: 19},
+        };
+
+        function handleCreatureInput(fn_side) {
+            // fn_side is "attacker" or "defender"
+            var selectEl = document.getElementById(fn_side === "attacker" ? "attacker_creature" : "defender_creature");
+            var selected = selectEl.value;
+            var infoEl = document.getElementById(fn_side === "attacker" ? "attacker_creature_info" : "defender_creature_info");
+
+            if (fn_side === "attacker") {
+                var attackInput = document.getElementById('attack');
+                var skillInput = document.getElementById('attacker_skill');
+                if (selected === "manual") {
+                    attackInput.disabled = false;
+                    skillInput.disabled = false;
+                    infoEl.innerHTML = "";
+                } else {
+                    var c = creatureData[selected];
+                    attackInput.value = c.attack;
+                    skillInput.value = c.skill;
+                    attackInput.disabled = true;
+                    skillInput.disabled = true;
+                    infoEl.innerHTML = "";
+                }
+            } else {
+                var defenceInput = document.getElementById('defence');
+                var defSkillInput = document.getElementById('defender_skill');
+                var armourInput = document.getElementById('defender_armour');
+                if (selected === "manual") {
+                    defenceInput.disabled = false;
+                    defSkillInput.disabled = false;
+                    armourInput.disabled = false;
+                    infoEl.innerHTML = "";
+                } else {
+                    var c = creatureData[selected];
+                    defenceInput.value = c.defence;
+                    defSkillInput.value = c.skill;
+                    armourInput.value = c.armor;
+                    defenceInput.disabled = true;
+                    defSkillInput.disabled = true;
+                    armourInput.disabled = true;
+                    infoEl.innerHTML = "Hit Points: " + c.hp + "<br>Experience: " + c.xp;
+                }
+            }
+        }
+
         function attack_modifier(fn_attack, fn_stance, fn_position) {
             //fn_stance is a number 1-3 where 1 is offensive
             let fn_switch = parseInt(fn_stance) + parseInt(fn_position); // position is 0 or 3
@@ -297,16 +436,211 @@
         </tr>
         <tr>
 <td>
+    <label for="attacker_creature">Select a Creature:<br></label>
+    <select id="attacker_creature" onchange="handleCreatureInput('attacker'); calculateSum();">
+<option value="manual">manual</option>
+<option value="Amazon">Amazon</option>
+<option value="Ancient Scarab">Ancient Scarab</option>
+<option value="Badger">Badger</option>
+<option value="Banshee">Banshee</option>
+<option value="Bear">Bear</option>
+<option value="Behemoth">Behemoth</option>
+<option value="Beholder">Beholder</option>
+<option value="Black Knight">Black Knight</option>
+<option value="Black Sheep">Black Sheep</option>
+<option value="Blue Djinn">Blue Djinn</option>
+<option value="Bonebeast">Bonebeast</option>
+<option value="Bug">Bug</option>
+<option value="Cave Rat">Cave Rat</option>
+<option value="Cobra">Cobra</option>
+<option value="Crypt Shambler">Crypt Shambler</option>
+<option value="Cyclops">Cyclops</option>
+<option value="Deer">Deer</option>
+<option value="Demon">Demon</option>
+<option value="Demon Skeleton">Demon Skeleton</option>
+<option value="Dog">Dog</option>
+<option value="Dragon">Dragon</option>
+<option value="Dragon Lord">Dragon Lord</option>
+<option value="Dwarf">Dwarf</option>
+<option value="Dwarf Geomancer">Dwarf Geomancer</option>
+<option value="Dwarf Guard">Dwarf Guard</option>
+<option value="Dwarf Soldier">Dwarf Soldier</option>
+<option value="Efreet">Efreet</option>
+<option value="Elder Beholder">Elder Beholder</option>
+<option value="Elf">Elf</option>
+<option value="Elf Arcanist">Elf Arcanist</option>
+<option value="Elf Scout">Elf Scout</option>
+<option value="Fire Devil">Fire Devil</option>
+<option value="Fire Elemental">Fire Elemental</option>
+<option value="Frost Troll">Frost Troll</option>
+<option value="Gargoyle">Gargoyle</option>
+<option value="Gazer">Gazer</option>
+<option value="Ghost">Ghost</option>
+<option value="Ghoul">Ghoul</option>
+<option value="Giant Spider">Giant Spider</option>
+<option value="Goblin">Goblin</option>
+<option value="Green Djinn">Green Djinn</option>
+<option value="Hero">Hero</option>
+<option value="Hunter">Hunter</option>
+<option value="Hyaena">Hyaena</option>
+<option value="Kobold">Kobold</option>
+<option value="Larva">Larva</option>
+<option value="Lich">Lich</option>
+<option value="Lion">Lion</option>
+<option value="Marid">Marid</option>
+<option value="Minotaur">Minotaur</option>
+<option value="Minotaur Archer">Minotaur Archer</option>
+<option value="Minotaur Guard">Minotaur Guard</option>
+<option value="Minotaur Mage">Minotaur Mage</option>
+<option value="Monk">Monk</option>
+<option value="Mummy">Mummy</option>
+<option value="Necromancer">Necromancer</option>
+<option value="Orc">Orc</option>
+<option value="Orc Berserker">Orc Berserker</option>
+<option value="Orc Leader">Orc Leader</option>
+<option value="Orc Rider">Orc Rider</option>
+<option value="Orc Shaman">Orc Shaman</option>
+<option value="Orc Spearman">Orc Spearman</option>
+<option value="Orc Warlord">Orc Warlord</option>
+<option value="Orc Warrior">Orc Warrior</option>
+<option value="Pig">Pig</option>
+<option value="Poison Spider">Poison Spider</option>
+<option value="Polar Bear">Polar Bear</option>
+<option value="Priestess">Priestess</option>
+<option value="Rabbit">Rabbit</option>
+<option value="Rat">Rat</option>
+<option value="Rotworm">Rotworm</option>
+<option value="Scarab">Scarab</option>
+<option value="Scorpion">Scorpion</option>
+<option value="Sheep">Sheep</option>
+<option value="Skeleton">Skeleton</option>
+<option value="Skunk">Skunk</option>
+<option value="Slime">Slime</option>
+<option value="Snake">Snake</option>
+<option value="Spider">Spider</option>
+<option value="Stalker">Stalker</option>
+<option value="Stone Golem">Stone Golem</option>
+<option value="Swamp Troll">Swamp Troll</option>
+<option value="Troll">Troll</option>
+<option value="Valkyrie">Valkyrie</option>
+<option value="Vampire">Vampire</option>
+<option value="War Wolf">War Wolf</option>
+<option value="Warlock">Warlock</option>
+<option value="Wasp">Wasp</option>
+<option value="Wild Warrior">Wild Warrior</option>
+<option value="Winter Wolf">Winter Wolf</option>
+<option value="Witch">Witch</option>
+<option value="Wolf">Wolf</option>
+    </select><br><br>
+
     <label for="attack">Attack: </label>
     <input type="number" id="attack" min="0" max="120" value="50" oninput="calculateSum()"><br><br>
 
     <label for="skill">Skill: </label>
     <input type="number" id="attacker_skill" min="0" max="120" value="80" oninput="calculateSum()"><br><br>
 
+    <p id="attacker_creature_info"></p>
 
 </td>
             
 <td>
+    <label for="defender_creature">Select a Creature:<br></label>
+    <select id="defender_creature" onchange="handleCreatureInput('defender'); calculateSum();">
+<option value="manual">manual</option>
+<option value="Amazon">Amazon</option>
+<option value="Ancient Scarab">Ancient Scarab</option>
+<option value="Badger">Badger</option>
+<option value="Banshee">Banshee</option>
+<option value="Bear">Bear</option>
+<option value="Behemoth">Behemoth</option>
+<option value="Beholder">Beholder</option>
+<option value="Black Knight">Black Knight</option>
+<option value="Black Sheep">Black Sheep</option>
+<option value="Blue Djinn">Blue Djinn</option>
+<option value="Bonebeast">Bonebeast</option>
+<option value="Bug">Bug</option>
+<option value="Cave Rat">Cave Rat</option>
+<option value="Cobra">Cobra</option>
+<option value="Crypt Shambler">Crypt Shambler</option>
+<option value="Cyclops">Cyclops</option>
+<option value="Deer">Deer</option>
+<option value="Demon">Demon</option>
+<option value="Demon Skeleton">Demon Skeleton</option>
+<option value="Dog">Dog</option>
+<option value="Dragon">Dragon</option>
+<option value="Dragon Lord">Dragon Lord</option>
+<option value="Dwarf">Dwarf</option>
+<option value="Dwarf Geomancer">Dwarf Geomancer</option>
+<option value="Dwarf Guard">Dwarf Guard</option>
+<option value="Dwarf Soldier">Dwarf Soldier</option>
+<option value="Efreet">Efreet</option>
+<option value="Elder Beholder">Elder Beholder</option>
+<option value="Elf">Elf</option>
+<option value="Elf Arcanist">Elf Arcanist</option>
+<option value="Elf Scout">Elf Scout</option>
+<option value="Fire Devil">Fire Devil</option>
+<option value="Fire Elemental">Fire Elemental</option>
+<option value="Frost Troll">Frost Troll</option>
+<option value="Gargoyle">Gargoyle</option>
+<option value="Gazer">Gazer</option>
+<option value="Ghost">Ghost</option>
+<option value="Ghoul">Ghoul</option>
+<option value="Giant Spider">Giant Spider</option>
+<option value="Goblin">Goblin</option>
+<option value="Green Djinn">Green Djinn</option>
+<option value="Hero">Hero</option>
+<option value="Hunter">Hunter</option>
+<option value="Hyaena">Hyaena</option>
+<option value="Kobold">Kobold</option>
+<option value="Larva">Larva</option>
+<option value="Lich">Lich</option>
+<option value="Lion">Lion</option>
+<option value="Marid">Marid</option>
+<option value="Minotaur">Minotaur</option>
+<option value="Minotaur Archer">Minotaur Archer</option>
+<option value="Minotaur Guard">Minotaur Guard</option>
+<option value="Minotaur Mage">Minotaur Mage</option>
+<option value="Monk">Monk</option>
+<option value="Mummy">Mummy</option>
+<option value="Necromancer">Necromancer</option>
+<option value="Orc">Orc</option>
+<option value="Orc Berserker">Orc Berserker</option>
+<option value="Orc Leader">Orc Leader</option>
+<option value="Orc Rider">Orc Rider</option>
+<option value="Orc Shaman">Orc Shaman</option>
+<option value="Orc Spearman">Orc Spearman</option>
+<option value="Orc Warlord">Orc Warlord</option>
+<option value="Orc Warrior">Orc Warrior</option>
+<option value="Pig">Pig</option>
+<option value="Poison Spider">Poison Spider</option>
+<option value="Polar Bear">Polar Bear</option>
+<option value="Priestess">Priestess</option>
+<option value="Rabbit">Rabbit</option>
+<option value="Rat">Rat</option>
+<option value="Rotworm">Rotworm</option>
+<option value="Scarab">Scarab</option>
+<option value="Scorpion">Scorpion</option>
+<option value="Sheep">Sheep</option>
+<option value="Skeleton">Skeleton</option>
+<option value="Skunk">Skunk</option>
+<option value="Slime">Slime</option>
+<option value="Snake">Snake</option>
+<option value="Spider">Spider</option>
+<option value="Stalker">Stalker</option>
+<option value="Stone Golem">Stone Golem</option>
+<option value="Swamp Troll">Swamp Troll</option>
+<option value="Troll">Troll</option>
+<option value="Valkyrie">Valkyrie</option>
+<option value="Vampire">Vampire</option>
+<option value="War Wolf">War Wolf</option>
+<option value="Warlock">Warlock</option>
+<option value="Wasp">Wasp</option>
+<option value="Wild Warrior">Wild Warrior</option>
+<option value="Winter Wolf">Winter Wolf</option>
+<option value="Witch">Witch</option>
+<option value="Wolf">Wolf</option>
+    </select><br><br>
+
     <label for="defence">Defence: </label>
     <input type="number" id="defence" min="0" max="100" value="37" oninput="calculateSum()"><br><br>
 
@@ -316,6 +650,7 @@
     <label for="armour">Armour: </label>
     <input type="number" id="defender_armour" min="0" max="100" value="30" oninput="calculateSum()"><br><br>
 
+    <p id="defender_creature_info"></p>
 
 </td>
         </tr>
