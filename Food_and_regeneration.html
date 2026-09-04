@@ -122,6 +122,7 @@ const data = [
 
 data.forEach(d => {
   d.regenPerWeight = +(d.regen / d.weight).toFixed(1);
+  d.regenPerCost = +(d.regen / d.cost).toFixed(3);
   d.fillPct = d.regen / 12;
 });
 
@@ -138,7 +139,7 @@ function render(rows) {
       <td class="num">${r.cost}</td>
       <td class="num">${r.weight.toFixed(1)}</td>
       <td class="num">${r.regenPerWeight}</td>
-      <td></td>
+      <td class="num">${r.regenPerCost}</td>
       <td></td>
       <td>${r.stackable ? 'Yes' : 'No'}</td>
       <td></td>
