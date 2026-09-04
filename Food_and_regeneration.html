@@ -33,11 +33,14 @@
  
 <ol>
 <li>Regeration  = Nutrition &times; 12 seconds.</li>
-<li>Maximum regeneration duration (100%) is 1200 seconds.</li>
+<li>Maximum regeneration duration (100%) is 1200 seconds in game.</li>
 <li>Several combinations can be used to achieve maximum or near maximum fullness which is useful for bedmages for example 3 ham and 1 white mushroom/corncob gives 99 mana.</li>
-<li>Sleeping will grant you up to 100 mana and 100 HP over 100 minutes (1h40). Is there a timing issue with reaching 100%?(TBC).</li>
-<li>Brown mushrooms are the best low weight food, costing 10g in edron magic tower, weighing next to nothing and giving regen between a ham and a meat.</li>
- 
+<li>Sleeping will grant you up to 100 mana and 100 HP over 100 minutes (1h40), regardless of class.Is there a timing issue with reaching 100%?(TBC).</li>
+<li></li>Characters dedicated to making runes this way are called bedmages. Characters dedicated to making runes generally are called makers.</li>
+<li>Brown mushrooms are the best low weight food, costing 10g in Edron magic tower, weighing next to nothing and giving regen between a ham and a meat.</li>
+<li>Hams are the cheapest food source but are heavy to carry. If you are not near a house or depot but want cheap food it can be beneficial to have multiple food sources i.e. cheap food you eat first and expensive food as a back up if you are out longer than expected.</li>
+<li>Some foods strike a good middle ground between regen/price and regen/weight, such as bananas. These often have lower regeneration and need more clicks which can be annoying.</li>
+  
 </ol>
 <div class="controls">
   <label for="sortField">Sort by:</label><br>
@@ -67,7 +70,7 @@
   <th>Weight (oz)</th>
   <th>Regen /<br>Weight</th>
   <th>Regen /<br>Cost</th>
-  <th>Purchase Locations</th>
+  <th>Best places<br>to buy</th>
   <th>Stackable</th>
   <th>Dropped By</th>
 </tr>
@@ -77,44 +80,44 @@
 
 <script>
 const data = [
-{"name":"Banana","regen":96,"weight":1.8,"stackable":true},
-{"name":"Blueberry","regen":12,"weight":0.2,"stackable":true},
-{"name":"Bread","regen":120,"weight":5.0,"stackable":true},
-{"name":"Brown bread","regen":96,"weight":4.0,"stackable":true},
-{"name":"Brown mushroom","regen":264,"weight":0.2,"stackable":true},
-{"name":"Candy cane","regen":24,"weight":0.5,"stackable":true},
-{"name":"Carrot","regen":96,"weight":1.6,"stackable":true},
-{"name":"Cherry","regen":12,"weight":0.2,"stackable":true},
-{"name":"Coconut","regen":216,"weight":4.8,"stackable":true},
-{"name":"Cookie","regen":24,"weight":0.1,"stackable":true},
-{"name":"Corncob","regen":108,"weight":3.5,"stackable":true},
-{"name":"Dark mushroom","regen":72,"weight":0.1,"stackable":true},
-{"name":"Fire mushroom","regen":432,"weight":0.1,"stackable":true},
-{"name":"Fish","regen":144,"weight":5.2,"stackable":true},
-{"name":"Green mushroom","regen":60,"weight":0.1,"stackable":true},
-{"name":"Melon","regen":240,"weight":9.5,"stackable":false},
-{"name":"Northern pike","regen":204,"weight":8.3,"stackable":true},
-{"name":"Pear","regen":60,"weight":1.4,"stackable":true},
-{"name":"Pumpkin","regen":204,"weight":13.5,"stackable":false},
-{"name":"Red apple","regen":72,"weight":1.5,"stackable":true},
-{"name":"Red mushroom","regen":48,"weight":0.5,"stackable":true},
-{"name":"Roll","regen":36,"weight":1.0,"stackable":true},
-{"name":"Strawberry","regen":24,"weight":0.2,"stackable":true},
-{"name":"Tomato","regen":72,"weight":1.0,"stackable":true},
-{"name":"White mushroom","regen":108,"weight":0.4,"stackable":true},
-{"name":"Wood mushroom","regen":108,"weight":0.3,"stackable":true},
-{"name":"Egg","regen":72,"weight":0.3,"stackable":true},
-{"name":"Orange","regen":156,"weight":1.1,"stackable":true},
-{"name":"Orange mushroom","regen":360,"weight":0.3,"stackable":true},
-{"name":"Cheese","regen":108,"weight":4.0,"stackable":false},
-{"name":"Dragon ham","regen":720,"weight":30.0,"stackable":true},
-{"name":"Grapes","regen":108,"weight":2.5,"stackable":false},
-{"name":"Ham","regen":360,"weight":20.0,"stackable":true},
-{"name":"Meat","regen":180,"weight":13.0,"stackable":true},
-{"name":"Salmon","regen":120,"weight":3.2,"stackable":true},
-{"name":"Shrimp","regen":48,"weight":0.5,"stackable":true},
-{"name":"Some mushrooms","regen":144,"weight":0.1,"stackable":true},
-{"name":"Some mushrooms","regen":36,"weight":0.1,"stackable":true},
+{"name":"Banana","regen":96,"weight":1.8,"stackable":true,"cost":9999},
+{"name":"Blueberry","regen":12,"weight":0.2,"stackable":true,"cost":9999},
+{"name":"Bread","regen":120,"weight":5.0,"stackable":true,"cost":9999},
+{"name":"Brown bread","regen":96,"weight":4.0,"stackable":true,"cost":9999},
+{"name":"Brown mushroom","regen":264,"weight":0.2,"stackable":true,"cost":9999},
+{"name":"Candy cane","regen":24,"weight":0.5,"stackable":true,"cost":9999},
+{"name":"Carrot","regen":96,"weight":1.6,"stackable":true,"cost":9999},
+{"name":"Cherry","regen":12,"weight":0.2,"stackable":true,"cost":9999},
+{"name":"Coconut","regen":216,"weight":4.8,"stackable":true,"cost":9999},
+{"name":"Cookie","regen":24,"weight":0.1,"stackable":true,"cost":9999},
+{"name":"Corncob","regen":108,"weight":3.5,"stackable":true,"cost":9999},
+{"name":"Dark mushroom","regen":72,"weight":0.1,"stackable":true,"cost":9999},
+{"name":"Fire mushroom","regen":432,"weight":0.1,"stackable":true,"cost":9999},
+{"name":"Fish","regen":144,"weight":5.2,"stackable":true,"cost":9999},
+{"name":"Green mushroom","regen":60,"weight":0.1,"stackable":true,"cost":9999},
+{"name":"Melon","regen":240,"weight":9.5,"stackable":false,"cost":9999},
+{"name":"Northern pike","regen":204,"weight":8.3,"stackable":true,"cost":9999},
+{"name":"Pear","regen":60,"weight":1.4,"stackable":true,"cost":9999},
+{"name":"Pumpkin","regen":204,"weight":13.5,"stackable":false,"cost":9999},
+{"name":"Red apple","regen":72,"weight":1.5,"stackable":true,"cost":9999},
+{"name":"Red mushroom","regen":48,"weight":0.5,"stackable":true,"cost":9999},
+{"name":"Roll","regen":36,"weight":1.0,"stackable":true,"cost":9999},
+{"name":"Strawberry","regen":24,"weight":0.2,"stackable":true,"cost":9999},
+{"name":"Tomato","regen":72,"weight":1.0,"stackable":true,"cost":9999},
+{"name":"White mushroom","regen":108,"weight":0.4,"stackable":true,"cost":9999},
+{"name":"Wood mushroom","regen":108,"weight":0.3,"stackable":true,"cost":9999},
+{"name":"Egg","regen":72,"weight":0.3,"stackable":true,"cost":9999},
+{"name":"Orange","regen":156,"weight":1.1,"stackable":true,"cost":9999},
+{"name":"Orange mushroom","regen":360,"weight":0.3,"stackable":true,"cost":9999},
+{"name":"Cheese","regen":108,"weight":4.0,"stackable":false,"cost":9999},
+{"name":"Dragon ham","regen":720,"weight":30.0,"stackable":true,"cost":9999},
+{"name":"Grapes","regen":108,"weight":2.5,"stackable":false,"cost":9999},
+{"name":"Ham","regen":360,"weight":20.0,"stackable":true,"cost":9999},
+{"name":"Meat","regen":180,"weight":13.0,"stackable":true,"cost":9999},
+{"name":"Salmon","regen":120,"weight":3.2,"stackable":true,"cost":9999},
+{"name":"Shrimp","regen":48,"weight":0.5,"stackable":true,"cost":9999},
+{"name":"Some mushrooms","regen":144,"weight":0.1,"stackable":true,"cost":9999},
+{"name":"Some mushrooms","regen":36,"weight":0.1,"stackable":true,"cost":9999},
 ];
 
 data.forEach(d => {
@@ -132,7 +135,7 @@ function render(rows) {
       <td>${r.name}</td>
       <td class="num">${r.regen}</td>
       <td class="num">${r.fillPct}</td>
-      <td></td>
+      <td class="num">${r.cost}</td>
       <td class="num">${r.weight.toFixed(1)}</td>
       <td class="num">${r.regenPerWeight}</td>
       <td></td>
