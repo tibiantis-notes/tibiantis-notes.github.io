@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Tibia 7.4 — Food Items</title>
 <style>
-  body {
+ /* body {
     font-family: Arial, Helvetica, sans-serif;
     color: #000;
     background: #fff;
@@ -32,7 +32,7 @@
     font-size: 13px;
     padding: 2px 4px;
     margin-right: 16px;
-  }
+  }*/
   table {
     border-collapse: collapse;
   }
@@ -134,7 +134,7 @@ const data = [
 ];
 
 data.forEach(d => {
-  d.regenPerWeight = +(d.regen / d.weight).toFixed(2);
+  d.regenPerWeight = +(d.regen / d.weight).toFixed(1);
   d.fillPct = d.regen / 12;
 });
 
