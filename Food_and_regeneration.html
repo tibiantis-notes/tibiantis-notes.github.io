@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tibia 7.4 — Food Items</title>
+<style>
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000;
+    background: #fff;
+    padding: 20px;
+    font-size: 14px;
+  }
+  h2 {
+    font-size: 17px;
+    margin-bottom: 4px;
+  }
+  p.note {
+    font-size: 12px;
+    color: #444;
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+  .controls {
+    margin-bottom: 14px;
+  }
+  .controls label {
+    margin-right: 6px;
+  }
+  select {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    padding: 2px 4px;
+    margin-right: 16px;
+  }
+  table {
+    border-collapse: collapse;
+  }
+  th, td {
+    border: 1px solid #000;
+    padding: 4px 10px;
+    text-align: left;
+    font-size: 13px;
+  }
+  th {
+    font-weight: bold;
+  }
+  td.num {
+    text-align: right;
+  }
+</style>
+</head>
+<body>
+
+<h2>Tibia 7.4 — Food Items</h2>
+<p class="note">Regen = Nutrition &times; 12 seconds. Weight in oz. Cost, Purchase Locations, and Dropped By are blank (not in source file).</p>
+
+<div class="controls">
+  <label for="sortField">Sort by:</label>
+  <select id="sortField">
+    <option value="name">Name</option>
+    <option value="regen">Regen</option>
+    <option value="fillPct">Fill %</option>
+    <option value="weight">Weight</option>
+    <option value="regenPerWeight">Regen / Weight</option>
+    <option value="stackable">Stackable</option>
+  </select>
+
+  <label for="sortDir">Order:</label>
+  <select id="sortDir">
+    <option value="asc">Ascending</option>
+    <option value="desc">Descending</option>
+  </select>
+</div>
+
+<table id="foodTable">
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Regen (s)</th>
+  <th>Fill %</th>
+  <th>Cost</th>
+  <th>Weight (oz)</th>
+  <th>Regen / Weight</th>
+  <th>Regen / Cost</th>
+  <th>Purchase Locations</th>
+  <th>Stackable</th>
+  <th>Dropped By</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+
+<script>
+const data = [
+{"name":"a banana","regen":96,"weight":1.8,"stackable":true},
+{"name":"a blueberry","regen":12,"weight":0.2,"stackable":true},
+{"name":"a bread","regen":120,"weight":5.0,"stackable":true},
+{"name":"a brown bread","regen":96,"weight":4.0,"stackable":true},
+{"name":"a brown mushroom","regen":264,"weight":0.2,"stackable":true},
+{"name":"a candy cane","regen":24,"weight":0.5,"stackable":true},
+{"name":"a carrot","regen":96,"weight":1.6,"stackable":true},
+{"name":"a cherry","regen":12,"weight":0.2,"stackable":true},
+{"name":"a coconut","regen":216,"weight":4.8,"stackable":true},
+{"name":"a cookie","regen":24,"weight":0.1,"stackable":true},
+{"name":"a corncob","regen":108,"weight":3.5,"stackable":true},
+{"name":"a dark mushroom","regen":72,"weight":0.1,"stackable":true},
+{"name":"a fire mushroom","regen":432,"weight":0.1,"stackable":true},
+{"name":"a fish","regen":144,"weight":5.2,"stackable":true},
+{"name":"a green mushroom","regen":60,"weight":0.1,"stackable":true},
+{"name":"a melon","regen":240,"weight":9.5,"stackable":false},
+{"name":"a northern pike","regen":204,"weight":8.3,"stackable":true},
+{"name":"a pear","regen":60,"weight":1.4,"stackable":true},
+{"name":"a pumpkin","regen":204,"weight":13.5,"stackable":false},
+{"name":"a red apple","regen":72,"weight":1.5,"stackable":true},
+{"name":"a red mushroom","regen":48,"weight":0.5,"stackable":true},
+{"name":"a roll","regen":36,"weight":1.0,"stackable":true},
+{"name":"a strawberry","regen":24,"weight":0.2,"stackable":true},
+{"name":"a tomato","regen":72,"weight":1.0,"stackable":true},
+{"name":"a white mushroom","regen":108,"weight":0.4,"stackable":true},
+{"name":"a wood mushroom","regen":108,"weight":0.3,"stackable":true},
+{"name":"an egg","regen":72,"weight":0.3,"stackable":true},
+{"name":"an orange","regen":156,"weight":1.1,"stackable":true},
+{"name":"an orange mushroom","regen":360,"weight":0.3,"stackable":true},
+{"name":"cheese","regen":108,"weight":4.0,"stackable":false},
+{"name":"dragon ham","regen":720,"weight":30.0,"stackable":true},
+{"name":"grapes","regen":108,"weight":2.5,"stackable":false},
+{"name":"ham","regen":360,"weight":20.0,"stackable":true},
+{"name":"meat","regen":180,"weight":13.0,"stackable":true},
+{"name":"salmon","regen":120,"weight":3.2,"stackable":true},
+{"name":"shrimp","regen":48,"weight":0.5,"stackable":true},
+{"name":"some mushrooms","regen":144,"weight":0.1,"stackable":true},
+{"name":"some mushrooms","regen":36,"weight":0.1,"stackable":true},
+{"name":"the carrot of doom","regen":96,"weight":1.6,"stackable":true}
+];
+
+data.forEach(d => {
+  d.regenPerWeight = +(d.regen / d.weight).toFixed(2);
+  d.fillPct = d.regen / 12;
+});
+
+const tbody = document.querySelector('#foodTable tbody');
+
+function render(rows) {
+  tbody.innerHTML = '';
+  rows.forEach(r => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${r.name}</td>
+      <td class="num">${r.regen}</td>
+      <td class="num">${r.fillPct}%</td>
+      <td></td>
+      <td class="num">${r.weight.toFixed(1)}</td>
+      <td class="num">${r.regenPerWeight}</td>
+      <td></td>
+      <td></td>
+      <td>${r.stackable ? 'Yes' : 'No'}</td>
+      <td></td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+function sortAndRender() {
+  const field = document.getElementById('sortField').value;
+  const dir = document.getElementById('sortDir').value === 'asc' ? 1 : -1;
+  const sorted = [...data].sort((a, b) => {
+    let av = a[field], bv = b[field];
+    if (typeof av === 'string') return dir * av.localeCompare(bv);
+    if (typeof av === 'boolean') av = av ? 1 : 0, bv = bv ? 1 : 0;
+    return dir * (av - bv);
+  });
+  render(sorted);
+}
+
+document.getElementById('sortField').addEventListener('change', sortAndRender);
+document.getElementById('sortDir').addEventListener('change', sortAndRender);
+
+sortAndRender();
+</script>
+
+</body>
+</html>
