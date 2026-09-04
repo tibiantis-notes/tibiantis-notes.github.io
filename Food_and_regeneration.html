@@ -4,36 +4,7 @@
 <meta charset="UTF-8">
 <title>Tibiantis Notes — Food and Regeneration</title>
 <style>
- /* body {
-    font-family: Arial, Helvetica, sans-serif;
-    color: #000;
-    background: #fff;
-    padding: 20px;
-    font-size: 14px;
-  }
-  h2 {
-    font-size: 17px;
-    margin-bottom: 4px;
-  }
-  p.note {
-    font-size: 12px;
-    color: #444;
-    margin-top: 0;
-    margin-bottom: 16px;
-  }
-  .controls {
-    margin-bottom: 14px;
-  }
-  .controls label {
-    margin-right: 6px;
-  }
-  select {
-    border: 1px solid black;
-    border-collapse: collapse;
-    padding-left: 5px;
-    padding-right: 5px;
-    text-align: center;
-  }*/
+
   table {
     border-collapse: collapse;
   }
@@ -60,8 +31,14 @@
 <hr>
 <h1>Food and Regeneration</h1>
  
-<p class="note">Regen = Nutrition &times; 12 seconds. Weight in oz. Cost, Purchase Locations, and Dropped By are blank (not in source file).</p>
-
+<ol>
+<li>Regeration  = Nutrition &times; 12 seconds.</li>
+<li>Maximum regeneration duration (100%) is 1200 seconds.</li>
+<li>Several combinations can be used to achieve maximum or near maximum fullness which is useful for bedmages for example 3 ham and 1 white mushroom/corncob gives 99 mana.</li>
+<li>Sleeping will grant you up to 100 mana and 100 HP over 100 minutes (1h40). Is there a timing issue with reaching 100%?(TBC).</li>
+<li>Brown mushrooms are the best low weight food, costing 10g in edron magic tower, weighing next to nothing and giving regen between a ham and a meat.</li>
+ 
+</ol>
 <div class="controls">
   <label for="sortField">Sort by:</label><br>
   <select id="sortField">
@@ -154,7 +131,7 @@ function render(rows) {
     tr.innerHTML = `
       <td>${r.name}</td>
       <td class="num">${r.regen}</td>
-      <td class="num">${r.fillPct}%</td>
+      <td class="num">${r.fillPct}</td>
       <td></td>
       <td class="num">${r.weight.toFixed(1)}</td>
       <td class="num">${r.regenPerWeight}</td>
