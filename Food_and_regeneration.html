@@ -124,7 +124,7 @@ const data = [
 
 data.forEach(d => {
   d.regenPerWeight = +(d.regen / d.weight).toFixed(1);
-  d.regenPerCost = +(d.regen / d.cost).toFixed(3) : null;
+  d.regenPerCost = d.cost ? +(d.regen / d.cost).toFixed(3) : null;
   d.fillPct = d.regen / 12;
 });
 
