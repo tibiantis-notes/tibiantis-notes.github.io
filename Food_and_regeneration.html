@@ -124,7 +124,7 @@ const data = [
 
 data.forEach(d => {
   d.regenPerWeight = +(d.regen / d.weight).toFixed(1);
-  d.regenPerCost = d.cost ? +(d.regen / d.cost).toFixed(3) : null;
+  d.regenPerCost = (typeof d.cost === 'number') ? +(d.regen / d.cost).toFixed(3) : null;
   d.fillPct = d.regen / 12;
 });
 
@@ -138,7 +138,7 @@ function render(rows) {
       <td>${r.name}</td>
       <td class="num">${r.regen}</td>
       <td class="num">${r.fillPct}</td>
-      <td class="num">${r.cost}</td>
+      <td class="num">${r.cost !== undefined ? r.cost : ''}</td>
       <td class="num">${r.weight.toFixed(1)}</td>
       <td class="num">${r.regenPerWeight}</td>
       <td class="num">${r.regenPerCost !== null ? r.regenPerCost : ' '}</td>
@@ -155,6 +155,11 @@ function sortAndRender() {
   const dir = document.getElementById('sortDir').value === 'asc' ? 1 : -1;
   const sorted = [...data].sort((a, b) => {
     let av = a[field], bv = b[field];
+    const aMissing = av === undefined || av === null;
+    const bMissing = bv === undefined || bv === null;
+    if (aMissing && bMissing) return 0;
+    if (aMissing) return 1;   // always last, regardless of asc/desc
+    if (bMissing) return -1;  // always last, regardless of asc/desc
     if (typeof av === 'string') return dir * av.localeCompare(bv);
     if (typeof av === 'boolean') av = av ? 1 : 0, bv = bv ? 1 : 0;
     return dir * (av - bv);
