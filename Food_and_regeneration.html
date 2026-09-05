@@ -52,7 +52,7 @@
     <option value="weight">Weight</option>
     <option value="cost">Cost</option>
     <option value="regenPerWeight">Regen / Weight</option>
-    <option value="regenPerCost">Regen / Cost</option>
+    <option value="costPerHour">Cost / Hour</option>
     <option value="stackable">Stackable</option>
   </select><br><br>
 
@@ -72,7 +72,7 @@
   <th>Cost</th>
   <th>Weight (oz)</th>
   <th>Regen /<br>Weight</th>
-  <th>Regen /<br>Cost</th>
+  <th>Cost /<br>Hour</th>
   <th>Buy from</th>
   <th>Stackable</th>
   <th>Dropped By<br>(hold)</th>
@@ -125,7 +125,7 @@ const data = [
 
 data.forEach(d => {
   d.regenPerWeight = +(d.regen / d.weight).toFixed(1);
-  d.regenPerCost = (typeof d.cost === 'number') ? +(d.regen / d.cost).toFixed(3) : null;
+  d.costPerHour = (typeof d.cost === 'number') ? +((3600 / d.regen) * d.cost).toFixed(2) : null;
   d.fillPct = d.regen / 12;
 });
 
@@ -142,7 +142,7 @@ function render(rows) {
       <td class="num">${r.cost !== undefined ? r.cost : ''}</td>
       <td class="num">${r.weight.toFixed(1)}</td>
       <td class="num">${r.regenPerWeight}</td>
-      <td class="num">${r.regenPerCost !== null ? r.regenPerCost : ' '}</td>
+      <td class="num">${r.costPerHour ?? ''}</td>
       <td>${r.buyFrom ?? ''}</td>
       <td>${r.stackable ? 'Yes' : 'No'}</td>
       <td></td>
