@@ -125,7 +125,7 @@ const data = [
 
 data.forEach(d => {
   d.regenPerWeight = +(d.regen / d.weight).toFixed(1);
-  d.costPerHour = (typeof d.cost === 'number') ? +((3600 / d.regen) * d.cost).toFixed(2) : null;
+  d.costPerHour = (typeof d.cost === 'number') ? +((3600 / d.regen) * d.cost).toFixed(0) : null;
   d.fillPct = d.regen / 12;
 });
 
