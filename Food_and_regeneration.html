@@ -40,6 +40,7 @@
 <li>Brown mushrooms are the best low weight food, costing 10g in Edron magic tower, weighing next to nothing and giving regen between a ham and a meat.</li>
 <li>Hams are the cheapest food source but are heavy to carry. If you are not near a house or depot but want cheap food it can be beneficial to have multiple food sources i.e. cheap food you eat first and expensive food as a back up if you are out longer than expected.</li>
 <li>Some foods strike a good middle ground between regen/price and regen/weight, such as bananas. These often have lower regeneration and need more clicks which can be annoying.</li>
+<li>Buy from column only lists the cheapest vendors.</li>
   
 </ol>
 <div class="controls">
@@ -72,9 +73,9 @@
   <th>Weight (oz)</th>
   <th>Regen /<br>Weight</th>
   <th>Regen /<br>Cost</th>
-  <th>Best places<br>to buy</th>
+  <th>Buy from</th>
   <th>Stackable</th>
-  <th>Dropped By</th>
+  <th>Dropped By<br>(hold)</th>
 </tr>
 </thead>
 <tbody></tbody>
@@ -82,41 +83,41 @@
 
 <script>
 const data = [
-{"name":"Banana","regen":96,"weight":1.8,"stackable":true,"cost":2},
-{"name":"Blueberry","regen":12,"weight":0.2,"stackable":true,"cost":1},
-{"name":"Bread","regen":120,"weight":5.0,"stackable":true,"cost":3},
-{"name":"Brown bread","regen":96,"weight":4.0,"stackable":true,"cost":3},
-{"name":"Brown mushroom","regen":264,"weight":0.2,"stackable":true,"cost":10},
+{"name":"Banana","regen":96,"weight":1.8,"stackable":true,"cost":2,buyFrom:"xx"},
+{"name":"Blueberry","regen":12,"weight":0.2,"stackable":true,"cost":1,buyFrom:"xx"},
+{"name":"Bread","regen":120,"weight":5.0,"stackable":true,"cost":3,buyFrom:"xx"},
+{"name":"Brown bread","regen":96,"weight":4.0,"stackable":true,"cost":3,buyFrom:"xx"},
+{"name":"Brown mushroom","regen":264,"weight":0.2,"stackable":true,"cost":10,buyFrom:"xx"},
 {"name":"Candy cane","regen":24,"weight":0.5,"stackable":true},
-{"name":"Carrot","regen":96,"weight":1.6,"stackable":true,"cost":2},
-{"name":"Cherry","regen":12,"weight":0.2,"stackable":true,"cost":1},
+{"name":"Carrot","regen":96,"weight":1.6,"stackable":true,"cost":2,buyFrom:"xx"},
+{"name":"Cherry","regen":12,"weight":0.2,"stackable":true,"cost":1,buyFrom:"xx"},
 {"name":"Coconut","regen":216,"weight":4.8,"stackable":true},
-{"name":"Cookie","regen":24,"weight":0.1,"stackable":true,"cost":2},
-{"name":"Corncob","regen":108,"weight":3.5,"stackable":true,"cost":3},
+{"name":"Cookie","regen":24,"weight":0.1,"stackable":true,"cost":2,buyFrom:"xx"},
+{"name":"Corncob","regen":108,"weight":3.5,"stackable":true,"cost":3,buyFrom:"xx"},
 {"name":"Dark mushroom","regen":72,"weight":0.1,"stackable":true},
 {"name":"Fire mushroom","regen":432,"weight":0.1,"stackable":true},
-{"name":"Fish","regen":144,"weight":5.2,"stackable":true,"cost":5},
+{"name":"Fish","regen":144,"weight":5.2,"stackable":true,"cost":5,buyFrom:"xx"},
 {"name":"Green mushroom","regen":60,"weight":0.1,"stackable":true},
-{"name":"Melon","regen":240,"weight":9.5,"stackable":false,"cost":8},
+{"name":"Melon","regen":240,"weight":9.5,"stackable":false,"cost":8,buyFrom:"xx"},
 {"name":"Northern pike","regen":204,"weight":8.3,"stackable":true},
-{"name":"Pear","regen":60,"weight":1.4,"stackable":true,"cost":4},
-{"name":"Pumpkin","regen":204,"weight":13.5,"stackable":false,"cost":10},
-{"name":"Red apple","regen":72,"weight":1.5,"stackable":true,"cost":3},
-{"name":"Red mushroom","regen":48,"weight":0.5,"stackable":true,"cost":12},
-{"name":"Roll","regen":36,"weight":1.0,"stackable":true,"cost":2},
-{"name":"Strawberry","regen":24,"weight":0.2,"stackable":true,"cost":1},
-{"name":"Tomato","regen":72,"weight":1.0,"stackable":true,"cost":5},
-{"name":"White mushroom","regen":108,"weight":0.4,"stackable":true,"cost":6},
+{"name":"Pear","regen":60,"weight":1.4,"stackable":true,"cost":4,buyFrom:"xx"},
+{"name":"Pumpkin","regen":204,"weight":13.5,"stackable":false,"cost":10,buyFrom:"xx"},
+{"name":"Red apple","regen":72,"weight":1.5,"stackable":true,"cost":3,buyFrom:"xx"},
+{"name":"Red mushroom","regen":48,"weight":0.5,"stackable":true,"cost":12,buyFrom:"xx"},
+{"name":"Roll","regen":36,"weight":1.0,"stackable":true,"cost":2,buyFrom:"xx"},
+{"name":"Strawberry","regen":24,"weight":0.2,"stackable":true,"cost":1,buyFrom:"xx"},
+{"name":"Tomato","regen":72,"weight":1.0,"stackable":true,"cost":5,buyFrom:"xx"},
+{"name":"White mushroom","regen":108,"weight":0.4,"stackable":true,"cost":6,buyFrom:"xx"},
 {"name":"Wood mushroom","regen":108,"weight":0.3,"stackable":true},
-{"name":"Egg","regen":72,"weight":0.3,"stackable":true,"cost":2},
-{"name":"Orange","regen":156,"weight":1.1,"stackable":true,"cost":5},
+{"name":"Egg","regen":72,"weight":0.3,"stackable":true,"cost":2,buyFrom:"xx"},
+{"name":"Orange","regen":156,"weight":1.1,"stackable":true,"cost":5,buyFrom:"xx"},
 {"name":"Orange mushroom","regen":360,"weight":0.3,"stackable":true},
-{"name":"Cheese","regen":108,"weight":4.0,"stackable":false,"cost":5},
+{"name":"Cheese","regen":108,"weight":4.0,"stackable":false,"cost":5,buyFrom:"xx"},
 {"name":"Dragon ham","regen":720,"weight":30.0,"stackable":true},
-{"name":"Grapes","regen":108,"weight":2.5,"stackable":false,"cost":3},
-{"name":"Ham","regen":360,"weight":20.0,"stackable":true,"cost":6},
-{"name":"Meat","regen":180,"weight":13.0,"stackable":true,"cost":3},
-{"name":"Salmon","regen":120,"weight":3.2,"stackable":true,"cost":4},
+{"name":"Grapes","regen":108,"weight":2.5,"stackable":false,"cost":3,buyFrom:"xx"},
+{"name":"Ham","regen":360,"weight":20.0,"stackable":true,"cost":6,buyFrom:"xx"},
+{"name":"Meat","regen":180,"weight":13.0,"stackable":true,"cost":3,buyFrom:"xx"},
+{"name":"Salmon","regen":120,"weight":3.2,"stackable":true,"cost":4,buyFrom:"xx"},
 {"name":"Shrimp","regen":48,"weight":0.5,"stackable":true},
 {"name":"Some mushrooms","regen":144,"weight":0.1,"stackable":true},
 {"name":"Some mushrooms","regen":36,"weight":0.1,"stackable":true},
@@ -142,7 +143,7 @@ function render(rows) {
       <td class="num">${r.weight.toFixed(1)}</td>
       <td class="num">${r.regenPerWeight}</td>
       <td class="num">${r.regenPerCost !== null ? r.regenPerCost : ' '}</td>
-      <td></td>
+      <td>${r.buyFrom}</td>
       <td>${r.stackable ? 'Yes' : 'No'}</td>
       <td></td>
     `;
