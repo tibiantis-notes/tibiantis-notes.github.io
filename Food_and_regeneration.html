@@ -44,14 +44,14 @@
 <li>Buy from column only lists the cheapest vendors.</li>
 <li>In non-PvP it can be beneficial to log your mage in a safe area with food nearby, you can even train your mage while manasitting in these areas, so that their shielding is high when you level them later.</li>
 
-</ol>
+</ol><br><br>
 <h2>Fishing</h2>
-I don't generally reccomend fishing as for the effort you can often just buy food. Its situationally useful when you are training and don't want to lose a setup.<br>
+Fishing can be useful when you are training and don't want to lose a setup,  or when you want to ensure a food supply but don't want to carry a lot of food.<br>
 
 The formula for fishing skill is:<br>
-  a + b = c<br><br>
+  chance = Skill/ 120<br><br>
 
-This means further skilling past x skill has no effect. It takes xx hours at 1 fish per second to reach x skill. You will gain on average x seconds of healing for every valid fish attempt.<br>
+Skilling past 80 skill has no effect meaning the maximim chance is 66%. It takes 43 hours at 1 fish per second to reach 80 skill. You will gain on average 95 seconds of regeneration for every valid fish attempt at this limit. It takes 36 minutes and 40 seconds for a fish tile to respawn.<br><br>
   
 <h2>Table: Food source</h2>
 <div class="controls">
@@ -92,6 +92,8 @@ This means further skilling past x skill has no effect. It takes xx hours at 1 f
 <tbody></tbody>
 </table>
 
+<h2>Table: Food from monsters</h2>
+SoonTM Table of common or training monsters and average food in seconds.
 <script>
 const data = [
 {"name":"Banana","regen":96,"weight":1.8,"stackable":true,"cost":2,"buyFrom":"Edron, Ab'dendriel, Carlin"},
