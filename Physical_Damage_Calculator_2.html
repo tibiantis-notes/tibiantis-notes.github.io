@@ -253,16 +253,16 @@
             return {hits: E[hp], capped: false};
         }// end of expectedHitsToKill function
 
-        // Formats a per-hour rate like "80.3k/hr" (values >= 1000 shown in thousands with 1 decimal),
-        // or plain with 1 decimal for smaller values.
+        // Formats a rate like "80.3k" (values >= 1000 shown in thousands with 1 decimal),
+        // or plain with 1 decimal for smaller values. No unit suffix - caller's label supplies units.
         function formatXpPerHour(value) {
             if (!isFinite(value)) {
                 return "N/A";
             }
             if (value >= 1000) {
-                return (value / 1000).toFixed(1) + "k/hr";
+                return (value / 1000).toFixed(1) + "k";
             }
-            return value.toFixed(1) + "/hr";
+            return value.toFixed(1);
         }// end of formatXpPerHour function
     
         function calculateSum() {
@@ -458,6 +458,8 @@
             let time_to_kill_str = "N/A (no damage dealt)";
             let fifteen_min_efficiency_str = "N/A";
             let max_xp_per_hour_str = "N/A";
+            let hits_to_kill_str = "N/A";
+            let kills_per_hour_str = "N/A";
 
             if (average_damage > 0) {
                 let result = expectedHitsToKill(defender_hp, final_damage_distrib, max_damage, HIT_CAP);
@@ -465,12 +467,16 @@
                 if (result.capped) {
                     time_to_kill_minutes = Infinity;
                     time_to_kill_str = "> 60 minutes";
+                    hits_to_kill_str = "> " + HIT_CAP;
+                    kills_per_hour_str = "< 1";
                     // Kill takes strictly more than 60 minutes, so max xp/hr is bounded above
                     // by a single kill's worth of xp per hour.
                     max_xp_per_hour_str = "< " + formatXpPerHour(defender_xp);
                 } else {
                     time_to_kill_minutes = result.hits * ATTACK_INTERVAL_SECONDS / 60;
                     time_to_kill_str = time_to_kill_minutes.toFixed(2) + " minutes";
+                    hits_to_kill_str = result.hits.toFixed(2);
+                    kills_per_hour_str = (60 / time_to_kill_minutes).toFixed(2);
 
                     let time_to_kill_hours = time_to_kill_minutes / 60;
                     let max_xp_per_hour = defender_xp / time_to_kill_hours;
@@ -494,6 +500,8 @@
             document.getElementById('average_hit').innerHTML = "Average hit: " + average_hit_tdp;
             document.getElementById('training_efficiency').innerHTML = "Training efficiency: " + training_efficiency_tdp + "%";
             document.getElementById('time_to_kill').innerHTML = "Time to kill: " + time_to_kill_str;
+            document.getElementById('hits_to_kill').innerHTML = "Hits to kill: " + hits_to_kill_str;
+            document.getElementById('kills_per_hour').innerHTML = "Kills per hour: " + kills_per_hour_str;
             document.getElementById('fifteen_min_efficiency').innerHTML = "15 minute efficiency: " + fifteen_min_efficiency_str;
             document.getElementById('max_xp_per_hour').innerHTML = "Theoretical max xp/hr: " + max_xp_per_hour_str;
             document.getElementById('top_0.1_hit').innerHTML = high_hit[0];
@@ -745,10 +753,10 @@
     <input type="number" id="defender_armour" min="0" max="100" value="30" oninput="calculateSum()"><br><br>
 
     <label for="defender_hp">Hit Points: </label>
-    <input type="number" id="defender_hp" min="0" value="1000" oninput="calculateSum()"><br><br>
+    <input type="number" id="defender_hp" min="0" max="99999" value="1000" style="width: 4em" oninput="calculateSum()"><br><br>
 
     <label for="defender_xp">Experience: </label>
-    <input type="number" id="defender_xp" min="0" value="100" oninput="calculateSum()"><br><br>
+    <input type="number" id="defender_xp" min="0" max="99999" value="100" style="width: 4em" oninput="calculateSum()"><br><br>
 
     <p id="defender_creature_info"></p>
 
@@ -804,6 +812,8 @@
     <p id="chance_to_hit"></p>
      <p id="training_efficiency"></p>
     <p id="time_to_kill"></p>
+    <p id="hits_to_kill"></p>
+    <p id="kills_per_hour"></p>
     <p id="fifteen_min_efficiency"></p>
     <p id="max_xp_per_hour"></p>
     <p id="odds"></p>
@@ -840,7 +850,7 @@ Notes:<br>
 <li>Top hit table shows the damage values with 1/10 to 1/10,000 chance to occur.</li>
 <li>The value in the final column of the top hit table calculates the chance to hit or exceed the entered damage. For example if you enter the HP of the target you could calculate the chance to one-hit-kill.</li>
 <li>'Attacker blocking' is the number of units attacking the player which can affect training efficiency. Set to zero if no shield is equipped.</li>
-<li>Time to kill is the exact expected number of attacks to reduce the Defender's Hit Points to 0 (accounting for overkill on the final hit), assuming a 2 second attack interval. Hit Points is editable (auto-filled from the selected creature).</li>
+<li>Time to kill is the exact expected number of attacks to reduce the Defender's Hit Points to 0 (accounting for overkill on the final hit), assuming a 2 second attack interval. Hit Points is editable (auto-filled from the selected creature). Hits to kill and kills per hour are derived from this same figure.</li>
 <li>If the exact time to kill would exceed 1 hour (1800 attacks), it is shown as "> 60 minutes" rather than a precise figure.</li>
 <li>'15 minute efficiency' models AFK training where you log out 15 minutes after starting: if the kill takes less than 15 minutes, training efficiency is scaled down by the idle time spent waiting to log out.</li>
 <li>Theoretical max xp/hr is Experience divided by the true time to kill, assuming back-to-back kills with zero downtime between them (no travel, looting, or respawn waiting) - a ceiling, not a realistic sustained rate. Experience is editable (auto-filled from the selected creature).</li>
